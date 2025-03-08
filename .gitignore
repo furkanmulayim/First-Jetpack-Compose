@@ -7,9 +7,48 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+
+# MacOS
 .DS_Store
+
+# Build Output
 /build
 /captures
 .externalNativeBuild
 .cxx
-local.properties
+
+# Keystore Files (Özel Anahtarlar)
+*.keystore
+*.jks
+
+# Credentials & API Keys (Hassas Bilgiler)
+**/google-services.json
+**/app/google-services.json
+**/firebase.json
+**/app/src/main/res/values/secrets.xml
+**/secrets.properties
+
+# Gradle Wrapper ve Log Dosyaları
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.jar
+*.log
+
+# Node.js ve React Native (Eğer Kullanıyorsanız)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Temporary Files
+/tmp/
+*.swp
+*.swo
+*.swn
+.idea/
+
+# Lokal ve Sistem Bağımlı Dosyalar
+*.crt
+*.pem
+*.p12
+*.p8
+*.der
+*.csr
