@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">golden</string>
+    <string name="total_investing">Toplam Yatırımınız</string>
+    <string name="do_investing">Birikim Yap</string>
+    <string name="live_data">Güncel Kur</string>
+</resources>
