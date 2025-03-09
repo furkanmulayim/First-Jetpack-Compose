@@ -1,6 +1,19 @@
 <resources>
-    <string name="app_name">golden</string>
+
+    //General
+    <string name="app_name">GOLDEN</string>
+    <string name="backHome">Ana Sayfaya Dön</string>
+
+    //Home-Page
     <string name="total_investing">Toplam Yatırımınız</string>
-    <string name="do_investing">Birikim Yap</string>
-    <string name="live_data">Güncel Kur</string>
+    <string name="do_investing">Yatırım Yap</string>
+    <string name="exchange_rate">Canlı Kur</string>
+    <string name="wallet">Cüzdanım</string>
+
+    //Ivesting-Page
+    //Exchange-Rate-Page
+    //Wallet-Page
+    //Credit-Card-Page
+    //Profile-Page
+
 </resources>

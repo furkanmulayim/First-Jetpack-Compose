@@ -24,7 +24,8 @@ object AppSize {
     val XXXLarge = 64.dp
 
     //BUTTON HEIGHT
-    val ButtonXSmallHeight = 16.dp
+    val ButtonXXSmallHeight = 12.dp
+    val ButtonXSmallHeight = 18.dp
     val ButtonSmallHeight = 24.dp
     val ButtonHeight = 48.dp
     val ButtonMediumHeight = 64.dp

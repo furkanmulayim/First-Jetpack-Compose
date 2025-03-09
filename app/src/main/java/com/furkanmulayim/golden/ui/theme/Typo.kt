@@ -59,7 +59,6 @@ object CustomTypo {
             fontSize = 15.sp,
             lineHeight = 22.sp
         ),
-        //BUTTONS
         bodyLarge = TextStyle(
             fontFamily = inter,
             fontWeight = FontWeight.W600,
@@ -72,6 +71,7 @@ object CustomTypo {
             fontSize = 16.sp,
             lineHeight = 22.sp
         ),
+        //BUTTONS
         bodySmall = TextStyle(
             fontFamily = inter,
             fontWeight = FontWeight.Medium,

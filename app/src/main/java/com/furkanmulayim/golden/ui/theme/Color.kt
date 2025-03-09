@@ -17,5 +17,11 @@ val tertiaryDark = Color(0XFFEEEEEE)
 val tertiaryContainerLight = Color(0XFF717C95)
 val tertiaryContainerDark = Color(0XFFA4A4A4)
 
+//ICON BUTTON CONTAINER
 val surfaceLight = Color(0x33FFFFFF)
 val surfaceDark = Color(0x1AFFFFFF)
+
+// ICON TINT
+val onSecondaryContainerDark = Color(0xFFD2D0FF)
+
+

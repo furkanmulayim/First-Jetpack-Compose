@@ -1,3 +1,8 @@
+package com.furkanmulayim.golden.ui.investing_screen
+
+import BackgroundImage
+import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -5,14 +10,14 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.furkanmulayim.golden.ui.home_screen.widgets.BurgerBarSection
+import com.furkanmulayim.golden.core.component.CustomAppBar
 import com.furkanmulayim.golden.ui.theme.AppSize
 
 @Composable
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 fun InvestingScreen(navController: NavController, invest: String) {
-    Scaffold { padding ->
-
-        androidx.compose.foundation.layout.Box(
+    Scaffold {
+        Box(
             modifier = Modifier.fillMaxSize()
         ) {
             BackgroundImage()
@@ -22,7 +27,9 @@ fun InvestingScreen(navController: NavController, invest: String) {
                     .fillMaxSize()
                     .padding(horizontal = AppSize.PaddingLarge)
             ) {
-                BurgerBarSection()
+                CustomAppBar(
+                    backTitle = invest
+                )
             }
         }
     }

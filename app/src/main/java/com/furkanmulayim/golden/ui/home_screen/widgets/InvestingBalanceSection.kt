@@ -17,8 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import com.furkanmulayim.golden.R
-import com.furkanmulayim.golden.core.constants.component.SpacedHeight
-import com.furkanmulayim.golden.core.constants.component.SpacedWidth
+import com.furkanmulayim.golden.core.component.CustomSpacerHeight
+import com.furkanmulayim.golden.core.component.CustomSpacerWidth
 import com.furkanmulayim.golden.ui.theme.AppSize
 import com.furkanmulayim.golden.ui.theme.CustomTypo
 
@@ -26,7 +26,7 @@ import com.furkanmulayim.golden.ui.theme.CustomTypo
 @Composable
 fun InvestingBalanceSection(totalInvesting: String) {
     val totalInvestingText = stringResource(id = R.string.total_investing)
-    SpacedHeight(24)
+    CustomSpacerHeight(24)
     Column {
         // TEXT -> INVESTİNG
         Row {
@@ -34,7 +34,7 @@ fun InvestingBalanceSection(totalInvesting: String) {
                 text = totalInvestingText,
                 style = CustomTypo.text.labelLarge.copy(color = MaterialTheme.colorScheme.tertiaryContainer)
             )
-            SpacedWidth(5)
+            CustomSpacerWidth(5)
 
             // BUTTON -> SWITCH MONEY TYPE
             Box(
@@ -57,7 +57,7 @@ fun InvestingBalanceSection(totalInvesting: String) {
                 text = totalInvesting,
                 style = CustomTypo.text.displayLarge.copy(color = MaterialTheme.colorScheme.tertiary)
             )
-            SpacedWidth(5)
+            CustomSpacerWidth(5)
             Text(
                 text = "₺",
                 style = CustomTypo.text.displayLarge.copy(color = MaterialTheme.colorScheme.tertiary)
