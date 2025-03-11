@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.core.component.buttons
+package com.furkanmulayim.golden.core.component.buttons.icon_button
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

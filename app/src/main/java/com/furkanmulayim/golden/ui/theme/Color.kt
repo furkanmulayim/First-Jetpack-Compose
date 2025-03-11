@@ -7,8 +7,8 @@ val primaryLight = Color(0xFFFFAA30)
 val primaryDark = Color(0xFFFFAA30)
 
 // SECONDARY
-val secondaryLight = Color(0xFF6A94a8)
-val secondaryDark = Color(0xFF3F3F3F)
+val secondaryLight = Color(0x66000000)
+val secondaryDark = Color(0x1AFFFFFF)
 
 //TEXT MODE
 val tertiaryLight = Color(0xFF363B56)
@@ -25,3 +25,8 @@ val surfaceDark = Color(0x1AFFFFFF)
 val onSecondaryContainerDark = Color(0xFFD2D0FF)
 
 
+//BEYAZ
+val white = Color(0x66FFFFFF)     // %100
+val white100 = Color(0x1AFFFFFF)  // %10
+val white400 = Color(0x66FFFFFF)  // %40
+val white700 = Color(0xB3FFFFFF)  // %70

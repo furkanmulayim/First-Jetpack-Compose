@@ -5,10 +5,12 @@
     <string name="backHome">Ana Sayfaya Dön</string>
 
     //Home-Page
+    <string name="welcome">Hoşgeldiniz</string>
+    <string name="day">12 Şubat Salı</string>
     <string name="total_investing">Toplam Yatırımınız</string>
-    <string name="do_investing">Yatırım Yap</string>
-    <string name="exchange_rate">Canlı Kur</string>
-    <string name="wallet">Cüzdanım</string>
+    <string name="do_investing">Yatırımlarım</string>
+    <string name="exchange_rate">Güncel Kur</string>
+    <string name="history_list">Geçmiş Yatırımlarım</string>
 
     //Ivesting-Page
     //Exchange-Rate-Page

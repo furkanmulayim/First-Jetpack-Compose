@@ -1,6 +1,5 @@
 package com.furkanmulayim.golden.ui.home_screen.widgets
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,6 +20,7 @@ import com.furkanmulayim.golden.core.component.CustomSpacerHeight
 import com.furkanmulayim.golden.core.component.CustomSpacerWidth
 import com.furkanmulayim.golden.ui.theme.AppSize
 import com.furkanmulayim.golden.ui.theme.CustomTypo
+import com.furkanmulayim.golden.ui.theme.white400
 
 
 @Composable
@@ -31,8 +31,7 @@ fun InvestingBalanceSection(totalInvesting: String) {
         // TEXT -> INVESTİNG
         Row {
             Text(
-                text = totalInvestingText,
-                style = CustomTypo.text.labelLarge.copy(color = MaterialTheme.colorScheme.tertiaryContainer)
+                text = totalInvestingText, style = CustomTypo.text.labelSmall.copy(color = white400)
             )
             CustomSpacerWidth(5)
 
@@ -41,13 +40,14 @@ fun InvestingBalanceSection(totalInvesting: String) {
                 Modifier
                     .size(AppSize.ButtonXSmallHeight)
                     .clip(RoundedCornerShape(AppSize.RadiusSmall))
-                    .background(MaterialTheme.colorScheme.surface)
-                    .clickable { }
+                    .clickable { },
+                contentAlignment = androidx.compose.ui.Alignment.Center
             ) {
                 Icon(
                     imageVector = Icons.Rounded.CurrencyExchange,
                     tint = MaterialTheme.colorScheme.tertiaryContainer,
-                    contentDescription = "menu"
+                    contentDescription = "menu",
+                    modifier = Modifier.size(AppSize.ButtonMiniIconsHeight),
                 )
             }
         }

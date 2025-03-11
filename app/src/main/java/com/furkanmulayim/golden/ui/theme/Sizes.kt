@@ -10,23 +10,19 @@ object AppSize {
     val PaddingSmall = 8.dp
     val PaddingMedium = 16.dp
     val PaddingLarge = 20.dp
-    val PaddingXLarge = 24.dp
-    val PaddingXXLarge = 32.dp
-    val PaddingXXXLarge = 64.dp
+    val PaddingXLarge = 64.dp
 
     // RADIUS
-    val RadiusXSmall = 4.dp
     val RadiusSmall = 8.dp
     val RadiusMedium = 16.dp
-    val RadiusLarge = 20.dp
-    val RadiusXLarge = 24.dp
-    val RadiusXXLarge = 32.dp
-    val XXXLarge = 64.dp
+    val RadiusIcons = 12.dp
+    val RadiusButtons = 22.dp
 
     //BUTTON HEIGHT
-    val ButtonXXSmallHeight = 12.dp
+    val ButtonMiniIconsHeight = 14.dp
+    val ButtonIconsHeight = 20.dp
+
     val ButtonXSmallHeight = 18.dp
     val ButtonSmallHeight = 24.dp
-    val ButtonHeight = 48.dp
-    val ButtonMediumHeight = 64.dp
+    val ButtonHeight = 60.dp
 }

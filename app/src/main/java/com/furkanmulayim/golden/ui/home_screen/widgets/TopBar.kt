@@ -5,44 +5,38 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Insights
-import androidx.compose.material.icons.rounded.Person
-import androidx.compose.material.icons.rounded.Wallet
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.CustomSpacerWidth
-import com.furkanmulayim.golden.core.component.buttons.CustomIconButton
-import com.furkanmulayim.golden.core.component.buttons.CustomIconTextButton
+import com.furkanmulayim.golden.core.component.buttons.icon_button.CustomIconButton
+import com.furkanmulayim.golden.core.component.buttons.icon_button.CustomIconTextFlatButton
 import com.furkanmulayim.golden.ui.theme.AppSize
 
 @Composable
 fun TopBar(
-    meOnClick: () -> Unit = {},
-    cardOnClick: () -> Unit = {},
-    walletOnClick: () -> Unit = {}
+    meOnClick: () -> Unit = {}, cardOnClick: () -> Unit = {}, walletOnClick: () -> Unit = {}
 ) {
-
-    val wallet = stringResource(id = R.string.wallet)
     Row(
         modifier = Modifier
-            .padding(top = AppSize.PaddingXXXLarge)
+            .padding(top = AppSize.PaddingXLarge)
             .fillMaxWidth()
             .height(AppSize.ButtonHeight),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Row {
-            // ICON -> PROFILE
-            CustomIconButton(Icons.Rounded.Person, meOnClick)
-            CustomSpacerWidth(8)
-            // ICON -> CREDIT CARD
-            CustomIconButton(Icons.Rounded.Wallet, cardOnClick)
+            // ICON FLAT -> BURGER MENU
+            CustomIconTextFlatButton(R.drawable.svg_burger_menu, meOnClick)
         }
-        // TEXT ICON -> WALLET
-        CustomIconTextButton(Icons.Rounded.Insights, wallet, walletOnClick)
+
+        Row {
+            //  ICON -> WALLET
+            CustomIconButton(R.drawable.svg_wallet, walletOnClick)
+            CustomSpacerWidth(8)
+            //  ICON -> CREDIT CARD
+            CustomIconButton(R.drawable.svg_card, walletOnClick)
+        }
     }
 }
