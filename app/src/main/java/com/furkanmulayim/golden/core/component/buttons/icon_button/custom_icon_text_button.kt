@@ -16,7 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.furkanmulayim.golden.core.component.CustomSpacerWidth
+import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.ui.theme.AppSize
 import com.furkanmulayim.golden.ui.theme.CustomTypo
 

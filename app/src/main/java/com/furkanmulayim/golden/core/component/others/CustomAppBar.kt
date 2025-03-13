@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.core.component
+package com.furkanmulayim.golden.core.component.others
 
 
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner

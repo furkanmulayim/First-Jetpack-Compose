@@ -10,7 +10,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.furkanmulayim.golden.core.component.CustomAppBar
+import com.furkanmulayim.golden.core.component.others.CustomAppBar
 import com.furkanmulayim.golden.ui.theme.AppSize
 
 @Composable
@@ -27,9 +27,9 @@ fun InvestingScreen(navController: NavController, invest: String) {
                     .fillMaxSize()
                     .padding(horizontal = AppSize.PaddingLarge)
             ) {
-                CustomAppBar(
-                    backTitle = invest
-                )
+//                CustomAppBar(
+//                    backTitle = invest
+//                )
             }
         }
     }

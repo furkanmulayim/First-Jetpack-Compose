@@ -17,7 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.furkanmulayim.golden.R
-import com.furkanmulayim.golden.core.component.CustomSpacerWidth
+import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.ui.theme.AppSize
 import com.furkanmulayim.golden.ui.theme.CustomTypo
 import com.furkanmulayim.golden.ui.theme.white400

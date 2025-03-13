@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.furkanmulayim.golden.R
-import com.furkanmulayim.golden.core.component.CustomSpacerHeight
-import com.furkanmulayim.golden.core.component.CustomSpacerWidth
+import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
+import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.core.component.buttons.default_buttons.CustomSecondaryButton
 import com.furkanmulayim.golden.ui.theme.AppSize
 

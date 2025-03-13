@@ -15,7 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import com.furkanmulayim.golden.core.component.CustomSpacerWidth
+import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.ui.theme.AppSize
 import com.furkanmulayim.golden.ui.theme.CustomTypo
 import com.furkanmulayim.golden.ui.theme.white700
@@ -46,7 +46,7 @@ fun CustomSecondaryButton(
                 painter = painterResource(id = iconRes),
                 contentDescription = text,
                 tint = MaterialTheme.colorScheme.onSecondary,
-                modifier = Modifier.size(AppSize.ButtonIconsHeight)
+                modifier = Modifier.size(AppSize.ButtonSecondaryIcons)
             )
         }
     }

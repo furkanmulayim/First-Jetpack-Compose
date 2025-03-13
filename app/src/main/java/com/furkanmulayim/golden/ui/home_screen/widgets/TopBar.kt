@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.furkanmulayim.golden.R
-import com.furkanmulayim.golden.core.component.CustomSpacerWidth
+import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.core.component.buttons.icon_button.CustomIconButton
 import com.furkanmulayim.golden.core.component.buttons.icon_button.CustomIconTextFlatButton
 import com.furkanmulayim.golden.ui.theme.AppSize
