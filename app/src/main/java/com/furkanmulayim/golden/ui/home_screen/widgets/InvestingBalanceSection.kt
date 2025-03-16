@@ -20,20 +20,20 @@ import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.ui.theme.AppSize
 import com.furkanmulayim.golden.ui.theme.CustomTypo
-import com.furkanmulayim.golden.ui.theme.white400
 
 
 @Composable
 fun InvestingBalanceSection(totalInvesting: String) {
     val totalInvestingText = stringResource(id = R.string.total_investing)
-    CustomSpacerHeight(24)
+    CustomSpacerHeight(32)
     Column {
         // TEXT -> INVESTİNG
         Row {
             Text(
-                text = totalInvestingText, style = CustomTypo.text.labelSmall.copy(color = white400)
+                text = totalInvestingText,
+                style = CustomTypo.text.labelLarge.copy(color = MaterialTheme.colorScheme.tertiary)
             )
-            CustomSpacerWidth(5)
+            CustomSpacerWidth(8)
 
             // BUTTON -> SWITCH MONEY TYPE
             Box(
@@ -45,22 +45,23 @@ fun InvestingBalanceSection(totalInvesting: String) {
             ) {
                 Icon(
                     imageVector = Icons.Rounded.CurrencyExchange,
-                    tint = MaterialTheme.colorScheme.tertiaryContainer,
+                    tint = MaterialTheme.colorScheme.primaryContainer,
                     contentDescription = "menu",
                     modifier = Modifier.size(AppSize.ButtonMiniIconsHeight),
                 )
             }
         }
+        CustomSpacerHeight(4)
         // TEXT -> MONEY
         Row {
             Text(
                 text = totalInvesting,
-                style = CustomTypo.text.displayLarge.copy(color = MaterialTheme.colorScheme.tertiary)
+                style = CustomTypo.text.displayLarge.copy(color = MaterialTheme.colorScheme.onTertiaryContainer)
             )
             CustomSpacerWidth(5)
             Text(
                 text = "₺",
-                style = CustomTypo.text.displayLarge.copy(color = MaterialTheme.colorScheme.tertiary)
+                style = CustomTypo.text.displayLarge.copy(color = MaterialTheme.colorScheme.onTertiaryContainer)
             )
         }
     }

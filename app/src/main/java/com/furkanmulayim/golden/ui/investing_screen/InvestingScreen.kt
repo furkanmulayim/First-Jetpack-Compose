@@ -10,7 +10,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.furkanmulayim.golden.core.component.others.CustomAppBar
 import com.furkanmulayim.golden.ui.theme.AppSize
 
 @Composable

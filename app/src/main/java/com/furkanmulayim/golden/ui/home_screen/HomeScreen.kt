@@ -1,12 +1,13 @@
 package com.furkanmulayim.golden.ui.home_screen
 
-import ButtonSection
+import com.furkanmulayim.golden.ui.home_screen.widgets.ButtonSection
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.furkanmulayim.golden.R
+import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.navigation.AppScreens
 import com.furkanmulayim.golden.ui.BaseScreen
 import com.furkanmulayim.golden.ui.home_screen.widgets.InvestingBalanceSection
@@ -34,8 +35,9 @@ fun HomeScreen(navController: NavController) {
         )
         Text(
             text = historyListText,
-            style = CustomTypo.text.headlineLarge.copy(color = MaterialTheme.colorScheme.tertiaryContainer)
+            style = CustomTypo.text.labelLarge.copy(color = MaterialTheme.colorScheme.tertiary)
         )
+        CustomSpacerWidth(5)
         // ChartsSection
         // LastInvestingSection
     }

@@ -12,13 +12,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
+/**
+onPrimaryContainer inversePrimary onTertiary
+onTertiaryContainer background onBackground surface onSurface surfaceVariant onSurfaceVariant
+surfaceTint inverseSurface inverseOnSurface error onError errorContainer onErrorContainer
+outline outlineVariant scrim surfaceBright surfaceContainer surfaceContainerHigh
+surfaceContainerHighest surfaceContainerLow surfaceContainerLowest surfaceDim
+ */
+
 private val DarkColorScheme = darkColorScheme(
     primary = primaryDark,
     onPrimary = Color.White,
+    primaryContainer = Color.White,
     secondary = secondaryDark,
     onSecondary = Color.White,
     tertiary = tertiaryDark,
     tertiaryContainer = tertiaryContainerDark,
+    onTertiaryContainer = onTertiaryContainerDark,
     surface = surfaceDark,
     onSecondaryContainer = onSecondaryContainerDark,
 )
@@ -26,23 +36,17 @@ private val DarkColorScheme = darkColorScheme(
 private val LightColorScheme = lightColorScheme(
     primary = primaryLight,
     onPrimary = Color.White,
+    primaryContainer = primaryLight,
     secondary = secondaryLight,
     onSecondary = Color.White,
     tertiary = tertiaryLight,
     tertiaryContainer = tertiaryContainerLight,
+    onTertiaryContainer = onTertiaryContainerLight,
     surface = surfaceLight,
     onSecondaryContainer = tertiaryLight,
 
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
-)
+
+    )
 
 @Composable
 fun GoldenTheme(

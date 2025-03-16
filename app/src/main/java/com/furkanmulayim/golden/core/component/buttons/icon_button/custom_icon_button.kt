@@ -25,7 +25,7 @@ fun CustomIconButton(icon: Int, onClick: () -> Unit) {
     ) {
         Icon(
             painterResource(icon),
-            tint = MaterialTheme.colorScheme.onSecondaryContainer,
+            tint = MaterialTheme.colorScheme.primaryContainer,
             contentDescription = "menu",
             modifier = Modifier.size(AppSize.ButtonIconsHeight),
         )

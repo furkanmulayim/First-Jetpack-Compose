@@ -21,12 +21,12 @@ import com.furkanmulayim.golden.ui.theme.AppSize
 import com.furkanmulayim.golden.ui.theme.CustomTypo
 
 @Composable
-fun CustomSecondaryButton(
+fun CustomPrimaryButton(
     text: String, iconRes: Int, onClick: () -> Unit, modifier: Modifier = Modifier
 ) {
     Button(
         onClick = onClick,
-        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary),
+        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
         shape = RoundedCornerShape(AppSize.RadiusButtons),
         modifier = modifier.height(AppSize.ButtonHeight),
         contentPadding = PaddingValues(

@@ -1,3 +1,5 @@
+package com.furkanmulayim.golden.ui.home_screen.widgets
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -6,9 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.furkanmulayim.golden.R
+import com.furkanmulayim.golden.core.component.buttons.default_buttons.CustomPrimaryButton
+import com.furkanmulayim.golden.core.component.buttons.default_buttons.CustomSecondaryButton
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
-import com.furkanmulayim.golden.core.component.buttons.default_buttons.CustomSecondaryButton
 import com.furkanmulayim.golden.ui.theme.AppSize
 
 @Composable
@@ -17,6 +20,8 @@ fun ButtonSection(
 ) {
     val doInvestText = stringResource(id = R.string.do_investing)
     val exchangeRateText = stringResource(id = R.string.exchange_rate)
+
+    CustomSpacerHeight(8)
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -24,7 +29,7 @@ fun ButtonSection(
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         // BUTTON -> DO INVEST BUTTON
-        CustomSecondaryButton(
+        CustomPrimaryButton(
             modifier = Modifier.weight(1f),
             text = doInvestText,
             iconRes = R.drawable.svg_investings,
@@ -40,6 +45,6 @@ fun ButtonSection(
             onClick = exchangeRateOnClick
         )
     }
-    CustomSpacerHeight(32)
+    CustomSpacerHeight(24)
 }
 
