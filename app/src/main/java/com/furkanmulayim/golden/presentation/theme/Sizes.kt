@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.ui.theme
+package com.furkanmulayim.golden.presentation.theme
 
 import androidx.compose.ui.unit.dp
 

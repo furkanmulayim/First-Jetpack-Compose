@@ -17,8 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
-import com.furkanmulayim.golden.ui.theme.AppSize
-import com.furkanmulayim.golden.ui.theme.CustomTypo
+import com.furkanmulayim.golden.presentation.theme.AppSize
+import com.furkanmulayim.golden.presentation.theme.CustomTypo
 
 @Composable
 fun CustomPrimaryButton(

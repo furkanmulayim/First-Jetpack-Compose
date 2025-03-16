@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.ui.home_screen.widgets
+package com.furkanmulayim.golden.presentation.home.widgets
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -12,10 +12,10 @@ import com.furkanmulayim.golden.core.component.buttons.default_buttons.CustomPri
 import com.furkanmulayim.golden.core.component.buttons.default_buttons.CustomSecondaryButton
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
-import com.furkanmulayim.golden.ui.theme.AppSize
+import com.furkanmulayim.golden.presentation.theme.AppSize
 
 @Composable
-fun ButtonSection(
+fun ButtonSectionWidget(
     doIncestingOnClick: () -> Unit, exchangeRateOnClick: () -> Unit
 ) {
     val doInvestText = stringResource(id = R.string.do_investing)

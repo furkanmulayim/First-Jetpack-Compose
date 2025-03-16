@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.ui
+package com.furkanmulayim.golden.presentation
 
 import BackgroundImage
 import androidx.compose.foundation.layout.Column
@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.furkanmulayim.golden.ui.theme.AppSize
+import com.furkanmulayim.golden.presentation.theme.AppSize
 
 @Composable
 fun BaseScreen(content: @Composable () -> Unit) {

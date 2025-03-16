@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.ui
+package com.furkanmulayim.golden.presentation
 
 import BackgroundImage
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.furkanmulayim.golden.navigation.AppNavigation
-import com.furkanmulayim.golden.ui.theme.GoldenTheme
+import com.furkanmulayim.golden.presentation.theme.GoldenTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

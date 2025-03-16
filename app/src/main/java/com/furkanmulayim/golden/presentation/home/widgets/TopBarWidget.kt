@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.ui.home_screen.widgets
+package com.furkanmulayim.golden.presentation.home.widgets
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -22,15 +22,17 @@ import androidx.compose.ui.res.stringResource
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.buttons.icon_button.CustomIconButton
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
-import com.furkanmulayim.golden.ui.theme.AppSize
-import com.furkanmulayim.golden.ui.theme.CustomTypo
+import com.furkanmulayim.golden.presentation.theme.AppSize
+import com.furkanmulayim.golden.presentation.theme.CustomTypo
 
 @Composable
-fun TopBar(
-    meOnClick: () -> Unit = {}, cardOnClick: () -> Unit = {}, walletOnClick: () -> Unit = {}
+fun TopBarWidget(
+    today: String,
+    meOnClick: () -> Unit = {},
+    cardOnClick: () -> Unit = {},
+    walletOnClick: () -> Unit = {}
 ) {
     val welcome = stringResource(id = R.string.welcome)
-    val day = stringResource(id = R.string.day)
     Row(
         modifier = Modifier
             .padding(top = AppSize.PaddingXLarge)
@@ -61,7 +63,7 @@ fun TopBar(
                             style = CustomTypo.text.labelSmall.copy(color = MaterialTheme.colorScheme.tertiary)
                         )
                         Text(
-                            text = day,
+                            text = today,
                             style = CustomTypo.text.labelSmall.copy(color = MaterialTheme.colorScheme.tertiaryContainer)
                         )
                     }

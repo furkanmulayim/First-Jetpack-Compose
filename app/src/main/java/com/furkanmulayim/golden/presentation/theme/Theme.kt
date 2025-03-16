@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.ui.theme
+package com.furkanmulayim.golden.presentation.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

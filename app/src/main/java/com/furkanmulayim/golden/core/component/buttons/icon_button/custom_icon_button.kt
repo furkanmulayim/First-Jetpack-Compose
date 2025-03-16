@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
-import com.furkanmulayim.golden.ui.theme.AppSize
+import com.furkanmulayim.golden.presentation.theme.AppSize
 
 @Composable
 fun CustomIconButton(icon: Int, onClick: () -> Unit) {

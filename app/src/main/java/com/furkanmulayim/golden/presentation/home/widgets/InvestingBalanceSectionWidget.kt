@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.ui.home_screen.widgets
+package com.furkanmulayim.golden.presentation.home.widgets
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -18,12 +18,12 @@ import androidx.compose.ui.res.stringResource
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
-import com.furkanmulayim.golden.ui.theme.AppSize
-import com.furkanmulayim.golden.ui.theme.CustomTypo
+import com.furkanmulayim.golden.presentation.theme.AppSize
+import com.furkanmulayim.golden.presentation.theme.CustomTypo
 
 
 @Composable
-fun InvestingBalanceSection(totalInvesting: String) {
+fun InvestingBalanceSectionWidget(totalInvesting: String) {
     val totalInvestingText = stringResource(id = R.string.total_investing)
     CustomSpacerHeight(32)
     Column {

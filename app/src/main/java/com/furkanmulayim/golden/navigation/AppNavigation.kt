@@ -8,8 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.furkanmulayim.golden.ui.home_screen.HomeScreen
-import com.furkanmulayim.golden.ui.investing_screen.InvestingScreen
+import com.furkanmulayim.golden.presentation.home.HomeScreen
+import com.furkanmulayim.golden.presentation.investing.InvestingScreen
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
