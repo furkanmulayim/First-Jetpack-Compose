@@ -1,13 +1,10 @@
 package com.furkanmulayim.golden.presentation.home
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.furkanmulayim.golden.data.repository.InvestRepository
 import com.furkanmulayim.golden.models.InvestModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
 
@@ -28,11 +25,7 @@ class HomeViewModel : ViewModel() {
     }
 
     fun fetchInvestments() {
-        _investmentList.value = null
-        viewModelScope.launch {
-            delay(1500)
-            _investmentList.value = InvestRepository().getInvestments()
-        }
+        _investmentList.value = InvestRepository().getInvestments()
     }
 
     fun fetchInvestingBalance() {

@@ -6,6 +6,17 @@ import androidx.compose.ui.graphics.Color
 val primaryLight = Color(0xFF5C8C5B)
 val primaryDark = Color(0x545C8C5B)
 
+// LINE
+val linerLight = Color(0XFFBBD4BF)
+val linerDark = Color(0x545C8C5B)
+
+// BUY & SOLD
+val buyLight = Color(0XFF509F4E)
+val buyDark = Color(0XFF509F4E)
+
+val soldLight = Color(0xFFEE5B51)
+val soldDark = Color(0xFFEE5B51)
+
 // SECONDARY
 val secondaryLight = Color(0x4F444444)
 val secondaryDark = Color(0x1A5C8C5B)

@@ -2,22 +2,22 @@ package com.furkanmulayim.golden.core.component.buttons.icon_button
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.Dp
 import com.furkanmulayim.golden.presentation.theme.AppSize
 
 @Composable
-fun CustomIconButton(icon: Int, onClick: () -> Unit, size: Dp = AppSize.ButtonIconsHeight) {
-    Box(
+fun CustomIconTextButton(icon: Int, onClick: () -> Unit, text: String) {
+    Row(
         Modifier
             .clip(RoundedCornerShape(AppSize.RadiusIcons))
             .background(MaterialTheme.colorScheme.surface)
@@ -28,7 +28,8 @@ fun CustomIconButton(icon: Int, onClick: () -> Unit, size: Dp = AppSize.ButtonIc
             painterResource(icon),
             tint = MaterialTheme.colorScheme.primaryContainer,
             contentDescription = "menu",
-            modifier = Modifier.size(size),
+            modifier = Modifier.size(AppSize.ButtonIconsHeight),
         )
+        Text(text)
     }
 }

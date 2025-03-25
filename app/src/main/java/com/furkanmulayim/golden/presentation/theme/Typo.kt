@@ -23,14 +23,17 @@ val inter = FontFamily(
 object CustomTypo {
 
     val text = Typography(
+        displayLarge = TextStyle(
+            fontFamily = inter, fontWeight = FontWeight.W700, fontSize = 34.sp, lineHeight = 41.sp
+        ),
+        bodyMedium = TextStyle(
+            fontFamily = inter, fontWeight = FontWeight.W500, fontSize = 17.sp, lineHeight = 24.sp
+        ),
         labelLarge = TextStyle(
             fontFamily = inter, fontWeight = FontWeight.W400, fontSize = 15.sp, lineHeight = 14.sp,
         ),
         labelSmall = TextStyle(
             fontFamily = inter, fontWeight = FontWeight.W400, fontSize = 13.sp, lineHeight = 14.sp,
-        ),
-        displayLarge = TextStyle(
-            fontFamily = inter, fontWeight = FontWeight.W700, fontSize = 34.sp, lineHeight = 41.sp
         ),
     )
 

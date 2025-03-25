@@ -12,6 +12,9 @@ data class InvestModel(
     val count: String,
     /** 4 gram */
 
+    val isBuyed: Boolean,
+    /** Satış? - Alış? */
+
     val currentPrice: String,
     /**  44 fiyatı */
 
