@@ -3,6 +3,7 @@
     //General
     <string name="app_name">GOLDEN</string>
     <string name="backHome">Ana Sayfaya Dön</string>
+    <string name="backInvesting">Yatırımlarıma Dön</string>
 
     //Home-Page
     <string name="welcome">Hoşgeldiniz</string>
@@ -12,7 +13,12 @@
     <string name="exchange_rate">Güncel Kur</string>
     <string name="my_cards">Kartlarım</string>
     <string name="my_wallet">Cüzdanım</string>
-    <string name="history_list">Geçmiş Yatırımlarım</string>
+    <string name="history_list">Yatırımlarım</string>
+
+    //Investing-Page
+
+    <string name="investBuy">Al</string>
+    <string name="investSold">Sat</string>
 
     // Investing-Page
     // Exchange-Rate-Page
