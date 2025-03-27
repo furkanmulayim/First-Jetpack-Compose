@@ -17,8 +17,9 @@
 
     //Investing-Page
 
-    <string name="investBuy">Al</string>
-    <string name="investSold">Sat</string>
+    <string name="invest_buy">Al</string>
+    <string name="invest_sold">Sat</string>
+    <string name="total_money">Toplam Bakiyeniz</string>
 
     // Investing-Page
     // Exchange-Rate-Page

@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.home.widgets
+package com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

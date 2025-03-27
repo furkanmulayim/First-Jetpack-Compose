@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.investing
+package com.furkanmulayim.golden.presentation.tab_main.wallet_ui
 
 import androidx.lifecycle.ViewModel
 import com.furkanmulayim.golden.data.repository.InvestRepository
@@ -25,7 +25,7 @@ class InvestingViewModel : ViewModel() {
     }
 
     fun fetchInvestingBalance() {
-        investingBalance.value = "23.432,50"
+        investingBalance.value = "11.783,22"
     }
 
 

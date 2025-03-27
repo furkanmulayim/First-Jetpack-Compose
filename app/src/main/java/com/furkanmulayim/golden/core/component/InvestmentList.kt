@@ -3,7 +3,6 @@ package com.furkanmulayim.golden.core.component
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -21,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.models.InvestModel
-import com.furkanmulayim.golden.presentation.home.widgets.InvestListItemWidget
+import com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget.InvestListItemWidget
 import com.furkanmulayim.golden.presentation.theme.AppSize
 import com.furkanmulayim.golden.presentation.theme.CustomTypo
 

@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.home.widgets
+package com.furkanmulayim.golden.presentation.tab_main.widgets
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,7 +28,11 @@ fun TopBarWidget(
     val welcome = stringResource(id = R.string.welcome)
     Row(
         modifier = Modifier
-            .padding(top = AppSize.PaddingXLarge)
+            .padding(
+                top = AppSize.PaddingXLarge,
+                start = AppSize.PaddingLarge,
+                end = AppSize.PaddingLarge
+            )
             .fillMaxWidth()
             .height(AppSize.ButtonHeight),
         horizontalArrangement = Arrangement.SpaceBetween,

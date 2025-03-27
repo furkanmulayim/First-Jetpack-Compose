@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.investing.widgets
+package com.furkanmulayim.golden.presentation.tab_main.wallet_ui.widgets
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

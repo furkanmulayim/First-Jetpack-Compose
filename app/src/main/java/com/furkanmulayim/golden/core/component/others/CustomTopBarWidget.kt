@@ -28,7 +28,7 @@ val LocalAppNavController = compositionLocalOf<NavController> {
 
 @Composable
 fun CustomTopBarWidget(
-    backName: String, leadingClick: () -> Unit = {}
+    leadingClick: () -> Unit = {}
 ) {
     val navController = LocalAppNavController.current
 
@@ -59,7 +59,7 @@ fun CustomTopBarWidget(
                 modifier = Modifier.size(AppSize.ButtonIconsHeight),
             )
             CustomSpacerWidth(16)
-            Text(backName)
+            Text("BACKING")
         }
         //  ICON -> WALLET
         CustomIconButton(R.drawable.svg_wallet, leadingClick)

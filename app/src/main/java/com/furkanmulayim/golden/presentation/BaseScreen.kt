@@ -19,10 +19,8 @@ fun BaseScreen(content: @Composable () -> Unit) {
 
             Column(
                 modifier = Modifier.run {
-                    fillMaxSize()
-                        .padding(horizontal = AppSize.PaddingLarge)
-                }
-            ) {
+                    fillMaxSize().padding(horizontal = AppSize.PaddingLarge)
+                }) {
                 content()
             }
         }

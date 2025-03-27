@@ -10,6 +10,10 @@ val primaryDark = Color(0x545C8C5B)
 val linerLight = Color(0XFFBBD4BF)
 val linerDark = Color(0x545C8C5B)
 
+//LINE - INVERSE
+val onTertiaryDark = Color(0xFFB0C7AF)
+val onTertiaryLight = Color(0xFF5C8C5B)
+
 // BUY & SOLD
 val buyLight = Color(0XFF509F4E)
 val buyDark = Color(0XFF509F4E)
@@ -27,6 +31,9 @@ val tertiaryDark = Color(0x66FFFFFF)
 
 val tertiaryContainerLight = Color(0xB3000000)
 val tertiaryContainerDark = Color(0xB3FFFFFF)
+
+val onSurfaceLight = Color(0xB32C2C2C)
+val onSurfaceDark = Color(0xB3FFFFFF)
 
 val onTertiaryContainerLight = Color(0x80000000)
 val onTertiaryContainerDark = Color(0xFFFFFFFF)

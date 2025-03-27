@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.home.widgets
+package com.furkanmulayim.golden.core.component.others
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -12,25 +12,25 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import com.furkanmulayim.golden.R
-import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
-import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.presentation.theme.AppSize
 import com.furkanmulayim.golden.presentation.theme.CustomTypo
 
 
 @Composable
-fun InvestingBalanceSectionWidget(totalInvesting: String) {
+fun InvestingBalanceSectionWidget(totalInvesting: String, isInvesting: Boolean) {
+    val totalWalletText = stringResource(id = R.string.total_money)
     val totalInvestingText = stringResource(id = R.string.total_investing)
     CustomSpacerHeight(32)
     Column {
         // TEXT -> INVESTİNG
         Row {
             Text(
-                text = totalInvestingText,
+                text = if (isInvesting) totalInvestingText else totalWalletText,
                 style = CustomTypo.text.labelLarge.copy(color = MaterialTheme.colorScheme.tertiary)
             )
             CustomSpacerWidth(8)
@@ -41,7 +41,7 @@ fun InvestingBalanceSectionWidget(totalInvesting: String) {
                     .size(AppSize.ButtonXSmallHeight)
                     .clip(RoundedCornerShape(AppSize.RadiusSmall))
                     .clickable { },
-                contentAlignment = androidx.compose.ui.Alignment.Center
+                contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = Icons.Rounded.CurrencyExchange,
@@ -54,14 +54,13 @@ fun InvestingBalanceSectionWidget(totalInvesting: String) {
         CustomSpacerHeight(4)
         // TEXT -> MONEY
         Row {
+            val color = MaterialTheme.colorScheme.onSurface
             Text(
-                text = totalInvesting,
-                style = CustomTypo.text.displayLarge.copy(color = MaterialTheme.colorScheme.onTertiaryContainer)
+                text = totalInvesting, style = CustomTypo.text.displayLarge.copy(color)
             )
             CustomSpacerWidth(5)
             Text(
-                text = "₺",
-                style = CustomTypo.text.displayLarge.copy(color = MaterialTheme.colorScheme.onTertiaryContainer)
+                text = "₺", style = CustomTypo.text.displayLarge.copy(color)
             )
         }
     }
