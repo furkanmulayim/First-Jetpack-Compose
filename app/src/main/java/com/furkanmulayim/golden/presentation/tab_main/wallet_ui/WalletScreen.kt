@@ -1,7 +1,8 @@
-package com.furkanmulayim.golden.presentation.investing
+package com.furkanmulayim.golden.presentation.tab_main.wallet_ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
@@ -10,40 +11,38 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.furkanmulayim.golden.core.component.InvestmentList
-import com.furkanmulayim.golden.core.component.others.CustomTopBarWidget
+import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
+import com.furkanmulayim.golden.core.component.others.InvestingBalanceSectionWidget
 import com.furkanmulayim.golden.core.component.others.LocalAppNavController
-import com.furkanmulayim.golden.presentation.BaseScreen
-import com.furkanmulayim.golden.presentation.investing.widgets.ButtonSectionWidget
-import com.furkanmulayim.golden.presentation.investing.widgets.InvestingBalanceSectionWidget
+import com.furkanmulayim.golden.presentation.tab_main.wallet_ui.widgets.ButtonSectionWidget
+import com.furkanmulayim.golden.presentation.theme.AppSize
 
 @Composable
-fun InvestingScreen(
-    navController: NavController, bundle: String, viewModel: InvestingViewModel = viewModel()
+fun WalletScreen(
+    navController: NavController, viewModel: InvestingViewModel = viewModel()
 ) {
     CompositionLocalProvider(LocalAppNavController provides navController) {
-        BaseScreen {
-            InvestingContent(
-                backName = bundle, viewModel = viewModel, navController = navController
-            )
-        }
+        WalletContent(
+            viewModel = viewModel, navController = navController
+        )
+
     }
 }
 
 @Composable
-private fun InvestingContent(
-    navController: NavController, backName: String, viewModel: InvestingViewModel
+private fun WalletContent(
+    navController: NavController, viewModel: InvestingViewModel
 ) {
     val investmentList by viewModel.investmentList.collectAsState()
     val investmentBalance by viewModel.investingBalance.collectAsState()
 
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = AppSize.PaddingLarge)
     ) {
-        CustomTopBarWidget(
-            backName = backName,
-            leadingClick = {},
-        )
-        InvestingBalanceSectionWidget(totalInvesting = investmentBalance)
+        InvestingBalanceSectionWidget(totalInvesting = investmentBalance, isInvesting = false)
+        CustomSpacerHeight(32)
         ButtonSectionWidget(navController = navController)
         // todo BURAYA ARAMA CUBUĞU KOYULACAK
         InvestmentList(investmentList)

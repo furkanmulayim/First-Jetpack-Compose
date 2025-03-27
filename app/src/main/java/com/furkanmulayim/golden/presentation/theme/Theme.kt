@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 /**
-inversePrimary onTertiary
+onTertiary
 onTertiaryContainer background onBackground surface onSurface surfaceVariant onSurfaceVariant
 surfaceTint inverseSurface inverseOnSurface error onError errorContainer onErrorContainer
 outline outlineVariant scrim surfaceBright surfaceContainer surfaceContainerHigh
@@ -24,6 +24,7 @@ private val DarkColorScheme = darkColorScheme(
     primary = primaryDark,
     onPrimary = Color.White,
     onPrimaryContainer = linerDark,
+    onTertiary = onTertiaryDark,
     inversePrimary = buyDark,
     inverseSurface = soldDark,
     primaryContainer = Color.White,
@@ -33,6 +34,7 @@ private val DarkColorScheme = darkColorScheme(
     tertiaryContainer = tertiaryContainerDark,
     onTertiaryContainer = onTertiaryContainerDark,
     surface = surfaceDark,
+    onSurface = onSurfaceDark,
     onSecondaryContainer = onSecondaryContainerDark,
 )
 
@@ -40,6 +42,7 @@ private val LightColorScheme = lightColorScheme(
     primary = primaryLight,
     onPrimary = Color.White,
     onPrimaryContainer = linerLight,
+    onTertiary = onTertiaryLight,
     inversePrimary = buyLight,
     inverseSurface = soldLight,
     primaryContainer = primaryLight,
@@ -49,10 +52,9 @@ private val LightColorScheme = lightColorScheme(
     tertiaryContainer = tertiaryContainerLight,
     onTertiaryContainer = onTertiaryContainerLight,
     surface = surfaceLight,
+    onSurface = onSurfaceLight,
     onSecondaryContainer = tertiaryLight,
-
-
-    )
+)
 
 @Composable
 fun GoldenTheme(

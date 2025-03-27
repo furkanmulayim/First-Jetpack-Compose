@@ -26,6 +26,9 @@ object CustomTypo {
         displayLarge = TextStyle(
             fontFamily = inter, fontWeight = FontWeight.W700, fontSize = 34.sp, lineHeight = 41.sp
         ),
+        bodyLarge = TextStyle(
+            fontFamily = inter, fontWeight = FontWeight.W400, fontSize = 20.sp, lineHeight = 24.sp
+        ),
         bodyMedium = TextStyle(
             fontFamily = inter, fontWeight = FontWeight.W500, fontSize = 17.sp, lineHeight = 24.sp
         ),

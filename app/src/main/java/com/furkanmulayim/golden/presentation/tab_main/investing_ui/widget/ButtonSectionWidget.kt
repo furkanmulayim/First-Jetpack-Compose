@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.investing.widgets
+package com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -10,8 +10,8 @@ import androidx.navigation.NavController
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.buttons.default_buttons.CustomPrimaryButton
 import com.furkanmulayim.golden.core.component.buttons.default_buttons.CustomSecondaryButton
-import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
+import com.furkanmulayim.golden.navigation.AppScreens
 
 @Composable
 fun ButtonSectionWidget(
@@ -21,15 +21,15 @@ fun ButtonSectionWidget(
         modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly
     ) {
 
-        val goingToInvestingArgument = stringResource(id = R.string.backInvesting)
+        val goingToInvestingArgument = stringResource(id = R.string.backHome)
 
         // BUTTON -> DO INVEST BUTTON
         CustomPrimaryButton(
             modifier = Modifier.weight(1f),
-            text = stringResource(id = R.string.investBuy),
-            iconRes = R.drawable.svg_invest_buy,
+            text = stringResource(id = R.string.my_investing),
+            iconRes = R.drawable.svg_investings,
             onClick = {
-
+                navController.navigate(AppScreens.InvestingScreen.go(goingToInvestingArgument))
             }
 
         )
@@ -38,12 +38,11 @@ fun ButtonSectionWidget(
         // BUTTON -> LIVE DATA
         CustomSecondaryButton(
             modifier = Modifier.weight(1f),
-            text = stringResource(id = R.string.investSold),
-            iconRes = R.drawable.svg_invest_sold,
+            text = stringResource(id = R.string.exchange_rate),
+            iconRes = R.drawable.svg_live_data,
             onClick = {
-
+                navController.navigate(AppScreens.InvestingScreen.go(goingToInvestingArgument))
             })
     }
-    CustomSpacerHeight(24)
 }
 
