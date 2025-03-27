@@ -21,28 +21,32 @@ fun ButtonSectionWidget(
         modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly
     ) {
 
-        val goingToInvestingArgument = stringResource(id = R.string.backInvesting)
-
-        // BUTTON -> DO INVEST BUTTON
-        CustomPrimaryButton(
+        // BUTTON -> ADD
+        CustomSecondaryButton(
             modifier = Modifier.weight(1f),
-            text = stringResource(id = R.string.invest_buy),
-            iconRes = R.drawable.svg_invest_buy,
-            onClick = {
-
-            }
-
+            text = stringResource(id = R.string.wallet_add),
+            iconRes = null,
+            onClick = {},
         )
         CustomSpacerWidth(10)
 
-        // BUTTON -> LIVE DATA
+        // BUTTON -> DELETE
         CustomSecondaryButton(
             modifier = Modifier.weight(1f),
-            text = stringResource(id = R.string.invest_sold),
-            iconRes = R.drawable.svg_invest_sold,
-            onClick = {
+            text = stringResource(id = R.string.wallet_delete),
+            iconRes = null,
+            onClick = { },
+        )
 
-            })
+        CustomSpacerWidth(10)
+
+        // BUTTON -> MY CARDS
+        CustomPrimaryButton(
+            modifier = Modifier.weight(1.4f),
+            text = stringResource(id = R.string.my_cards),
+            iconRes = R.drawable.svg_card,
+            onClick = {},
+        )
     }
     CustomSpacerHeight(24)
 }

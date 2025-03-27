@@ -1,29 +1,25 @@
 <resources>
 
-    //General
+    // General
     <string name="app_name">GOLDEN</string>
-    <string name="backHome">Ana Sayfaya Dön</string>
-    <string name="backInvesting">Yatırımlarıma Dön</string>
+    <string name="my_investing">Yatırımlarım</string>
+    <string name="my_wallet">Cüzdanım</string>
 
-    //Home-Page
+    // Investing-Page
     <string name="welcome">Hoşgeldiniz</string>
     <string name="day">12 Şubat Salı</string>
     <string name="total_investing">Toplam Yatırımınız</string>
-    <string name="my_investing">Yatırımlarım</string>
-    <string name="exchange_rate">Güncel Kur</string>
+    <string name="do_invest_buy_now">Al</string>
+    <string name="do_invest_change_now">Sat</string>
+    <string name="change_rate">Canlı Kur</string>
+
+    // Wallet-Page
+    <string name="wallet_add">Ekle</string>
+    <string name="wallet_delete">Çıkar</string>
     <string name="my_cards">Kartlarım</string>
-    <string name="my_wallet">Cüzdanım</string>
-    <string name="history_list">Yatırımlarım</string>
-
-    //Investing-Page
-
-    <string name="invest_buy">Al</string>
-    <string name="invest_sold">Sat</string>
     <string name="total_money">Toplam Bakiyeniz</string>
 
-    // Investing-Page
     // Exchange-Rate-Page
-    // Wallet-Page
     // Credit-Card-Page
     // Profile-Page
 

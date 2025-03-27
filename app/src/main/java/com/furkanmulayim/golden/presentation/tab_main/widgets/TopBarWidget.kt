@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.furkanmulayim.golden.R
-import com.furkanmulayim.golden.core.component.buttons.icon_button.CustomIconButton
+import com.furkanmulayim.golden.core.component.buttons.icon_button.CustomIconNoBackButton
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.presentation.theme.AppSize
 import com.furkanmulayim.golden.presentation.theme.CustomTypo
@@ -22,8 +22,7 @@ import com.furkanmulayim.golden.presentation.theme.CustomTypo
 fun TopBarWidget(
     today: String,
     meOnClick: () -> Unit = {},
-    cardOnClick: () -> Unit = {},
-    walletOnClick: () -> Unit = {}
+    settingOnClick: () -> Unit = {},
 ) {
     val welcome = stringResource(id = R.string.welcome)
     Row(
@@ -42,7 +41,11 @@ fun TopBarWidget(
             Row(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                CustomIconButton(R.drawable.svg_burger_menu, meOnClick)
+                CustomIconNoBackButton(
+                    R.drawable.svg_burger_menu,
+                    meOnClick,
+                    AppSize.ButtonMediumIconsHeight
+                )
                 CustomSpacerWidth(8)
                 Column {
                     Text(
@@ -57,13 +60,10 @@ fun TopBarWidget(
             }
 
         }
-
-        Row {
-            //  ICON -> WALLET
-            CustomIconButton(R.drawable.svg_wallet, walletOnClick)
-            CustomSpacerWidth(8)
-            //  ICON -> CREDIT CARD
-            CustomIconButton(R.drawable.svg_card, cardOnClick)
-        }
+        CustomIconNoBackButton(
+            R.drawable.svg_settings,
+            settingOnClick,
+            AppSize.ButtonMediumIconsHeight
+        )
     }
 }
