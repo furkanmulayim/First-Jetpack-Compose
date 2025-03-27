@@ -24,7 +24,7 @@ object AppSize {
     val ButtonMiniIconsHeight = 14.dp
     val ButtonSecondaryIcons = 18.dp
     val ButtonIconsHeight = 24.dp
-    val ButtonMediumIconsHeight = 36.dp
+    val ButtonMediumIconsHeight = 32.dp
 
     val ButtonXSmallHeight = 18.dp
     val ButtonSmallHeight = 24.dp

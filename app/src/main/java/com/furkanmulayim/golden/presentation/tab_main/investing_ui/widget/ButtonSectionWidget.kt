@@ -11,7 +11,6 @@ import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.buttons.default_buttons.CustomPrimaryButton
 import com.furkanmulayim.golden.core.component.buttons.default_buttons.CustomSecondaryButton
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
-import com.furkanmulayim.golden.navigation.AppScreens
 
 @Composable
 fun ButtonSectionWidget(
@@ -21,28 +20,37 @@ fun ButtonSectionWidget(
         modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly
     ) {
 
-        val goingToInvestingArgument = stringResource(id = R.string.backHome)
+
+        // BUTTON -> Buy
+        CustomSecondaryButton(
+            modifier = Modifier.weight(1f),
+            text = stringResource(id = R.string.do_invest_buy_now),
+            iconRes = null,
+            onClick = {
+            })
+
+        CustomSpacerWidth(10)
+
+        // BUTTON ->Sold
+        CustomSecondaryButton(
+            modifier = Modifier.weight(1f),
+            text = stringResource(id = R.string.do_invest_change_now),
+            iconRes = null,
+            onClick = {
+            })
+
+        CustomSpacerWidth(10)
 
         // BUTTON -> DO INVEST BUTTON
         CustomPrimaryButton(
-            modifier = Modifier.weight(1f),
-            text = stringResource(id = R.string.my_investing),
-            iconRes = R.drawable.svg_investings,
+            modifier = Modifier.weight(1.4f),
+            text = stringResource(id = R.string.change_rate),
+            iconRes = R.drawable.svg_live_data_square,
             onClick = {
-                navController.navigate(AppScreens.InvestingScreen.go(goingToInvestingArgument))
             }
 
         )
         CustomSpacerWidth(10)
-
-        // BUTTON -> LIVE DATA
-        CustomSecondaryButton(
-            modifier = Modifier.weight(1f),
-            text = stringResource(id = R.string.exchange_rate),
-            iconRes = R.drawable.svg_live_data,
-            onClick = {
-                navController.navigate(AppScreens.InvestingScreen.go(goingToInvestingArgument))
-            })
     }
 }
 

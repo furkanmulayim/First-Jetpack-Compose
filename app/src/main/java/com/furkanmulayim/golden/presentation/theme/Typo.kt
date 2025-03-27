@@ -71,12 +71,6 @@ object CustomTypo {
 //            fontSize = 15.sp,
 //            lineHeight = 22.sp
 //        ),
-//        bodyLarge = TextStyle(
-//            fontFamily = inter,
-//            fontWeight = FontWeight.W600,
-//            fontSize = 17.sp,
-//            lineHeight = 24.sp
-//        ),
 //        bodyMedium = TextStyle(
 //            fontFamily = inter,
 //            fontWeight = FontWeight.Medium,

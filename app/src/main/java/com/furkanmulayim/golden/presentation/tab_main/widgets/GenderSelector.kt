@@ -29,8 +29,8 @@ fun GenderSelector(
     val selectedColor = MaterialTheme.colorScheme.onSurface
     val unSelectedColor = MaterialTheme.colorScheme.surface
 
-    var denek = "Yatırımlarım"
-    var denek2 = "Cüzdanım"
+    var investText = "Yatırımlarım"
+    var walletText = "Cüzdanım"
 
     Column(
         modifier = Modifier
@@ -39,7 +39,7 @@ fun GenderSelector(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            if (selectedIndex == 0) denek else denek2,
+            if (selectedIndex == 0) investText else walletText,
             style = CustomTypo.text.bodyLarge.copy(selectedColor)
         )
 

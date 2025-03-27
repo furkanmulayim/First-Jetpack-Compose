@@ -23,8 +23,7 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
         TopBarWidget(
             "TODAY",
             meOnClick = { /** todo Profile sayfasına gidecek */ },
-            cardOnClick = { /** todo Credit Card sayfasına gidecek */ },
-            walletOnClick = { /** todo Wallet sayfasına gidecek */ },
+            settingOnClick = { /** todo Settings sayfasına gidecek */ },
         )
 
         GenderSelector(

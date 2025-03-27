@@ -22,7 +22,7 @@ import com.furkanmulayim.golden.presentation.theme.CustomTypo
 
 @Composable
 fun CustomPrimaryButton(
-    text: String, iconRes: Int, onClick: () -> Unit, modifier: Modifier = Modifier
+    text: String, iconRes: Int?, onClick: () -> Unit, modifier: Modifier = Modifier
 ) {
     Button(
         onClick = onClick,
@@ -40,14 +40,17 @@ fun CustomPrimaryButton(
             Text(
                 text = text, style = CustomTypo.text.labelSmall.copy(color = Color.White)
             )
-            CustomSpacerWidth(6)
+            if (iconRes != null) {
+                CustomSpacerWidth(6)
 
-            Icon(
-                painter = painterResource(id = iconRes),
-                contentDescription = text,
-                tint = Color.White,
-                modifier = Modifier.size(AppSize.ButtonSecondaryIcons)
-            )
+                Icon(
+                    painter = painterResource(id = iconRes),
+                    contentDescription = text,
+                    tint = Color.White,
+                    modifier = Modifier.size(AppSize.ButtonSecondaryIcons)
+                )
+            }
+
         }
     }
 }
