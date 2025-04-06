@@ -29,7 +29,7 @@ class HomeViewModel : ViewModel() {
     }
 
     fun fetchInvestingBalance() {
-        investingBalance.value = "23.432,50"
+        investingBalance.value = "74.239"
     }
 
     fun fetchTodayDay() {

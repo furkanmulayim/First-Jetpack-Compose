@@ -38,7 +38,7 @@ fun CustomSecondaryButton(
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = text, style = CustomTypo.text.labelSmall.copy(color = Color.White)
+                text = text, style = CustomTypo.miniBold.copy(color = Color.White)
             )
 
             if (iconRes != null) {

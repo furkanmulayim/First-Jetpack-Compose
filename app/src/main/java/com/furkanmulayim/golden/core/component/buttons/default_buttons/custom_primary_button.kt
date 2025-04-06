@@ -1,56 +1,53 @@
 package com.furkanmulayim.golden.core.component.buttons.default_buttons
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
-import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
-import com.furkanmulayim.golden.presentation.theme.AppSize
+import androidx.compose.ui.text.style.TextAlign
+import com.furkanmulayim.golden.presentation.theme.AppSize.ButtonIconsHeight
+import com.furkanmulayim.golden.presentation.theme.AppSize.ButtonMediumIconsHeight
+import com.furkanmulayim.golden.presentation.theme.AppSize.PaddingXSmall
 import com.furkanmulayim.golden.presentation.theme.CustomTypo
 
 @Composable
 fun CustomPrimaryButton(
-    text: String, iconRes: Int?, onClick: () -> Unit, modifier: Modifier = Modifier
+    text: String, iconRes: Int, onClick: () -> Unit, modifier: Modifier = Modifier
 ) {
-    Button(
-        onClick = onClick,
-        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
-        shape = RoundedCornerShape(AppSize.RadiusButtons),
-        modifier = modifier.height(AppSize.ButtonHeight),
-        contentPadding = PaddingValues(
-            horizontal = AppSize.PaddingSmall, vertical = AppSize.PaddingXSmall
-        )
+    Column(
+        modifier = modifier
+            .padding(PaddingXSmall)
+            .aspectRatio(0.6f)
+            .clip(RoundedCornerShape(ButtonIconsHeight))
+            .background(MaterialTheme.colorScheme.secondary)
+            .clickable { onClick },
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceEvenly
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
-        ) {
-            Text(
-                text = text, style = CustomTypo.text.labelSmall.copy(color = Color.White)
-            )
-            if (iconRes != null) {
-                CustomSpacerWidth(6)
-
-                Icon(
-                    painter = painterResource(id = iconRes),
-                    contentDescription = text,
-                    tint = Color.White,
-                    modifier = Modifier.size(AppSize.ButtonSecondaryIcons)
-                )
-            }
-
-        }
+        Text(
+            text = text,
+            style = CustomTypo.text.labelLarge.copy(color = MaterialTheme.colorScheme.primary),
+            textAlign = TextAlign.Center,
+        )
+        Icon(
+            painter = painterResource(id = iconRes),
+            contentDescription = text,
+            tint = MaterialTheme.colorScheme.primary,
+            modifier = Modifier
+                .size(ButtonMediumIconsHeight)
+                .align(Alignment.CenterHorizontally)
+        )
     }
 }

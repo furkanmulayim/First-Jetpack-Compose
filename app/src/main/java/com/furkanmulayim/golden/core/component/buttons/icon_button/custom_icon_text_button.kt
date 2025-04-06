@@ -14,13 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import com.furkanmulayim.golden.presentation.theme.AppSize
+import com.furkanmulayim.golden.presentation.theme.twins
 
 @Composable
 fun CustomIconTextButton(icon: Int, onClick: () -> Unit, text: String) {
     Row(
         Modifier
             .clip(RoundedCornerShape(AppSize.RadiusIcons))
-            .background(MaterialTheme.colorScheme.surface)
+            .background(twins)
             .clickable { onClick() }
             .padding(AppSize.PaddingSmall),
     ) {

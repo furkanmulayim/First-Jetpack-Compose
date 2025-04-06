@@ -17,98 +17,82 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
+import com.furkanmulayim.golden.core.extensions.curencyFormat
 import com.furkanmulayim.golden.core.extensions.getInvestNameToImage
 import com.furkanmulayim.golden.models.InvestModel
 import com.furkanmulayim.golden.presentation.theme.AppSize
 import com.furkanmulayim.golden.presentation.theme.CustomTypo
+import com.furkanmulayim.golden.presentation.theme.twins
+import com.furkanmulayim.golden.presentation.theme.twins_60
 
 @Composable
 fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
 
     val colorScheme = MaterialTheme.colorScheme
     val theme = CustomTypo.text
+
+    val (statusColor, statusText) = if (investment.isBuyed) {
+        colorScheme.onTertiary to "+"
+    } else {
+        colorScheme.inverseSurface to "-"
+    }
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onClick() }
-            .padding(vertical = AppSize.PaddingLarger, horizontal = AppSize.PaddingMedium),
+            .padding(vertical = AppSize.Padding, horizontal = AppSize.PaddingSmall),
         verticalAlignment = Alignment.CenterVertically) {
         Image(
             painter = painterResource(id = investment.name.getInvestNameToImage()),
             contentDescription = "Investment Icon",
-            modifier = Modifier.size(AppSize.ItemImage)
+            modifier = Modifier.size(AppSize.ButtonHeight)
         )
         CustomSpacerWidth(12)
 
         Column(modifier = Modifier.weight(1f)) {
             // NAME TEXT
             Text(
-                text = investment.name, style = theme.bodyMedium.copy(colorScheme.onSurface)
+                text = investment.name, style = theme.bodySmall.copy(colorScheme.scrim)
             )
             CustomSpacerHeight(6)
             //TOTAL TEXT
-            Text(
-                text = "${investment.totalPrice} ₺",
-                style = theme.labelSmall.copy(colorScheme.tertiary)
-            )
+
+            Row {
+                Text(
+                    text = "${investment.currentPrice.curencyFormat()}₺",
+                    style = theme.labelMedium.copy(twins)
+                )
+                CustomSpacerWidth(4)
+                Text( // todo hardoce olarak yazıldı değiştirilecek
+                    text = "$statusText${0.18}%",
+                    style = theme.labelMedium.copy(statusColor)
+                )
+            }
         }
 
         Column(horizontalAlignment = Alignment.End) {
-            val statusColor =
-                if (investment.isBuyed) colorScheme.inversePrimary else colorScheme.inverseSurface
+            Text(
+                text = "$statusText${investment.count} Adet",
+                style = theme.bodySmall.copy(statusColor)
+            )
 
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                // LIVE  TEXT
-                Text(
-                    text = "${investment.count} Adet",
-                    style = theme.labelSmall.copy(statusColor)
-                )
-                CustomSpacerWidth(4)
-                // LIVE  ICON
-                Image(
-                    painter = painterResource(R.drawable.svg_piece),
-                    colorFilter = ColorFilter.tint(statusColor),
-                    contentDescription = "Arrow Icon",
-                    modifier = Modifier.size(
-                        height = AppSize.ItemMiniImage, width = AppSize.ItemMiniImage
-                    )
-                )
-            }
-            CustomSpacerHeight(8)
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                // TIME TEXT
-                Text(
-                    text = "12 Haz 25",
-                    style = theme.labelSmall.copy(colorScheme.tertiary)
-                )
-                CustomSpacerWidth(4)
-                // TIME ICON
-                Image(
-                    painter = painterResource(R.drawable.svg_time_square),
-                    contentDescription = "Tıme Icon",
-                    colorFilter = ColorFilter.tint(colorScheme.tertiary),
-                    modifier = Modifier.size(
-                        height = AppSize.ItemMiniImage, width = AppSize.ItemMiniImage
-                    )
-                )
-            }
-
+            CustomSpacerHeight(6)
+            Text(
+                text = "~${investment.totalPrice.curencyFormat()}₺",
+                style = theme.labelMedium.copy(twins)
+            )
         }
-        CustomSpacerWidth(12)
+        CustomSpacerWidth(18)
 
         // BIG ARROW IMAGE
         Image(
             painter = painterResource(R.drawable.svg_big_error),
             contentDescription = "Arrow Icon",
-            colorFilter = ColorFilter.tint(colorScheme.onTertiaryContainer),
+            colorFilter = ColorFilter.tint(twins_60),
             modifier = Modifier.size(
                 height = AppSize.ItemMadImage, width = AppSize.ItemSmallImage
             )
@@ -117,7 +101,7 @@ fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(0.7.dp)
-            .background(color = colorScheme.onPrimaryContainer)
+            .height(AppSize.one_dp)
+            .background(color = colorScheme.secondary)
     )
 }

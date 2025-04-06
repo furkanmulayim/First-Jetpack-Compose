@@ -1,7 +1,7 @@
 package com.furkanmulayim.golden.core.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -9,16 +9,21 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.models.InvestModel
 import com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget.InvestListItemWidget
 import com.furkanmulayim.golden.presentation.theme.AppSize
+import com.furkanmulayim.golden.presentation.theme.CustomTypo
+import com.furkanmulayim.golden.presentation.theme.twins
 
 
 //LİST SECTION
@@ -35,13 +40,17 @@ fun InvestmentList(list: List<InvestModel>?) {
 // IF EMPTY LIST
 @Composable
 fun StateIsEmpty() {
+    //.padding(horizontal = AppSize.PaddingLarge)
     /** todo Eğer liste boş ise buraya yazılacak. */
 }
 
 @Composable
 fun StateIsLoading() {
     Box(
-        modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = AppSize.PaddingLarge),
+        contentAlignment = Alignment.Center
     ) {
         CircularProgressIndicator(modifier = Modifier.size(AppSize.ButtonHeight))
     }
@@ -50,16 +59,32 @@ fun StateIsLoading() {
 // IF SUCCES STATE
 @Composable
 fun StateIsSuccess(list: List<InvestModel>) {
-    LazyColumn(
+
+    val headerText = stringResource(id = R.string.last_transaction)
+    Column(
         modifier = Modifier
-            .padding(bottom = 64.dp)
             .fillMaxSize()
-            .clip(RoundedCornerShape(AppSize.RadiusButtons))
-            .background(MaterialTheme.colorScheme.surface)
+            .padding(horizontal = AppSize.PaddingLarge),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        items(list) { investment ->
-            InvestListItemWidget(investment, onClick = {})
+        Text(
+            text = headerText,
+            style = CustomTypo.miniBold.copy(
+                color = twins, letterSpacing = 2.sp
+            ),
+        )
+        CustomSpacerHeight(12)
+        LazyColumn(
+            modifier = Modifier
+                .padding(bottom = 64.dp)
+                .fillMaxSize()
+                .clip(RoundedCornerShape(AppSize.RadiusButtons))
+        ) {
+            items(list) { investment ->
+                InvestListItemWidget(investment, onClick = {})
+            }
         }
     }
+
 }
 
