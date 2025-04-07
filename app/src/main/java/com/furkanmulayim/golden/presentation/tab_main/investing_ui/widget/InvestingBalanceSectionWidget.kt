@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.core.component.others
+package com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -18,6 +18,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.furkanmulayim.golden.R
+import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
+import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.core.extensions.curencyFormat
 import com.furkanmulayim.golden.presentation.theme.AppSize
 import com.furkanmulayim.golden.presentation.theme.CustomTypo

@@ -13,13 +13,14 @@
     <string name="total_investing">Toplam Yatırımınız</string>
     <string name="do_invest_buy_now">AL</string>
     <string name="do_invest_change_now">SAT</string>
-    <string name="graphic">GRAFİK</string>
+    <string name="graphic">DETAY</string>
     <string name="change_rate">KURLAR</string>
 
     // Wallet-Page
-    <string name="wallet_add">EKLE</string>
-    <string name="wallet_delete">ÇIKAR</string>
-    <string name="my_cards">KARTLAR</string>
+    <string name="wallet_total_invest">GELİR</string>
+    <string name="wallet_total_outvest">GİDER</string>
+    <string name="wallet_total_detail">GRAFİK</string>
+    <string name="wallet_cards">KARTLAR</string>
 
     // Exchange-Rate-Page
     // Credit-Card-Page

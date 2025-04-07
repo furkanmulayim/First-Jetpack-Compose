@@ -10,9 +10,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.furkanmulayim.golden.core.component.InvestmentList
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
-import com.furkanmulayim.golden.core.component.others.InvestingBalanceSectionWidget
 import com.furkanmulayim.golden.presentation.tab_main.home_tab_ui.HomeViewModel
 import com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget.ButtonSectionWidget
+import com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget.InvestingBalanceSectionWidget
 import com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget.TickerBasicMarquee
 
 @Composable

@@ -80,6 +80,6 @@ fun GenderSelector(
 
         // SAĞDAKİ SETTINGS ICON
         CustomIconButton(
-            icon = R.drawable.svg_settings, onClick = {})
+            icon = R.drawable.svg_swap, onClick = {})
     }
 }

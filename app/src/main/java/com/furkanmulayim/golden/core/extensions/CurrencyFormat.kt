@@ -11,7 +11,7 @@ fun String.curencyFormat(): String {
     }
 
     val numberFormat = NumberFormat.getNumberInstance(Locale("tr", "TR")).apply {
-        minimumFractionDigits = 2
+        minimumFractionDigits = 0
         maximumFractionDigits = 2
     }
 
