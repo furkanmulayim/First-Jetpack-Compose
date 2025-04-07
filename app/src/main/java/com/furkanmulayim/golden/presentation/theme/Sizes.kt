@@ -32,7 +32,19 @@ object AppSize {
 
     //Item Image HEIGHT
     val ItemImage = 46.dp
+    val ItemMaxImage = 38.dp
     val ItemMadImage = 32.dp
     val ItemMiniImage = 16.dp
     val ItemSmallImage = 12.dp
+
+
+    val one_dp = 1.dp
+    val two_dp = 2.dp
+    val three_dp = 3.dp
+    val four_dp = 4.dp
+    val five_dp = 5.dp
+    val six_dp = 6.dp
+    val eight_dp = 8.dp
+    val nine_dp = 9.dp
+    val ten_dp = 10.dp
 }

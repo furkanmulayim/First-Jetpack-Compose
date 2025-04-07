@@ -17,8 +17,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.unit.dp
-import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
+import com.furkanmulayim.golden.R
+import com.furkanmulayim.golden.core.component.buttons.icon_button.CustomIconButton
 import com.furkanmulayim.golden.presentation.theme.AppSize
 import com.furkanmulayim.golden.presentation.theme.CustomTypo
 
@@ -26,42 +26,60 @@ import com.furkanmulayim.golden.presentation.theme.CustomTypo
 fun GenderSelector(
     selectedIndex: Int, onSelectionChanged: (Int) -> Unit
 ) {
-    val selectedColor = MaterialTheme.colorScheme.onSurface
-    val unSelectedColor = MaterialTheme.colorScheme.surface
+    val selectedColor = MaterialTheme.colorScheme.onSecondary
+    val unSelectedColor = MaterialTheme.colorScheme.secondary
 
-    var investText = "Yatırımlarım"
-    var walletText = "Cüzdanım"
+    val options = listOf("YATIRIMLARIM", "CÜZDANIM")
 
-    Column(
+    Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .padding(
+                top = AppSize.PaddingXLarge,
+                start = AppSize.PaddingLarge,
+                end = AppSize.PaddingLarge
+            )
+            .height(AppSize.ButtonHeight), verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(
-            if (selectedIndex == 0) investText else walletText,
-            style = CustomTypo.text.bodyLarge.copy(selectedColor)
-        )
+        // SOLDAKİ MENÜ ICON
+        CustomIconButton(
+            icon = R.drawable.svg_burger_menu, onClick = {})
 
-        Row(
-            modifier = Modifier
-                .padding(top = 4.dp)
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
+        // ORTADAKİ TEXT + INDICATOR
+        Box(
+            modifier = Modifier.weight(1f), contentAlignment = Alignment.Center
         ) {
-            listOf(0, 1).forEach { index ->
-                Box(
-                    modifier = Modifier
-                        .height(AppSize.PaddingXSmall)
-                        .width(AppSize.PaddingXLarge)
-                        .clip(RoundedCornerShape(50))
-                        .background(if (index == selectedIndex) selectedColor else unSelectedColor)
-                        .clickable { onSelectionChanged(index) })
-                if (index == 0) {
-                    CustomSpacerWidth(8)
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = if (selectedIndex == 0) options[0] else options[1],
+                    style = CustomTypo.text.headlineSmall.copy(selectedColor)
+                )
+
+                Row(
+                    modifier = Modifier.padding(top = AppSize.PaddingXSmall),
+                    horizontalArrangement = Arrangement.spacedBy(AppSize.PaddingSmall),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    (0..1).forEach { index ->
+                        Box(
+                            modifier = Modifier
+                                .height(AppSize.PaddingXSmall)
+                                .width(AppSize.ItemMaxImage)
+                                .clip(RoundedCornerShape(AppSize.ButtonHeight))
+                                .background(
+                                    if (index == selectedIndex) selectedColor
+                                    else unSelectedColor
+                                )
+                                .clickable { onSelectionChanged(index) })
+                    }
                 }
             }
         }
+
+        // SAĞDAKİ SETTINGS ICON
+        CustomIconButton(
+            icon = R.drawable.svg_swap, onClick = {})
     }
 }

@@ -4,20 +4,23 @@
     <string name="app_name">GOLDEN</string>
     <string name="my_investing">Yatırımlarım</string>
     <string name="my_wallet">Cüzdanım</string>
+    <string name="total_money">BAKİYE</string>
+    <string name="last_transaction">SON İŞLEMLER</string>
 
     // Investing-Page
     <string name="welcome">Hoşgeldiniz</string>
     <string name="day">12 Şubat Salı</string>
     <string name="total_investing">Toplam Yatırımınız</string>
-    <string name="do_invest_buy_now">Al</string>
-    <string name="do_invest_change_now">Sat</string>
-    <string name="change_rate">Canlı Kur</string>
+    <string name="do_invest_buy_now">AL</string>
+    <string name="do_invest_change_now">SAT</string>
+    <string name="graphic">DETAY</string>
+    <string name="change_rate">KURLAR</string>
 
     // Wallet-Page
-    <string name="wallet_add">Ekle</string>
-    <string name="wallet_delete">Çıkar</string>
-    <string name="my_cards">Kartlarım</string>
-    <string name="total_money">Toplam Bakiyeniz</string>
+    <string name="wallet_total_invest">GELİR</string>
+    <string name="wallet_total_outvest">GİDER</string>
+    <string name="wallet_total_detail">GRAFİK</string>
+    <string name="wallet_cards">KARTLAR</string>
 
     // Exchange-Rate-Page
     // Credit-Card-Page

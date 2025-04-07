@@ -22,38 +22,26 @@ surfaceContainerHighest surfaceContainerLow surfaceContainerLowest surfaceDim
 
 private val DarkColorScheme = darkColorScheme(
     primary = primaryDark,
-    onPrimary = Color.White,
-    onPrimaryContainer = linerDark,
-    onTertiary = onTertiaryDark,
-    inversePrimary = buyDark,
-    inverseSurface = soldDark,
-    primaryContainer = Color.White,
+    onPrimary = primaryLight,
     secondary = secondaryDark,
-    onSecondary = Color.White,
+    onSecondary = onSecondaryDark,
     tertiary = tertiaryDark,
-    tertiaryContainer = tertiaryContainerDark,
-    onTertiaryContainer = onTertiaryContainerDark,
-    surface = surfaceDark,
-    onSurface = onSurfaceDark,
-    onSecondaryContainer = onSecondaryContainerDark,
+    onTertiary = onTertiaryDark,
+    inverseSurface = soldDark,
+    scrim = scrimDark,
+    background = secondaryDark
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = primaryLight,
-    onPrimary = Color.White,
-    onPrimaryContainer = linerLight,
-    onTertiary = onTertiaryLight,
-    inversePrimary = buyLight,
-    inverseSurface = soldLight,
-    primaryContainer = primaryLight,
+    onPrimary = primaryDark,
     secondary = secondaryLight,
-    onSecondary = Color.White,
+    onSecondary = onSecondaryLight,
     tertiary = tertiaryLight,
-    tertiaryContainer = tertiaryContainerLight,
-    onTertiaryContainer = onTertiaryContainerLight,
-    surface = surfaceLight,
-    onSurface = onSurfaceLight,
-    onSecondaryContainer = tertiaryLight,
+    onTertiary = onTertiaryLight,
+    inverseSurface = soldLight,
+    scrim = scrimLight,
+    background = Color.White
 )
 
 @Composable

@@ -20,13 +20,13 @@ fun CustomIconButton(icon: Int, onClick: () -> Unit, size: Dp = AppSize.ButtonIc
     Box(
         Modifier
             .clip(RoundedCornerShape(AppSize.RadiusIcons))
-            .background(MaterialTheme.colorScheme.surface)
+            .background(MaterialTheme.colorScheme.secondary)
             .clickable { onClick() }
             .padding(AppSize.PaddingSmall),
     ) {
         Icon(
             painterResource(icon),
-            tint = MaterialTheme.colorScheme.primaryContainer,
+            tint = MaterialTheme.colorScheme.onSecondary,
             contentDescription = "menu",
             modifier = Modifier.size(size),
         )

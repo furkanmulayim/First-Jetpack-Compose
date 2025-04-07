@@ -10,7 +10,6 @@ import androidx.navigation.NavController
 import com.furkanmulayim.golden.presentation.tab_main.investing_ui.InvestingScreen
 import com.furkanmulayim.golden.presentation.tab_main.wallet_ui.WalletScreen
 import com.furkanmulayim.golden.presentation.tab_main.widgets.GenderSelector
-import com.furkanmulayim.golden.presentation.tab_main.widgets.TopBarWidget
 import kotlinx.coroutines.launch
 
 @Composable
@@ -20,11 +19,6 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
     val scope = rememberCoroutineScope()
 
     Column {
-        TopBarWidget(
-            "TODAY",
-            meOnClick = { /** todo Profile sayfasına gidecek */ },
-            settingOnClick = { /** todo Settings sayfasına gidecek */ },
-        )
 
         GenderSelector(
             selectedIndex = pagerState.currentPage, onSelectionChanged = { index ->

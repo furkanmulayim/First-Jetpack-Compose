@@ -1,27 +1,21 @@
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
-import com.furkanmulayim.golden.R
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun BackgroundImage() {
     val isDarkTheme = isSystemInDarkTheme()
 
-    val backgroundImage = if (isDarkTheme) {
-        painterResource(id = R.drawable.background_dark)
+    val backgroundColor = if (isDarkTheme) {
+        Color.Black
     } else {
-        painterResource(id = R.drawable.background_light)
+        Color.White
     }
 
-    Image(
-        painter = backgroundImage,
-        contentDescription = "Background Image",
-        contentScale = ContentScale.Crop, // Tam ekran kaplasın
-        modifier = Modifier
-            .fillMaxSize()
-    )
+    Column(
+        modifier = Modifier.background(backgroundColor)
+    ) {}
 }
