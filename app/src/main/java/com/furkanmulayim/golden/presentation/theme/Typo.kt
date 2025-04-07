@@ -1,6 +1,5 @@
 package com.furkanmulayim.golden.presentation.theme
 
-import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -20,41 +19,46 @@ val helveticaNeue = FontFamily(
     Font(R.font.h8, FontWeight.W200),
 )
 
-object CustomTypo {
+object Typo {
 
-    val miniLight = TextStyle(
+    val font_46_w800 = TextStyle(
+        fontFamily = helveticaNeue,
+        fontWeight = FontWeight.W800,
+        fontSize = 46.sp,
+    )
+
+    val font_19_w500 = TextStyle(
+        fontFamily = helveticaNeue,
+        fontWeight = FontWeight.W500,
+        fontSize = 19.sp,
+    )
+
+    val font_16_w500 = TextStyle(
         fontFamily = helveticaNeue,
         fontWeight = FontWeight.W500,
         fontSize = 16.sp,
     )
 
-    val miniBold = TextStyle(
-        fontFamily = helveticaNeue, fontWeight = FontWeight.Bold, fontSize = 11.sp
+    val font_15_w500 = TextStyle(
+        fontFamily = helveticaNeue,
+        fontWeight = FontWeight.W500,
+        fontSize = 15.sp,
     )
 
-    val text = Typography(
-        displayLarge = TextStyle(
-            fontFamily = helveticaNeue, fontWeight = FontWeight.Bold, fontSize = 45.sp
-        ),
-        headlineSmall = TextStyle(
-            fontFamily = helveticaNeue, fontWeight = FontWeight.Bold, fontSize = 15.sp
-        ),
-        bodyLarge = TextStyle(
-            fontFamily = helveticaNeue, fontWeight = FontWeight.Medium, fontSize = 19.sp
-        ),
-
-        bodyMedium = TextStyle(
-            fontFamily = helveticaNeue, fontWeight = FontWeight.Medium, fontSize = 16.sp
-        ),
-
-        bodySmall = TextStyle(
-            fontFamily = helveticaNeue, fontWeight = FontWeight.Bold, fontSize = 15.sp
-        ),
-        labelLarge = TextStyle(
-            fontFamily = helveticaNeue, fontWeight = FontWeight.SemiBold, fontSize = 13.sp
-        ),
-        labelMedium = TextStyle(
-            fontFamily = helveticaNeue, fontWeight = FontWeight.Medium, fontSize = 13.sp
-        )
+    val font_14_w500 = TextStyle(
+        fontFamily = helveticaNeue,
+        fontWeight = FontWeight.W500,
+        fontSize = 14.sp,
     )
+
+    val font_13_w500 = TextStyle(
+        fontFamily = helveticaNeue,
+        fontWeight = FontWeight.W500,
+        fontSize = 13.sp,
+    )
+
+    val font_11_w800 = TextStyle(
+        fontFamily = helveticaNeue, fontWeight = FontWeight.W800, fontSize = 11.sp
+    )
+
 }

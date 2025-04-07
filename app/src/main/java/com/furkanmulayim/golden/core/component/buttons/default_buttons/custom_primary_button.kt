@@ -20,7 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import com.furkanmulayim.golden.presentation.theme.AppSize.ButtonIconsHeight
 import com.furkanmulayim.golden.presentation.theme.AppSize.ButtonMediumIconsHeight
 import com.furkanmulayim.golden.presentation.theme.AppSize.PaddingXSmall
-import com.furkanmulayim.golden.presentation.theme.CustomTypo
+import com.furkanmulayim.golden.presentation.theme.Typo
 
 @Composable
 fun CustomPrimaryButton(
@@ -38,7 +38,7 @@ fun CustomPrimaryButton(
     ) {
         Text(
             text = text,
-            style = CustomTypo.text.labelLarge.copy(color = MaterialTheme.colorScheme.primary),
+            style = Typo.font_14_w500.copy(color = MaterialTheme.colorScheme.primary),
             textAlign = TextAlign.Center,
         )
         Icon(

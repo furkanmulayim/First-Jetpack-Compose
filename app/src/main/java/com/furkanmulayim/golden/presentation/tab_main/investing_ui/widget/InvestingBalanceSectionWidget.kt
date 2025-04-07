@@ -22,7 +22,7 @@ import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.core.extensions.curencyFormat
 import com.furkanmulayim.golden.presentation.theme.AppSize
-import com.furkanmulayim.golden.presentation.theme.CustomTypo
+import com.furkanmulayim.golden.presentation.theme.Typo
 import com.furkanmulayim.golden.presentation.theme.twins
 
 
@@ -44,7 +44,7 @@ fun InvestingBalanceSectionWidget(totalInvesting: String, isInvesting: Boolean) 
             // TEXT -> INVESTİNG
             Text(
                 text = totalWalletText,
-                style = CustomTypo.miniBold.copy(
+                style = Typo.font_11_w800.copy(
                     color = twins,
                     letterSpacing = 2.sp
                 )
@@ -54,12 +54,12 @@ fun InvestingBalanceSectionWidget(totalInvesting: String, isInvesting: Boolean) 
             Row {
                 val color = MaterialTheme.colorScheme.primary
                 Text(
-                    text = "₺", style = CustomTypo.text.displayLarge.copy(color = color)
+                    text = "₺", style = Typo.font_46_w800.copy(color = color)
                 )
                 CustomSpacerWidth(5)
                 Text(
                     text = totalInvesting.curencyFormat(),
-                    style = CustomTypo.text.displayLarge.copy(color)
+                    style = Typo.font_46_w800.copy(color)
                 )
             }
             Row(
@@ -68,10 +68,10 @@ fun InvestingBalanceSectionWidget(totalInvesting: String, isInvesting: Boolean) 
             ) {
                 val color = twins
                 Text(
-                    text = "+₺", style = CustomTypo.text.bodyLarge.copy(color = color)
+                    text = "+₺", style = Typo.font_19_w500.copy(color = color)
                 )
                 Text(
-                    text = "1612,32".curencyFormat(), style = CustomTypo.text.bodyLarge.copy(color)
+                    text = "1612,32".curencyFormat(), style = Typo.font_19_w500.copy(color)
                 )
 
                 CustomSpacerWidth(8)
@@ -84,11 +84,11 @@ fun InvestingBalanceSectionWidget(totalInvesting: String, isInvesting: Boolean) 
                 ) {
                     Row {
                         Text(
-                            text = "+", style = CustomTypo.text.bodyMedium.copy(colorGreenAndRed)
+                            text = "+", style = Typo.font_16_w500.copy(colorGreenAndRed)
                         )
                         Text(
                             text = "2.17%",
-                            style = CustomTypo.text.bodyMedium.copy(colorGreenAndRed)
+                            style = Typo.font_16_w500.copy(colorGreenAndRed)
                         )
                     }
 

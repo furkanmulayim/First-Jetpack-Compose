@@ -22,7 +22,7 @@ import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.models.InvestModel
 import com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget.InvestListItemWidget
 import com.furkanmulayim.golden.presentation.theme.AppSize
-import com.furkanmulayim.golden.presentation.theme.CustomTypo
+import com.furkanmulayim.golden.presentation.theme.Typo
 import com.furkanmulayim.golden.presentation.theme.twins
 
 
@@ -69,7 +69,7 @@ fun StateIsSuccess(list: List<InvestModel>) {
     ) {
         Text(
             text = headerText,
-            style = CustomTypo.miniBold.copy(
+            style = Typo.font_11_w800.copy(
                 color = twins, letterSpacing = 2.sp
             ),
         )

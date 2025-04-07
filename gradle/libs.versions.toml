@@ -13,7 +13,6 @@ compose-icons = "1.7.8"
 navigationRuntimeAndroid = "2.9.0-alpha09"
 navigation-compose = "2.8.9"
 uiTestAndroid = "1.7.8"
-compose = "1.5.0"
 
 
 [libraries]
