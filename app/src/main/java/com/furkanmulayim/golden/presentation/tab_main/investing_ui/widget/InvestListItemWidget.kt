@@ -26,7 +26,7 @@ import com.furkanmulayim.golden.models.InvestModel
 import com.furkanmulayim.golden.presentation.theme.AppSize
 import com.furkanmulayim.golden.presentation.theme.Typo
 import com.furkanmulayim.golden.presentation.theme.twins
-import com.furkanmulayim.golden.presentation.theme.twins_60
+import com.furkanmulayim.golden.presentation.theme.twins_75
 
 @Composable
 fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
@@ -50,8 +50,7 @@ fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
             contentDescription = "Investment Icon",
             modifier = Modifier.size(AppSize.ButtonHeight)
         )
-        CustomSpacerWidth(12)
-
+        CustomSpacerWidth(8)
         Column(modifier = Modifier.weight(1f)) {
             // NAME TEXT
             Text(
@@ -91,7 +90,7 @@ fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
         Image(
             painter = painterResource(R.drawable.svg_big_error),
             contentDescription = "Arrow Icon",
-            colorFilter = ColorFilter.tint(twins_60),
+            colorFilter = ColorFilter.tint(twins_75),
             modifier = Modifier.size(
                 height = AppSize.ItemMadImage, width = AppSize.ItemSmallImage
             )
