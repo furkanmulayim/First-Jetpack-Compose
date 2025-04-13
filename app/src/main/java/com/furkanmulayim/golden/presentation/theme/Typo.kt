@@ -27,10 +27,10 @@ object Typo {
         fontSize = 46.sp,
     )
 
-    val font_40_w800 = TextStyle(
+    val font_25_w800 = TextStyle(
         fontFamily = helveticaNeue,
         fontWeight = FontWeight.W800,
-        fontSize = 40.sp,
+        fontSize = 25.sp,
     )
 
     val font_19_w600 = TextStyle(

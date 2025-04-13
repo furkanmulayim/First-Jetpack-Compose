@@ -27,5 +27,7 @@ val twins_15 = Color(0x10858585)
 val soldLight = Color(0xFFD67070)
 val soldDark = Color(0xFFDD6A6A)
 
+val blued = Color(0xFF3F6EB5)
+
 val onTertiaryLight = Color(0xFF509F4E)
 val onTertiaryDark = Color(0xFF569B61)
