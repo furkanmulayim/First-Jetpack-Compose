@@ -24,15 +24,14 @@ import com.furkanmulayim.golden.core.extensions.curencyFormat
 import com.furkanmulayim.golden.core.extensions.getInvestNameToImage
 import com.furkanmulayim.golden.models.InvestModel
 import com.furkanmulayim.golden.presentation.theme.AppSize
-import com.furkanmulayim.golden.presentation.theme.CustomTypo
+import com.furkanmulayim.golden.presentation.theme.Typo
 import com.furkanmulayim.golden.presentation.theme.twins
-import com.furkanmulayim.golden.presentation.theme.twins_60
+import com.furkanmulayim.golden.presentation.theme.twins_75
 
 @Composable
 fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
 
     val colorScheme = MaterialTheme.colorScheme
-    val theme = CustomTypo.text
 
     val (statusColor, statusText) = if (investment.isBuyed) {
         colorScheme.onTertiary to "+"
@@ -51,12 +50,11 @@ fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
             contentDescription = "Investment Icon",
             modifier = Modifier.size(AppSize.ButtonHeight)
         )
-        CustomSpacerWidth(12)
-
+        CustomSpacerWidth(8)
         Column(modifier = Modifier.weight(1f)) {
             // NAME TEXT
             Text(
-                text = investment.name, style = theme.bodySmall.copy(colorScheme.scrim)
+                text = investment.name, style = Typo.font_15_w500.copy(colorScheme.scrim)
             )
             CustomSpacerHeight(6)
             //TOTAL TEXT
@@ -64,12 +62,12 @@ fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
             Row {
                 Text(
                     text = "${investment.currentPrice.curencyFormat()}₺",
-                    style = theme.labelMedium.copy(twins)
+                    style = Typo.font_13_w500.copy(twins)
                 )
                 CustomSpacerWidth(4)
                 Text( // todo hardoce olarak yazıldı değiştirilecek
                     text = "$statusText${0.18}%",
-                    style = theme.labelMedium.copy(statusColor)
+                    style = Typo.font_13_w500.copy(statusColor)
                 )
             }
         }
@@ -77,13 +75,13 @@ fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
         Column(horizontalAlignment = Alignment.End) {
             Text(
                 text = "$statusText${investment.count} Adet",
-                style = theme.bodySmall.copy(statusColor)
+                style = Typo.font_15_w500.copy(statusColor)
             )
 
             CustomSpacerHeight(6)
             Text(
                 text = "~${investment.totalPrice.curencyFormat()}₺",
-                style = theme.labelMedium.copy(twins)
+                style = Typo.font_13_w500.copy(twins)
             )
         }
         CustomSpacerWidth(18)
@@ -92,7 +90,7 @@ fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
         Image(
             painter = painterResource(R.drawable.svg_big_error),
             contentDescription = "Arrow Icon",
-            colorFilter = ColorFilter.tint(twins_60),
+            colorFilter = ColorFilter.tint(twins_75),
             modifier = Modifier.size(
                 height = AppSize.ItemMadImage, width = AppSize.ItemSmallImage
             )

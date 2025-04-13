@@ -19,7 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
-import com.furkanmulayim.golden.presentation.theme.CustomTypo
+import com.furkanmulayim.golden.presentation.theme.Typo
 import com.furkanmulayim.golden.presentation.theme.textTwins
 
 @Composable
@@ -43,12 +43,12 @@ fun StatCard(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = value, color = valueColor, style = CustomTypo.text.labelMedium
+                text = value, color = valueColor, style = Typo.font_13_w500
             )
             CustomSpacerHeight(4)
             Text(
                 text = label,
-                style = CustomTypo.text.labelMedium,
+                style = Typo.font_13_w500,
                 textAlign = TextAlign.Left,
                 color = textTwins
             )

@@ -74,4 +74,6 @@ dependencies {
     implementation(libs.androidx.foundation)
     implementation(platform(libs.androidx.compose.bom))
 
+    // List Picker (Wheel Picker)
+    implementation(libs.compose.wheel.picker)
 }

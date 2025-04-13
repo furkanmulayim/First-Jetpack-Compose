@@ -20,12 +20,14 @@ val tertiaryDark = Color(0xFF375736)
 
 val twins = Color(0xFF6E6E6E)
 val textTwins = Color(0xFF5B5B5B)
-val twins_60 = Color(0x756E6E6E)
+val twins_75 = Color(0x756E6E6E)
+val twins_40 = Color(0x406E6E6E)
 val twins_15 = Color(0x10858585)
 
 val soldLight = Color(0xFFD67070)
 val soldDark = Color(0xFFDD6A6A)
 
+val blued = Color(0xFF3F6EB5)
+
 val onTertiaryLight = Color(0xFF509F4E)
 val onTertiaryDark = Color(0xFF569B61)
-

@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.presentation.theme.AppSize
-import com.furkanmulayim.golden.presentation.theme.CustomTypo
+import com.furkanmulayim.golden.presentation.theme.Typo
 
 @Composable
 fun CustomSecondaryButton(
@@ -38,7 +38,7 @@ fun CustomSecondaryButton(
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = text, style = CustomTypo.miniBold.copy(color = Color.White)
+                text = text, style = Typo.font_11_w800.copy(color = Color.White)
             )
 
             if (iconRes != null) {

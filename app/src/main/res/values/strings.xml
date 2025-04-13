@@ -22,6 +22,10 @@
     <string name="wallet_total_detail">GRAFİK</string>
     <string name="wallet_cards">KARTLAR</string>
 
+    // Currency-Swap-Page
+    <string name="swap_header">Exchange</string>
+    <string name="swap_exchange_rate">Döviz Kuru</string>
+
     // Exchange-Rate-Page
     // Credit-Card-Page
     // Profile-Page

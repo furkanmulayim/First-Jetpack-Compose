@@ -15,7 +15,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.furkanmulayim.golden.presentation.theme.AppSize
-import com.furkanmulayim.golden.presentation.theme.CustomTypo
+import com.furkanmulayim.golden.presentation.theme.Typo
 
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -55,7 +55,7 @@ fun TickerBasicMarquee() {
                 spacing = MarqueeSpacing.fractionOfContainer(0f),
                 velocity = 35.dp
             ),
-        style = CustomTypo.miniLight.copy(MaterialTheme.colorScheme.scrim)
+        style = Typo.font_16_w500.copy(MaterialTheme.colorScheme.scrim)
     )
 }
 
