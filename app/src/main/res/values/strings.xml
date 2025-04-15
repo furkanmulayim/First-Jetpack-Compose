@@ -20,11 +20,17 @@
     <string name="wallet_total_invest">GELİR</string>
     <string name="wallet_total_outvest">GİDER</string>
     <string name="wallet_total_detail">GRAFİK</string>
-    <string name="wallet_cards">KARTLAR</string>
+    <string name="wallet_cards">IBANLAR</string>
 
     // Currency-Swap-Page
     <string name="swap_header">Exchange</string>
     <string name="swap_exchange_rate">Döviz Kuru</string>
+
+    // IBAN PAGE
+    <string name="iban_label">IBAN Numarası</string>
+    <string name="iban_header">IBAN Numarası Ekle</string>
+    <string name="iban_hint">XXXX XXXX XXXX XXXX XXXX XXXX</string>
+
 
     // Exchange-Rate-Page
     // Credit-Card-Page

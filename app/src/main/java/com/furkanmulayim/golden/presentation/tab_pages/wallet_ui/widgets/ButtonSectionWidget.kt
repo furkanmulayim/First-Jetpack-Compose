@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.tab_main.wallet_ui.widgets
+package com.furkanmulayim.golden.presentation.tab_pages.wallet_ui.widgets
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -11,6 +11,7 @@ import androidx.navigation.NavController
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.buttons.default_buttons.CustomPrimaryButton
 import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
+import com.furkanmulayim.golden.navigation.AppScreens
 import com.furkanmulayim.golden.presentation.theme.AppSize
 
 @Composable
@@ -52,11 +53,14 @@ fun ButtonSectionWidget(
 
         CustomSpacerWidth(4)
 
-        // BUTTON -> LIVE
+        // BUTTON -> IBANS
         CustomPrimaryButton(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.wallet_cards),
             iconRes = R.drawable.svg_card,
-            onClick = {})
+            onClick = {
+                print("BASILDIU")
+                navController.navigate(AppScreens.IbanScreen.route)
+            })
     }
 }

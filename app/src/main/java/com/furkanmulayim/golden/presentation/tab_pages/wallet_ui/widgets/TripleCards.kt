@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.tab_main.wallet_ui.widgets
+package com.furkanmulayim.golden.presentation.tab_pages.wallet_ui.widgets
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.tab_main.widgets
+package com.furkanmulayim.golden.presentation.rate_page
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -44,10 +44,10 @@ import com.furkanmulayim.golden.presentation.theme.twins_15
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ShowSettingsBottomSheet(
+fun CurrentRateScreen(
     showBottomSheet: Boolean, onDismiss: () -> Unit
 ) {
-    if (true) {
+    if (showBottomSheet) {
         var fromCurrency = remember { mutableStateOf("EUR") }
         var toCurrency = remember { mutableStateOf("USD") }
 

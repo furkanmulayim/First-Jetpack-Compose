@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.tab_main.investing_ui
+package com.furkanmulayim.golden.presentation.tab_pages.investing_ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,10 +10,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.furkanmulayim.golden.core.component.InvestmentList
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
-import com.furkanmulayim.golden.presentation.tab_main.home_tab_ui.HomeViewModel
-import com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget.ButtonSectionWidget
-import com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget.InvestingBalanceSectionWidget
-import com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget.TickerBasicMarquee
+import com.furkanmulayim.golden.presentation.tab_pages.home_tab_ui.HomeViewModel
+import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.widget.ButtonSectionWidget
+import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.widget.InvestingBalanceSectionWidget
+import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.widget.TickerBasicMarquee
 
 @Composable
 fun InvestingScreen(

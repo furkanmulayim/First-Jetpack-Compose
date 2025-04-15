@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.tab_main.wallet_ui
+package com.furkanmulayim.golden.presentation.tab_pages.wallet_ui
 
 import androidx.lifecycle.ViewModel
 import com.furkanmulayim.golden.data.repository.InvestRepository

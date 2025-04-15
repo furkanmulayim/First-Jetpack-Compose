@@ -1,21 +1,16 @@
-package com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget
+package com.furkanmulayim.golden.presentation.tab_pages.wallet_ui.widgets
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
@@ -61,39 +56,6 @@ fun InvestingBalanceSectionWidget(totalInvesting: String, isInvesting: Boolean) 
                     text = totalInvesting.curencyFormat(),
                     style = Typo.font_46_w800.copy(color)
                 )
-            }
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
-            ) {
-                val color = twins
-                Text(
-                    text = "+₺", style = Typo.font_19_w500.copy(color = color)
-                )
-                Text(
-                    text = "1612,32".curencyFormat(), style = Typo.font_19_w500.copy(color)
-                )
-
-                CustomSpacerWidth(8)
-                val colorGreenAndRed = MaterialTheme.colorScheme.onTertiary
-                Box(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(AppSize.RadiusIcons))
-                        .background(color = MaterialTheme.colorScheme.tertiary)
-                        .padding(vertical = 6.dp, horizontal = 8.dp)
-                ) {
-                    Row {
-                        Text(
-                            text = "+", style = Typo.font_16_w500.copy(colorGreenAndRed)
-                        )
-                        Text(
-                            text = "2.17%",
-                            style = Typo.font_16_w500.copy(colorGreenAndRed)
-                        )
-                    }
-
-                }
-
             }
         }
     }
