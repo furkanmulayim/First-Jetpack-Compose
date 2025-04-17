@@ -9,16 +9,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.furkanmulayim.golden.core.component.InvestmentList
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.core.component.others.LocalAppNavController
+import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.widget.InvestmentList
 import com.furkanmulayim.golden.presentation.tab_pages.wallet_ui.widgets.ButtonSectionWidget
 import com.furkanmulayim.golden.presentation.tab_pages.wallet_ui.widgets.InvestingBalanceSectionWidget
 import com.furkanmulayim.golden.presentation.tab_pages.wallet_ui.widgets.TripleCards
 
 @Composable
 fun WalletScreen(
-    navController: NavController, viewModel: InvestingViewModel = viewModel()
+    navController: NavController, viewModel: WalletViewModel = viewModel()
 ) {
     CompositionLocalProvider(LocalAppNavController provides navController) {
         WalletContent(
@@ -30,7 +30,7 @@ fun WalletScreen(
 
 @Composable
 private fun WalletContent(
-    navController: NavController, viewModel: InvestingViewModel
+    navController: NavController, viewModel: WalletViewModel
 ) {
     val investmentList by viewModel.investmentList.collectAsState()
     val investmentBalance by viewModel.investingBalance.collectAsState()

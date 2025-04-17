@@ -8,11 +8,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.furkanmulayim.golden.core.component.InvestmentList
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.presentation.tab_pages.home_tab_ui.HomeViewModel
 import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.widget.ButtonSectionWidget
 import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.widget.InvestingBalanceSectionWidget
+import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.widget.InvestmentList
 import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.widget.TickerBasicMarquee
 
 @Composable
