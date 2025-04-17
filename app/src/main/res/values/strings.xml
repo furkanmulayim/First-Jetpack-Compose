@@ -1,4 +1,5 @@
 <resources>
+    <string name="yolo_test">yolo</string>
 
     // General
     <string name="app_name">GOLDEN</string>
