@@ -29,7 +29,8 @@ private val DarkColorScheme = darkColorScheme(
     onTertiary = onTertiaryDark,
     inverseSurface = soldDark,
     scrim = scrimDark,
-    background = secondaryDark
+    background = secondaryDark,
+    onSecondaryContainer = onSecondaryContainerDark,
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -41,7 +42,8 @@ private val LightColorScheme = lightColorScheme(
     onTertiary = onTertiaryLight,
     inverseSurface = soldLight,
     scrim = scrimLight,
-    background = Color.White
+    background = Color.White,
+    onSecondaryContainer = onSecondaryContainerLight,
 )
 
 @Composable

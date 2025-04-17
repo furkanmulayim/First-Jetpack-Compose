@@ -59,7 +59,7 @@ private fun IbanContent(navController: NavController) {
             )
 
             CustomIconTextButton(
-                icon = R.drawable.svg_settings,
+                icon = R.drawable.svg_iban_tick,
                 onClick = { showDialog = true },
                 text = "IBAN Ekle",
                 isRightIcon = true

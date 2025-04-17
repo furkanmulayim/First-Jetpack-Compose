@@ -14,7 +14,7 @@ import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.InvestingScr
 @Composable
 fun AppNavigation(navController: NavHostController) {
     NavHost(
-        navController = navController, startDestination = AppScreens.IbanScreen.route
+        navController = navController, startDestination = AppScreens.HomeScreen.route
     ) {
         composable(AppScreens.HomeScreen.route) {
             HomeScreen(navController)
