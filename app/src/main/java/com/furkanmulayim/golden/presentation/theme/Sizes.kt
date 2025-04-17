@@ -31,7 +31,7 @@ object AppSize {
     val ButtonHeight = 56.dp
 
     //Item Image HEIGHT
-    val ItemImage = 46.dp
+    val ItemImage = 250.dp
     val ItemMaxImage = 38.dp
     val ItemMadImage = 32.dp
     val ItemMiniImage = 16.dp

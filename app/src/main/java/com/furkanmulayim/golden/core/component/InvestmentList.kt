@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.models.InvestModel
-import com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget.InvestListItemWidget
+import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.widget.InvestListItemWidget
 import com.furkanmulayim.golden.presentation.theme.AppSize
 import com.furkanmulayim.golden.presentation.theme.Typo
 import com.furkanmulayim.golden.presentation.theme.twins

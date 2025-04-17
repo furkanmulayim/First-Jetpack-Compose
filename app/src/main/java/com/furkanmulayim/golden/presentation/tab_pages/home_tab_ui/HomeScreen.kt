@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.tab_main.home_tab_ui
+package com.furkanmulayim.golden.presentation.tab_pages.home_tab_ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.pager.HorizontalPager
@@ -7,9 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.furkanmulayim.golden.presentation.tab_main.investing_ui.InvestingScreen
-import com.furkanmulayim.golden.presentation.tab_main.wallet_ui.WalletScreen
-import com.furkanmulayim.golden.presentation.tab_main.widgets.GenderSelector
+import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.InvestingScreen
+import com.furkanmulayim.golden.presentation.tab_pages.wallet_ui.WalletScreen
+import com.furkanmulayim.golden.presentation.tab_pages.widgets.GenderSelector
 import kotlinx.coroutines.launch
 
 @Composable

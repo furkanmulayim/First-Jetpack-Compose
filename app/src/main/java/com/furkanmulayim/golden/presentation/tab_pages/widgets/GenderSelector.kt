@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.tab_main.widgets
+package com.furkanmulayim.golden.presentation.tab_pages.widgets
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.buttons.icon_button.CustomIconButton
+import com.furkanmulayim.golden.presentation.rate_page.CurrentRateScreen
 import com.furkanmulayim.golden.presentation.theme.AppSize
 import com.furkanmulayim.golden.presentation.theme.Typo
 import kotlinx.coroutines.launch
@@ -35,11 +36,12 @@ fun GenderSelector(
     selectedIndex: Int, onSelectionChanged: (Int) -> Unit
 ) {
 
-    var showBottomSheet by remember { mutableStateOf(false) }
+    var showCurrencSwapBottomSheet by remember { mutableStateOf(false) }
     val coroutineScope = rememberCoroutineScope()
 
-    ShowSettingsBottomSheet(
-        showBottomSheet = showBottomSheet, onDismiss = { showBottomSheet = false })
+    CurrentRateScreen(
+        showBottomSheet = showCurrencSwapBottomSheet,
+        onDismiss = { showCurrencSwapBottomSheet = false })
 
     val selectedColor = MaterialTheme.colorScheme.onSecondary
     val unSelectedColor = MaterialTheme.colorScheme.secondary
@@ -97,7 +99,7 @@ fun GenderSelector(
         CustomIconButton(
             icon = R.drawable.svg_swap, onClick = {
                 coroutineScope.launch {
-                    showBottomSheet = true
+                    showCurrencSwapBottomSheet = true
                 }
             })
     }

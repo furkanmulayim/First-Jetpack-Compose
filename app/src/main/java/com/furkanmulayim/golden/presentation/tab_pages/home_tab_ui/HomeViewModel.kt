@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.tab_main.home_tab_ui
+package com.furkanmulayim.golden.presentation.tab_pages.home_tab_ui
 
 import androidx.lifecycle.ViewModel
 import com.furkanmulayim.golden.data.repository.InvestRepository

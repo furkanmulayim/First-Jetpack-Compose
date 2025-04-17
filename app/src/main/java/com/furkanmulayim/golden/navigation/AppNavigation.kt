@@ -5,37 +5,27 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.furkanmulayim.golden.presentation.tab_main.home_tab_ui.HomeScreen
-import com.furkanmulayim.golden.presentation.tab_main.investing_ui.InvestingScreen
+import com.furkanmulayim.golden.presentation.iban_page.IbanScreen
+import com.furkanmulayim.golden.presentation.tab_pages.home_tab_ui.HomeScreen
+import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.InvestingScreen
 
+// AppNavigation.kt
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun AppNavigation(navController: NavHostController) {
     NavHost(
         navController = navController, startDestination = AppScreens.HomeScreen.route
     ) {
-        composable(
-            AppScreens.HomeScreen.route,
-            //Home Screen'e dönüşte çalışıyor.
-//            enterTransition = {
-//                slideInHorizontally(
-//                    initialOffsetX = { -1000 }, animationSpec = tween(400)
-//                )
-//
-//            },
-            /**Home Screen'den giderken çalışıyor. */
-//            exitTransition = {
-//                slideOutHorizontally(
-//                    targetOffsetX = { -1000 }, animationSpec = tween(400)
-//                )
-//            },
-        ) {
+        composable(AppScreens.HomeScreen.route) {
             HomeScreen(navController)
         }
-        composable(
-            "investing/{beforeScreen}",
-        ) { backStackEntry ->
+
+        composable(AppScreens.InvestingScreen.route) {
             InvestingScreen(navController)
+        }
+
+        composable(AppScreens.IbanScreen.route) {
+            IbanScreen(navController)
         }
     }
 }

@@ -32,7 +32,7 @@ fun CustomPrimaryButton(
             .aspectRatio(0.6f)
             .clip(RoundedCornerShape(ButtonIconsHeight))
             .background(MaterialTheme.colorScheme.secondary)
-            .clickable { onClick },
+            .clickable { onClick() },
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {

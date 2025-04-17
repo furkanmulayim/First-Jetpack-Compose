@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.presentation.tab_main.investing_ui.widget
+package com.furkanmulayim.golden.presentation.tab_pages.investing_ui.widget
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
