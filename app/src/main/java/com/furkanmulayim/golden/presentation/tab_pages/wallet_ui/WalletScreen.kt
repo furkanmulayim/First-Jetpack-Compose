@@ -11,10 +11,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.core.component.others.LocalAppNavController
-import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.widget.InvestmentList
 import com.furkanmulayim.golden.presentation.tab_pages.wallet_ui.widgets.ButtonSectionWidget
-import com.furkanmulayim.golden.presentation.tab_pages.wallet_ui.widgets.InvestingBalanceSectionWidget
 import com.furkanmulayim.golden.presentation.tab_pages.wallet_ui.widgets.TripleCards
+import com.furkanmulayim.golden.presentation.tab_pages.wallet_ui.widgets.WalletBalanceSectionWidget
+import com.furkanmulayim.golden.presentation.tab_pages.wallet_ui.widgets.WalletList
 
 @Composable
 fun WalletScreen(
@@ -39,13 +39,13 @@ private fun WalletContent(
         modifier = Modifier
             .fillMaxSize()
     ) {
-        InvestingBalanceSectionWidget(totalInvesting = investmentBalance, isInvesting = false)
+        WalletBalanceSectionWidget(totalInvesting = investmentBalance, isInvesting = false)
         CustomSpacerHeight(12)
         TripleCards(invest = "212.175", outvest = "97.698")
         CustomSpacerHeight(12)
         ButtonSectionWidget(navController = navController)
         // todo BURAYA ARAMA CUBUĞU KOYULACAK
-        InvestmentList(investmentList)
+        WalletList(investmentList)
     }
 
 }

@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -25,7 +26,7 @@ fun CustomIconTextButton(
     Row(
         Modifier
             .clip(RoundedCornerShape(AppSize.RadiusIcons))
-            .background(MaterialTheme.colorScheme.secondary)
+            .background(colorScheme.secondary)
             .clickable { onClick() }
             .padding(AppSize.PaddingSmall),
         horizontalArrangement = Arrangement.Center,
@@ -37,7 +38,7 @@ fun CustomIconTextButton(
             CustomSpacerWidth(4)
             Icon(
                 painterResource(icon),
-                tint = MaterialTheme.colorScheme.onSecondary,
+                tint = colorScheme.onSecondary,
                 contentDescription = "menu",
                 modifier = Modifier.size(AppSize.ButtonIconsHeight),
             )
@@ -46,7 +47,7 @@ fun CustomIconTextButton(
             CustomSpacerWidth(4)
             Icon(
                 painterResource(icon),
-                tint = MaterialTheme.colorScheme.onSecondary,
+                tint = colorScheme.onSecondary,
                 contentDescription = "menu",
                 modifier = Modifier.size(AppSize.ButtonIconsHeight),
             )

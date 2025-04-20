@@ -38,6 +38,7 @@ object AppSize {
     val ItemSmallImage = 12.dp
 
 
+    val zero_dp = 0.dp
     val one_dp = 1.dp
     val two_dp = 2.dp
     val three_dp = 3.dp

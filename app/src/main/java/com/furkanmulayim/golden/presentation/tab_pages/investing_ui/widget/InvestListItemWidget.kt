@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,8 +30,6 @@ import com.furkanmulayim.golden.presentation.theme.twins_75
 
 @Composable
 fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
-
-    val colorScheme = MaterialTheme.colorScheme
 
     val (statusColor, statusText) = if (investment.isBuyed) {
         colorScheme.onTertiary to "+"

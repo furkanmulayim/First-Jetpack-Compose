@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.sp
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.golden.models.InvestModel
-import com.furkanmulayim.golden.presentation.tab_pages.investing_ui.widget.InvestListItemWidget
 import com.furkanmulayim.golden.presentation.theme.AppSize
 import com.furkanmulayim.golden.presentation.theme.Typo
 import com.furkanmulayim.golden.presentation.theme.twins
@@ -28,7 +27,7 @@ import com.furkanmulayim.golden.presentation.theme.twins
 
 //LİST SECTION
 @Composable
-fun InvestmentList(list: List<InvestModel>?) {
+fun WalletList(list: List<InvestModel>?) {
     CustomSpacerHeight(12)
     when {
         list == null -> StateIsLoading()
@@ -81,7 +80,7 @@ fun StateIsSuccess(list: List<InvestModel>) {
                 .clip(RoundedCornerShape(AppSize.RadiusButtons))
         ) {
             items(list) { investment ->
-                InvestListItemWidget(investment, onClick = {})
+                WalletListItemWidget(investment, onClick = {})
             }
         }
     }

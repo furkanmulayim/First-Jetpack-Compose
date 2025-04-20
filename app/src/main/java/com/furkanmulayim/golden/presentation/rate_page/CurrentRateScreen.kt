@@ -17,6 +17,7 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -40,7 +41,7 @@ import com.furkanmulayim.golden.core.component.others.CustomSpacerWidth
 import com.furkanmulayim.golden.presentation.theme.AppSize
 import com.furkanmulayim.golden.presentation.theme.Typo
 import com.furkanmulayim.golden.presentation.theme.blued
-import com.furkanmulayim.golden.presentation.theme.twins_15
+import com.furkanmulayim.golden.presentation.theme.twins_10
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -91,11 +92,11 @@ fun HeaderAndCalculus(
     toCurrency: MutableState<String>
 ) {
 
-    val primColor = MaterialTheme.colorScheme.primary
+    val primColor = colorScheme.primary
     Row(
         modifier = Modifier
             .background(
-                color = twins_15, shape = MaterialTheme.shapes.medium
+                color = twins_10, shape = MaterialTheme.shapes.medium
             )
             .padding(horizontal = 12.dp, vertical = 6.dp)
             .fillMaxWidth(),
@@ -149,7 +150,7 @@ fun CurrencyUnitsRow(
         } else {
             Text(
                 text = amount.value,
-                style = Typo.font_25_w800.copy(MaterialTheme.colorScheme.primary)
+                style = Typo.font_25_w800.copy(colorScheme.primary)
             )
         }
         CurrencyPicker(
@@ -174,7 +175,7 @@ fun PlainNumberInput(
         },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         singleLine = true,
-        textStyle = Typo.font_25_w800.copy(MaterialTheme.colorScheme.primary)
+        textStyle = Typo.font_25_w800.copy(colorScheme.primary)
 
     )
 }
