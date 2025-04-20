@@ -6,7 +6,7 @@ import com.furkanmulayim.golden.models.InvestModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class InvestingViewModel : ViewModel() {
+class WalletViewModel : ViewModel() {
 
     private val _investingBalance = MutableStateFlow<String>("")
     val investingBalance: MutableStateFlow<String> = _investingBalance

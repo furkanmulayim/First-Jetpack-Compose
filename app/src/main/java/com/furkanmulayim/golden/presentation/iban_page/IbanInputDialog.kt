@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -45,9 +45,10 @@ fun IbanInputDialog(
     val maxLength = 24
     val isSuccess = rawIban.length == maxLength && nameIban.isNotEmpty()
 
+
     Dialog(onDismissRequest = { onDismiss() }) {
         Surface(
-            shape = RoundedCornerShape(16.dp), color = MaterialTheme.colorScheme.background
+            shape = RoundedCornerShape(16.dp), color = colorScheme.background
         ) {
             Column(
                 modifier = Modifier
@@ -76,13 +77,13 @@ fun IbanInputDialog(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clip(shape = RoundedCornerShape(AppSize.RadiusMedium))
-                            .background(color = if (isSuccess) MaterialTheme.colorScheme.onSecondaryContainer else twins_40),
+                            .background(color = if (isSuccess) colorScheme.onSecondaryContainer else twins_40),
                         onClick = { onSave(rawIban) },
                         enabled = isSuccess
                     ) {
                         Text(
                             "Kaydet",
-                            color = if (isSuccess) MaterialTheme.colorScheme.secondary else Color.Gray
+                            color = if (isSuccess) colorScheme.secondary else Color.Gray
                         )
                     }
                 }
@@ -99,7 +100,7 @@ private fun BasicTextFieldCustom(
         value = value,
         singleLine = true,
 
-        textStyle = Typo.font_16_w500.copy(color = MaterialTheme.colorScheme.onSecondaryContainer),
+        textStyle = Typo.font_16_w500.copy(color = colorScheme.onSecondaryContainer),
         onValueChange = {
             if (isIban) {
                 val digits = it.filter { ch -> ch.isDigit() }.take(24)

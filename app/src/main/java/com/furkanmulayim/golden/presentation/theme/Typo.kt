@@ -33,6 +33,7 @@ object Typo {
         fontSize = 25.sp,
     )
 
+
     val font_19_w600 = TextStyle(
         fontFamily = helveticaNeue,
         fontWeight = FontWeight.W600,

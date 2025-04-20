@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,9 +30,9 @@ fun StatCard(
         modifier = Modifier
             .width(110.dp)
             .height(50.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background),
+        colors = CardDefaults.cardColors(containerColor = colorScheme.background),
         shape = RoundedCornerShape(12.dp),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.secondary),
+        border = BorderStroke(1.dp, colorScheme.secondary),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
         Column(

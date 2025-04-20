@@ -31,6 +31,8 @@ private val DarkColorScheme = darkColorScheme(
     scrim = scrimDark,
     background = secondaryDark,
     onSecondaryContainer = onSecondaryContainerDark,
+    surface = surfaceDark,
+    onSurface = onSurfaceDark
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -44,6 +46,8 @@ private val LightColorScheme = lightColorScheme(
     scrim = scrimLight,
     background = Color.White,
     onSecondaryContainer = onSecondaryContainerLight,
+    surface = surfaceLight,
+    onSurface = onSurfaceLight
 )
 
 @Composable

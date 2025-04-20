@@ -31,8 +31,8 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
             state = pagerState
         ) { page ->
             when (page) {
-                0 -> InvestingScreen(navController = navController)
-                1 -> WalletScreen(navController = navController)
+                1 -> InvestingScreen(navController = navController)
+                0 -> WalletScreen(navController = navController)
             }
         }
     }

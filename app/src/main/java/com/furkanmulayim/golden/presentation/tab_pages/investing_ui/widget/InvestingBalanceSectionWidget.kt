@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -52,7 +52,7 @@ fun InvestingBalanceSectionWidget(totalInvesting: String, isInvesting: Boolean) 
             CustomSpacerHeight(12)
             // TEXT -> MONEY
             Row {
-                val color = MaterialTheme.colorScheme.primary
+                val color = colorScheme.primary
                 Text(
                     text = "₺", style = Typo.font_46_w800.copy(color = color)
                 )
@@ -75,11 +75,11 @@ fun InvestingBalanceSectionWidget(totalInvesting: String, isInvesting: Boolean) 
                 )
 
                 CustomSpacerWidth(8)
-                val colorGreenAndRed = MaterialTheme.colorScheme.onTertiary
+                val colorGreenAndRed = colorScheme.onTertiary
                 Box(
                     modifier = Modifier
                         .clip(RoundedCornerShape(AppSize.RadiusIcons))
-                        .background(color = MaterialTheme.colorScheme.tertiary)
+                        .background(color = colorScheme.tertiary)
                         .padding(vertical = 6.dp, horizontal = 8.dp)
                 ) {
                     Row {

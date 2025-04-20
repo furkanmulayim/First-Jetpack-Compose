@@ -6,7 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.basicMarquee
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -23,23 +23,23 @@ import com.furkanmulayim.golden.presentation.theme.Typo
 fun TickerBasicMarquee() {
     val text = buildAnnotatedString {
         append("USD ")
-        withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.onTertiary)) {
+        withStyle(style = SpanStyle(color = colorScheme.onTertiary)) {
             append("38.76₺")
         }
         append("  |  EUR ")
-        withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.inverseSurface)) {
+        withStyle(style = SpanStyle(color = colorScheme.inverseSurface)) {
             append("43.29₺")
         }
         append("  |  Ons Altın ")
-        withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.onTertiary)) {
+        withStyle(style = SpanStyle(color = colorScheme.onTertiary)) {
             append("112.800$")
         }
         append("  |  Gram Altın ₂₂ ")
-        withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.inverseSurface)) {
+        withStyle(style = SpanStyle(color = colorScheme.inverseSurface)) {
             append("3.712₺")
         }
         append("  |  Gram Altın ₂₄ ")
-        withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.onTertiary)) {
+        withStyle(style = SpanStyle(color = colorScheme.onTertiary)) {
             append("3.912₺")
         }
         append("  | ")
@@ -47,7 +47,7 @@ fun TickerBasicMarquee() {
     Text(
         text = text,
         modifier = Modifier
-            .background(MaterialTheme.colorScheme.secondary)
+            .background(colorScheme.secondary)
             .padding(vertical = AppSize.PaddingSmall)
             .fillMaxWidth()
             .basicMarquee(
@@ -55,7 +55,7 @@ fun TickerBasicMarquee() {
                 spacing = MarqueeSpacing.fractionOfContainer(0f),
                 velocity = 35.dp
             ),
-        style = Typo.font_16_w500.copy(MaterialTheme.colorScheme.scrim)
+        style = Typo.font_16_w500.copy(colorScheme.scrim)
     )
 }
 
