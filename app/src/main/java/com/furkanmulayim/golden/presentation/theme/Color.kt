@@ -3,13 +3,13 @@ package com.furkanmulayim.golden.presentation.theme
 import androidx.compose.ui.graphics.Color
 
 // PRIMARY
-val primaryLight = Color(0xFF0E0E0E)
+val primaryLight = Color(0xFF1D1B20)
 val primaryDark = Color(0xFFFFFFFF)
 
 val secondaryLight = Color(0xFFF6F6F6)
-val secondaryDark = Color(0xFF161616)
+val secondaryDark = Color(0xFF1D1B20)
 
-val onSecondaryContainerLight = Color(0xFF161616)
+val onSecondaryContainerLight = Color(0xFF1D1B20)
 val onSecondaryContainerDark = Color(0xFFF6F6F6)
 
 val onSecondaryLight = Color(0xFF4B4B4B)

@@ -53,13 +53,13 @@ private fun IbanContent(navController: NavController) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             CustomIconTextButton(
-                icon = R.drawable.svg_arrow_left, onClick = {
+                icon = R.drawable.svg_icon_arrow_left, onClick = {
                     navController.popBackStack()
                 }, text = "Geri"
             )
 
             CustomIconTextButton(
-                icon = R.drawable.svg_iban_tick,
+                icon = R.drawable.svg_square_icon_tick,
                 onClick = { showDialog = true },
                 text = "IBAN Ekle",
                 isRightIcon = true

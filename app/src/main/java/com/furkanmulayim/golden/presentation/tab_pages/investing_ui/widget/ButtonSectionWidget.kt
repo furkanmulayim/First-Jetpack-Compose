@@ -29,7 +29,7 @@ fun ButtonSectionWidget(
         CustomPrimaryButton(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.do_invest_buy_now),
-            iconRes = R.drawable.svg_invest_buy,
+            iconRes = R.drawable.svg_square_icon_invest_buy,
             onClick = {})
 
         CustomSpacerWidth(4)
@@ -38,7 +38,7 @@ fun ButtonSectionWidget(
         CustomPrimaryButton(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.do_invest_change_now),
-            iconRes = R.drawable.svg_invest_sold,
+            iconRes = R.drawable.svg_square_icon_invest_sold,
             onClick = {})
 
         CustomSpacerWidth(4)
@@ -47,7 +47,7 @@ fun ButtonSectionWidget(
         CustomPrimaryButton(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.graphic),
-            iconRes = R.drawable.svg_graphic,
+            iconRes = R.drawable.svg_square_icon_graphic,
             onClick = {})
 
         CustomSpacerWidth(4)
@@ -56,7 +56,7 @@ fun ButtonSectionWidget(
         CustomPrimaryButton(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.change_rate),
-            iconRes = R.drawable.svg_live_data_square,
+            iconRes = R.drawable.svg_square_icon_live_data_square,
             onClick = {})
     }
 }

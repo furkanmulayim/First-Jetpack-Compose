@@ -53,7 +53,7 @@ fun CustomTopBarWidget(
                 .padding(vertical = AppSize.PaddingSmall, horizontal = AppSize.PaddingMedium),
         ) {
             Icon(
-                painterResource(R.drawable.svg_arrow_left),
+                painterResource(R.drawable.svg_icon_arrow_left),
                 tint = colorScheme.primaryContainer,
                 contentDescription = "menu",
                 modifier = Modifier.size(AppSize.ButtonIconsHeight),
@@ -62,6 +62,6 @@ fun CustomTopBarWidget(
             Text("BACKING")
         }
         //  ICON -> WALLET
-        CustomIconButton(R.drawable.svg_wallet, leadingClick)
+        CustomIconButton(R.drawable.svg_square_icon_wallet, leadingClick)
     }
 }

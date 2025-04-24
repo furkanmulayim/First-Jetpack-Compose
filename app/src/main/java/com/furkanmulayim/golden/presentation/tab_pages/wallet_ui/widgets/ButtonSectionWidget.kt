@@ -30,7 +30,7 @@ fun ButtonSectionWidget(
         CustomPrimaryButton(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.wallet_total_invest),
-            iconRes = R.drawable.svg_invest_buy,
+            iconRes = R.drawable.svg_square_icon_invest_buy,
             onClick = {})
 
         CustomSpacerWidth(4)
@@ -39,7 +39,7 @@ fun ButtonSectionWidget(
         CustomPrimaryButton(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.wallet_total_outvest),
-            iconRes = R.drawable.svg_invest_sold,
+            iconRes = R.drawable.svg_square_icon_invest_sold,
             onClick = {})
 
         CustomSpacerWidth(4)
@@ -48,7 +48,7 @@ fun ButtonSectionWidget(
         CustomPrimaryButton(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.wallet_total_detail),
-            iconRes = R.drawable.svg_graphic,
+            iconRes = R.drawable.svg_square_icon_graphic,
             onClick = {})
 
         CustomSpacerWidth(4)
@@ -57,7 +57,7 @@ fun ButtonSectionWidget(
         CustomPrimaryButton(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.wallet_cards),
-            iconRes = R.drawable.svg_card,
+            iconRes = R.drawable.svg_square_icon_card,
             onClick = {
                 print("BASILDIU")
                 navController.navigate(AppScreens.IbanScreen.route)

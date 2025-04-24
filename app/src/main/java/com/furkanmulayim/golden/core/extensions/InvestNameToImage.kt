@@ -5,5 +5,5 @@ import com.furkanmulayim.golden.core.enums.InvestImageEnum
 
 fun String.getInvestNameToImage(): Int {
     return InvestImageEnum.entries.find { it.value == this }?.drawableRes
-        ?: R.drawable.png_invest_error
+        ?: R.drawable.svg_money_error
 }
