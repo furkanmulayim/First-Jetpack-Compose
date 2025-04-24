@@ -1,6 +1,6 @@
 package com.furkanmulayim.golden.data.repository
 
-import com.furkanmulayim.golden.models.InvestModel
+import com.furkanmulayim.golden.model.InvestModel
 
 class InvestRepository {
 
