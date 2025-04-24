@@ -86,7 +86,7 @@ fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
 
         // BIG ARROW IMAGE
         Image(
-            painter = painterResource(R.drawable.svg_big_error),
+            painter = painterResource(R.drawable.svg_icon_arrow_right),
             contentDescription = "Arrow Icon",
             colorFilter = ColorFilter.tint(twins_75),
             modifier = Modifier.size(

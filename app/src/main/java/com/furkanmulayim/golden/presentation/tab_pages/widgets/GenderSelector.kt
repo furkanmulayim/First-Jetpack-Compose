@@ -25,7 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.buttons.icon_button.CustomIconButton
-import com.furkanmulayim.golden.presentation.rate_page.CurrentRateScreen
+import com.furkanmulayim.golden.presentation.swap_bottom_sheet.SwapBottomSheet
 import com.furkanmulayim.golden.presentation.theme.AppSize
 import com.furkanmulayim.golden.presentation.theme.Typo
 import kotlinx.coroutines.launch
@@ -39,7 +39,7 @@ fun GenderSelector(
     var showCurrencSwapBottomSheet by remember { mutableStateOf(false) }
     val coroutineScope = rememberCoroutineScope()
 
-    CurrentRateScreen(
+    SwapBottomSheet(
         showBottomSheet = showCurrencSwapBottomSheet,
         onDismiss = { showCurrencSwapBottomSheet = false })
 
@@ -60,7 +60,7 @@ fun GenderSelector(
     ) {
         // SOLDAKİ MENÜ ICON
         CustomIconButton(
-            icon = R.drawable.svg_burger_menu, onClick = {})
+            icon = R.drawable.svg_icon_burger_menu, onClick = {})
 
         // ORTADAKİ TEXT + INDICATOR
         Box(
@@ -97,7 +97,7 @@ fun GenderSelector(
 
         // SAĞDAKİ SETTINGS ICON
         CustomIconButton(
-            icon = R.drawable.svg_swap, onClick = {
+            icon = R.drawable.svg_icon_swap, onClick = {
                 coroutineScope.launch {
                     showCurrencSwapBottomSheet = true
                 }
