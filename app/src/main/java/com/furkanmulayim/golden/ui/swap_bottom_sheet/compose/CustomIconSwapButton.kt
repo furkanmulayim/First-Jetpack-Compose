@@ -1,4 +1,4 @@
-package com.furkanmulayim.golden.core.component.buttons.icon_button
+package com.furkanmulayim.golden.ui.swap_bottom_sheet.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -14,16 +14,17 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import com.furkanmulayim.golden.ui.theme.AppSize
+import com.furkanmulayim.golden.ui.theme.twins_15
 
 @Composable
-fun CustomIconButton(icon: Int, onClick: () -> Unit, size: Dp = AppSize.ButtonIconsHeight) {
+fun CustomIconSwapButton(icon: Int, onClick: () -> Unit, size: Dp = AppSize.ButtonIconsHeight) {
 
     Box(
         Modifier
-            .clip(RoundedCornerShape(AppSize.RadiusIcons))
-            .background(colorScheme.secondary)
+            .clip(RoundedCornerShape(AppSize.RadiusButtons))
+            .background(twins_15)
             .clickable { onClick() }
-            .padding(AppSize.PaddingSmall),
+            .padding(AppSize.Padding),
     ) {
         Icon(
             painterResource(icon),

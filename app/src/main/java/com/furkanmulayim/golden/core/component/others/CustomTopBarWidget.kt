@@ -20,7 +20,7 @@ import androidx.navigation.NavController
 import com.furkanmulayim.golden.R
 import com.furkanmulayim.golden.core.component.buttons.icon_button.CustomIconButton
 import com.furkanmulayim.golden.core.extensions.debounceClickable
-import com.furkanmulayim.golden.presentation.theme.AppSize
+import com.furkanmulayim.golden.ui.theme.AppSize
 
 val LocalAppNavController = compositionLocalOf<NavController> {
     error("No NavController provided")

@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
-import com.furkanmulayim.golden.presentation.theme.AppSize
+import com.furkanmulayim.golden.ui.theme.AppSize
 
 @Composable
 fun CustomIconNoBackButton(icon: Int, onClick: () -> Unit, size: Dp = AppSize.ButtonIconsHeight) {

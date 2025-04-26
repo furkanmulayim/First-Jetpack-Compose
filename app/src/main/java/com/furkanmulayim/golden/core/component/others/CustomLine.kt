@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
-import com.furkanmulayim.golden.presentation.theme.AppSize
-import com.furkanmulayim.golden.presentation.theme.twins_40
+import com.furkanmulayim.golden.ui.theme.AppSize
+import com.furkanmulayim.golden.ui.theme.twins_40
 
 @Composable
 fun CustomLine(width: Dp) {

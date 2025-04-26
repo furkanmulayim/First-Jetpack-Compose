@@ -17,10 +17,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import com.furkanmulayim.golden.presentation.theme.AppSize.ButtonIconsHeight
-import com.furkanmulayim.golden.presentation.theme.AppSize.ButtonMediumIconsHeight
-import com.furkanmulayim.golden.presentation.theme.AppSize.PaddingXSmall
-import com.furkanmulayim.golden.presentation.theme.Typo
+import com.furkanmulayim.golden.ui.theme.AppSize.ButtonIconsHeight
+import com.furkanmulayim.golden.ui.theme.AppSize.ButtonMediumIconsHeight
+import com.furkanmulayim.golden.ui.theme.AppSize.PaddingXSmall
+import com.furkanmulayim.golden.ui.theme.Typo
 
 @Composable
 fun CustomPrimaryButton(
