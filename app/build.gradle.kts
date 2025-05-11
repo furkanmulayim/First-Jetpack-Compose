@@ -5,17 +5,16 @@ plugins {
 }
 
 android {
-    namespace = "com.furkanmulayim.golden"
-    compileSdk = 35
+    namespace = "com.furkanmulayim.birikio"
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.furkanmulayim.golden"
+        applicationId = "com.furkanmulayim.birikio"
         minSdk = 28
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 2
         versionName = "2.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         signingConfig = signingConfigs.getByName("debug")
     }
 
@@ -50,14 +49,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.runtime.android)
-    implementation(libs.androidx.ui.test.android)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.accompanist.systemuicontroller)
 
     // Compose Icons
@@ -71,7 +63,6 @@ dependencies {
     implementation(libs.accompanist.pager.indicators)
 
     // Animation
-    implementation(libs.androidx.foundation)
     implementation(platform(libs.androidx.compose.bom))
 
     // List Picker (Wheel Picker)

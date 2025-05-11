@@ -20,5 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "golden"
+rootProject.name = "birikio"
 include(":app")
