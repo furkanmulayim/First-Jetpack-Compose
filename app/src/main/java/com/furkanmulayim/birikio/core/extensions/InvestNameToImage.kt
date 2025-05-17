@@ -14,3 +14,5 @@ fun String.getSwapNameToImage(): Int {
         ?: R.drawable.svg_money_error
 }
 
+
+

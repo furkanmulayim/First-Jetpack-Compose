@@ -41,6 +41,10 @@ val soldDark = Color(0xFFDD6A6A)
 val blued = Color(0xFF3F6EB5)
 val greened = Color(0xFF388E3C)
 
+
+val greened_20 = Color(0x15388E3C)
+val solded_20 = Color(0x15DD6A6A)
+
 val pinked = Color(0xFFEE0979)
 val oranged = Color(0xFFFF6A00)
 
