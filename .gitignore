@@ -33,10 +33,6 @@ gradle/wrapper/gradle-wrapper.properties
 gradle/wrapper/gradle-wrapper.jar
 *.log
 
-# Node.js ve React Native (Eğer Kullanıyorsanız)
-node_modules/
-npm-debug.log
-yarn-error.log
 
 # Temporary Files
 /tmp/

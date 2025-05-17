@@ -1,15 +1,15 @@
 package com.furkanmulayim.birikio.ui.swap_bottom_sheet.view
 
+import android.R.attr.textStyle
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
@@ -43,8 +43,12 @@ import androidx.compose.ui.unit.dp
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerWidth
+import com.furkanmulayim.birikio.core.enums.SwapImageEnum
+import com.furkanmulayim.birikio.core.extensions.getSwapNameToImage
 import com.furkanmulayim.birikio.ui.swap_bottom_sheet.compose.CustomIconSwapButton
+import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonHeight
 import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonIconsHeight
+import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonMediumIconsHeight
 import com.furkanmulayim.birikio.ui.theme.AppSize.ItemMaxImage
 import com.furkanmulayim.birikio.ui.theme.AppSize.Padding
 import com.furkanmulayim.birikio.ui.theme.AppSize.PaddingLarge
@@ -54,6 +58,7 @@ import com.furkanmulayim.birikio.ui.theme.AppSize.PaddingXSmall
 import com.furkanmulayim.birikio.ui.theme.AppSize.RadiusButtons
 import com.furkanmulayim.birikio.ui.theme.Typo
 import com.furkanmulayim.birikio.ui.theme.twins
+import com.furkanmulayim.birikio.ui.theme.twins_10
 import com.furkanmulayim.birikio.ui.theme.twins_15
 import com.furkanmulayim.birikio.ui.theme.twins_40
 
@@ -63,11 +68,11 @@ fun SwapBottomSheet(
     showBottomSheet: Boolean, onDismiss: () -> Unit
 ) {
     if (showBottomSheet) {
-        var fromCurrency = remember { mutableStateOf("EUR") }
-        var toCurrency = remember { mutableStateOf("USD") }
+        var fromCurrency = remember { mutableStateOf(SwapImageEnum.TRY.value) }
+        var toCurrency = remember { mutableStateOf(SwapImageEnum.DOLLAR.value) }
 
-        var topAmount = remember { mutableStateOf("150") }
-        var bottomAmount = remember { mutableStateOf("139.2") }
+        var topAmount = remember { mutableStateOf("") }
+        var bottomAmount = remember { mutableStateOf("") }
 
         ModalBottomSheet(
             sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false),
@@ -131,24 +136,30 @@ fun CurrencyUnitsRow(
     )
 
 }
-
-
 @Composable
 fun PlainNumberInput(
-    value: MutableState<String>, modifier: Modifier = Modifier
+    value: MutableState<String>,
+    modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
         BasicTextField(
             value = value.value,
             onValueChange = { newValue ->
-                if (newValue.all { it.isDigit() }) {
+                // Sadece ondalıklı sayı formatına izin ver (maks. 1 tane nokta)
+                if (newValue.matches(Regex("^\\d*\\.?\\d*\$"))) {
                     value.value = newValue
                 }
             },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
             singleLine = true,
             textStyle = Typo.font_25_w800.copy(colorScheme.primary),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            decorationBox = { innerTextField ->
+                if (value.value.isEmpty()) {
+                    Text(text = "0", style = Typo.font_25_w800.copy(color = twins_40))
+                }
+                innerTextField()
+            }
         )
     }
 }
@@ -178,7 +189,12 @@ fun CurrencyPicker(
     selectedCurrency: MutableState<String>,
 ) {
     var expanded by remember { mutableStateOf(false) }
-    var options: List<String> = listOf("TL", "EUR", "USD")
+    val options = mutableListOf<String>()
+    var itemIcon = selectedCurrency.value.getSwapNameToImage()
+
+    for (i in SwapImageEnum.entries) {
+        options.add(i.value)
+    }
 
     Box(
         modifier = Modifier.wrapContentSize(Alignment.TopStart)
@@ -186,7 +202,7 @@ fun CurrencyPicker(
         Row(
             modifier = Modifier
                 .clip(RoundedCornerShape(RadiusButtons))
-                .background(twins_40)
+                .background(twins_10)
                 .clickable {
                     expanded = true
                 }
@@ -194,24 +210,15 @@ fun CurrencyPicker(
                 .padding(start = PaddingXSmall),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Row(
+
+            Image(
+                painter = painterResource(itemIcon),
+                contentDescription = "Investment Icon",
                 modifier = Modifier
-                    .size(ItemMaxImage - PaddingSmall)
-                    .clip(RoundedCornerShape(RadiusButtons))
-                    .background(twins),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
-            ) {
-                Box(
-                    modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        modifier = Modifier.offset(x = -(1).dp, y = (1).dp),
-                        text = "€",
-                        style = Typo.font_14_w500.copy(Color.White)
-                    )
-                }
-            }
+                    .size(ButtonMediumIconsHeight)
+                    .clip(RoundedCornerShape(ButtonHeight))
+                    .background(twins_15),
+            )
 
             Text(
                 modifier = Modifier.padding(start = Padding, end = PaddingXSmall),

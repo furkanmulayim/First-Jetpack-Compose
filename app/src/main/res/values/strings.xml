@@ -14,6 +14,9 @@
     <string name="total_investing">Toplam Yatırımınız</string>
     <string name="do_invest_buy_now">AL</string>
     <string name="do_invest_change_now">SAT</string>
+    <string name="do_invest_buy">Alış Yap</string>
+    <string name="do_invest_change">Satış Yap</string>
+
     <string name="graphic">DETAY</string>
     <string name="change_rate">KURLAR</string>
 

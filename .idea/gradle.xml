@@ -9,8 +9,8 @@
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$USER_HOME$/Kişisel/AndroidProj/golden" />
-            <option value="$USER_HOME$/Kişisel/AndroidProj/golden/app" />
+            <option value="$USER_HOME$/Kişisel/AndroidProj/Birikio" />
+            <option value="$USER_HOME$/Kişisel/AndroidProj/Birikio/app" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -2,10 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- PERMISSIONS -->
+
+    <!-- "allowBackup" Google backup and restore for app data -->
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -13,7 +14,7 @@
         android:theme="@style/Theme.Birikio"
         tools:targetApi="36">
 
-
+        <!-- "exported" activity as the app's entry point -->
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"

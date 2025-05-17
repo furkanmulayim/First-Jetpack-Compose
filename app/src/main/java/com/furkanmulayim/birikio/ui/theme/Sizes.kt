@@ -39,6 +39,7 @@ object AppSize {
 
 
     val zero_dp = 0.dp
+    val zero_o_five = 0.5.dp
     val one_dp = 1.dp
     val two_dp = 2.dp
     val three_dp = 3.dp

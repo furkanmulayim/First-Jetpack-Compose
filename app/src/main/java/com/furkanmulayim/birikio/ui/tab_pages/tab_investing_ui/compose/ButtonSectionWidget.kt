@@ -45,7 +45,9 @@ fun ButtonSectionWidget(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.do_invest_change_now),
             iconRes = R.drawable.svg_square_icon_invest_sold,
-            onClick = {})
+            onClick = {
+                soldOnClick()
+            })
 
         CustomSpacerWidth(4)
 
@@ -54,7 +56,7 @@ fun ButtonSectionWidget(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.graphic),
             iconRes = R.drawable.svg_square_icon_graphic,
-            onClick = {})
+            onClick = graphicOnClick)
 
         CustomSpacerWidth(4)
 
@@ -63,7 +65,6 @@ fun ButtonSectionWidget(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.change_rate),
             iconRes = R.drawable.svg_square_icon_live_data_square,
-            onClick = {})
+            onClick = liveOnClick)
     }
 }
-

@@ -12,7 +12,24 @@ enum class InvestImageEnum(val value: String, val drawableRes: Int) {
     CEYREK("Çeyrek Altın", R.drawable.svg_money_ceyrek), YARIM(
         "Yarım Altın", R.drawable.svg_money_yarim
     ),
-    TAM("Tam Altın", R.drawable.svg_money_tam), RESAT(
-        "Reşat Altın", R.drawable.svg_money_resat
+    TAM("Tam Altın", R.drawable.svg_money_tam), RESAT("Reşat Altın", R.drawable.svg_money_resat);
+
+    companion object {
+        fun fromValue(value: String): InvestImageEnum? {
+            return InvestImageEnum.entries.find { it.value == value }
+        }
+    }
+}
+
+enum class SwapImageEnum(val value: String, val drawableRes: Int) {
+    DOLLAR("Dolar", R.drawable.svg_money_dollar), EURO(
+        "Euro", R.drawable.svg_money_euro
     ),
+    TRY("TRY", R.drawable.svg_money_try);
+
+    companion object {
+        fun fromValue(value: String): InvestImageEnum? {
+            return InvestImageEnum.entries.find { it.value == value }
+        }
+    }
 }

@@ -85,5 +85,8 @@ object Typo {
     val font_11_w800 = TextStyle(
         fontFamily = helveticaNeue, fontWeight = FontWeight.W800, fontSize = 11.sp
     )
+    val font_10_w300 = TextStyle(
+        fontFamily = helveticaNeue, fontWeight = FontWeight.W300, fontSize = 10.sp
+    )
 
 }
