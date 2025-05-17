@@ -56,7 +56,8 @@ fun ButtonSectionWidget(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.graphic),
             iconRes = R.drawable.svg_square_icon_graphic,
-            onClick = graphicOnClick)
+            onClick = graphicOnClick
+        )
 
         CustomSpacerWidth(4)
 
@@ -65,6 +66,7 @@ fun ButtonSectionWidget(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.change_rate),
             iconRes = R.drawable.svg_square_icon_live_data_square,
-            onClick = liveOnClick)
+            onClick = liveOnClick
+        )
     }
 }

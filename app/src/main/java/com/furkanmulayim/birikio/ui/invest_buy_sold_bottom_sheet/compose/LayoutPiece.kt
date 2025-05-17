@@ -62,7 +62,7 @@ fun InvestmentInputField(
             }
         },
         keyboardOptions = KeyboardOptions(
-            keyboardType = if(isNumeric) KeyboardType.Decimal else KeyboardType.Text
+            keyboardType = if (isNumeric) KeyboardType.Decimal else KeyboardType.Text
         ),
         singleLine = true,
         textStyle = textStyle,

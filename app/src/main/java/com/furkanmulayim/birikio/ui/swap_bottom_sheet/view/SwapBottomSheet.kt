@@ -1,6 +1,5 @@
 package com.furkanmulayim.birikio.ui.swap_bottom_sheet.view
 
-import android.R.attr.textStyle
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -136,6 +135,7 @@ fun CurrencyUnitsRow(
     )
 
 }
+
 @Composable
 fun PlainNumberInput(
     value: MutableState<String>,
