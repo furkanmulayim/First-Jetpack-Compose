@@ -113,10 +113,10 @@ fun WalletIncomeExpenseBottomSheet(
                         .height(ButtonHeight),
                     onClick = {
                         // TODO:  adam burada 0 ve 0 girerse kullanıcıya toast gösterilecek. 0 adet olamaz diye!
-                        var walletAmount = "0"
-                        var walletName = ""
-                        var walletNote = ""
-                        var walletDate = ""
+                         walletAmount.value = "0"
+                         walletName.value = ""
+                         walletNote.value = ""
+                         walletDate.value = ""
                         onDismiss()
                     },
                     shape = RoundedCornerShape(ButtonXSmallHeight),
