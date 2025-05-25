@@ -1,4 +1,4 @@
-package com.furkanmulayim.birikio.ui.invest_buy_sold_bottom_sheet.model
+package com.furkanmulayim.birikio.ui.buy_sold_bottom_sheet_invest.model
 
 data class LayoutPieceModel(
     val iconRes: Int,

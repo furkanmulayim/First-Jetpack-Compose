@@ -28,6 +28,8 @@ val onSurfaceDark = Color(0xFFB7B7B7)
 val tertiaryLight = Color(0xFFB8F6B7)
 val tertiaryDark = Color(0xFF375736)
 
+
+val hint = Color(0xFF898989)
 val twins = Color(0xFF6E6E6E)
 val textTwins = Color(0xFF5B5B5B)
 val twins_75 = Color(0x756E6E6E)
@@ -40,6 +42,10 @@ val soldDark = Color(0xFFDD6A6A)
 
 val blued = Color(0xFF3F6EB5)
 val greened = Color(0xFF388E3C)
+
+
+val greened_20 = Color(0x15388E3C)
+val solded_20 = Color(0x15DD6A6A)
 
 val pinked = Color(0xFFEE0979)
 val oranged = Color(0xFFFF6A00)

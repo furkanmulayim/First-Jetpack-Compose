@@ -23,8 +23,11 @@
     // Wallet-Page
     <string name="wallet_total_invest">GELİR</string>
     <string name="wallet_total_outvest">GİDER</string>
+    <string name="do_wallet_buy">Gelir Ekle</string>
+    <string name="do_wallet_change">Gider Ekle</string>
     <string name="wallet_total_detail">GRAFİK</string>
     <string name="wallet_cards">IBANLAR</string>
+
 
     // Currency-Swap-Page
     <string name="swap_header">Exchange</string>

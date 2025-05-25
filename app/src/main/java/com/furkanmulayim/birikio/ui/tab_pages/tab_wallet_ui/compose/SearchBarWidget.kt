@@ -46,7 +46,7 @@ fun SearchBar(modifier: Modifier = Modifier) {
 
                 val annotatedString = buildAnnotatedString {
                     withStyle(style = SpanStyle(color = Color.Gray)) {
-                        append("Try ")
+                        append("Türk Lirası ")
                     }
                     withStyle(
                         style = SpanStyle(

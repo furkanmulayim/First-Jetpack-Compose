@@ -25,7 +25,7 @@ enum class SwapImageEnum(val value: String, val drawableRes: Int) {
     DOLLAR("Dolar", R.drawable.svg_money_dollar), EURO(
         "Euro", R.drawable.svg_money_euro
     ),
-    TRY("TRY", R.drawable.svg_money_try);
+    TRY("Türk Lirası", R.drawable.svg_money_try);
 
     companion object {
         fun fromValue(value: String): InvestImageEnum? {
