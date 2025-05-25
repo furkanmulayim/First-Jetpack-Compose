@@ -28,6 +28,8 @@ val onSurfaceDark = Color(0xFFB7B7B7)
 val tertiaryLight = Color(0xFFB8F6B7)
 val tertiaryDark = Color(0xFF375736)
 
+
+val hint = Color(0xFF898989)
 val twins = Color(0xFF6E6E6E)
 val textTwins = Color(0xFF5B5B5B)
 val twins_75 = Color(0x756E6E6E)

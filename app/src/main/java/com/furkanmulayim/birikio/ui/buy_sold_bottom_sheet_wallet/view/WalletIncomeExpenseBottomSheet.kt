@@ -1,4 +1,4 @@
-package com.furkanmulayim.birikio.ui.invest_buy_sold_bottom_sheet.view
+package com.furkanmulayim.birikio.ui.buy_sold_bottom_sheet_wallet.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,16 +15,18 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerHeight
-import com.furkanmulayim.birikio.core.enums.InvestImageEnum
-import com.furkanmulayim.birikio.core.enums.InvestmentBuySoldType
-import com.furkanmulayim.birikio.ui.invest_buy_sold_bottom_sheet.compose.CurrencyPicker
-import com.furkanmulayim.birikio.ui.invest_buy_sold_bottom_sheet.compose.LayoutPiece
+import com.furkanmulayim.birikio.core.enums.WalletExpenseCategoryEnum
+import com.furkanmulayim.birikio.core.enums.WalletIncomeCategoryEnum
+import com.furkanmulayim.birikio.core.enums.WalletIncomeExpenseType
+import com.furkanmulayim.birikio.ui.buy_sold_bottom_sheet_wallet.compose.CategoryPicker
+import com.furkanmulayim.birikio.ui.buy_sold_bottom_sheet_wallet.compose.LayoutPiece
 import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonHeight
 import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonXSmallHeight
 import com.furkanmulayim.birikio.ui.theme.AppSize.PaddingLarge
@@ -34,19 +36,21 @@ import com.furkanmulayim.birikio.ui.theme.soldDark
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InvestBuySoldBottomSheet(
-    showBottomSheet: Boolean, onDismiss: () -> Unit, investType: String, isBuyColor: Boolean
+fun WalletIncomeExpenseBottomSheet(
+    showBottomSheet: Boolean, onDismiss: () -> Unit, walletType: String, isBuyColor: Boolean
 ) {
+    println("furdebug: $isBuyColor")
 
-    var amount = remember { mutableStateOf("") }
-    var amountTotalLiras = remember { mutableStateOf("") }
-    var subAmountTotal: Double = 0.0
-    if (amount.value.isNotEmpty() && amountTotalLiras.value.isNotEmpty()) {
-        subAmountTotal = amount.value.toDouble() * amountTotalLiras.value.toDouble()
+    var walletAmount = remember { mutableStateOf("0") }
+    var walletName = remember { mutableStateOf("") }
+    var walletNote = remember { mutableStateOf("") }
+    var walletDate = remember { mutableStateOf("") }
+    val walletCategory = remember { mutableStateOf("") }
+
+    LaunchedEffect(isBuyColor) {
+        walletCategory.value =
+            if (isBuyColor) WalletIncomeCategoryEnum.MAAS.value else WalletExpenseCategoryEnum.ALISVERIS.value
     }
-
-    var nots = remember { mutableStateOf("") }
-    var invest = remember { mutableStateOf(InvestImageEnum.DOLLAR.value) }
 
     if (showBottomSheet) {
         ModalBottomSheet(
@@ -59,75 +63,71 @@ fun InvestBuySoldBottomSheet(
                 )
             ) {
                 CustomSpacerHeight(8)
-
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround,
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
-                        text = investType,
+                        text = walletType,
                         style = Typo.font_19_w500.copy(color = colorScheme.onSecondary)
                     )
-                    CurrencyPicker(invest)
+                    CategoryPicker(walletCategory, isBuyColor)
                 }
-
                 CustomSpacerHeight(16)
-
-                // KUR TİPİ
                 LayoutPiece(
-                    amount = amount,
-                    rowType = InvestmentBuySoldType.Amount.name,
-                    imageName = invest.value,
-                    topAmount = null,
-                    note = null
+                    amount = walletAmount,
+                    amountName = walletName,
+                    note = walletNote,
+                    date = walletDate,
+                    rowType = WalletIncomeExpenseType.AmountName.name
                 )
                 CustomSpacerHeight(16)
-
-                // FİYAT
                 LayoutPiece(
-                    topAmount = amountTotalLiras,
-                    rowType = InvestmentBuySoldType.AmountTotalLiras.name,
-                    note = null,
-                    amount = null
-                )
-                CustomSpacerHeight(8)
-                Text(
-                    text = subAmountTotal.toString(),
-                    textAlign = TextAlign.Center,
-                    style = Typo.font_19_w500.copy(color = colorScheme.onPrimary)
-                )
-
-                CustomSpacerHeight(12)
-
-                // NOTES
-                LayoutPiece(
-                    note = nots,
-                    rowType = InvestmentBuySoldType.Nots.name,
-                    topAmount = null,
-                    amount = null
+                    amount = walletAmount,
+                    amountName = walletName,
+                    note = walletNote,
+                    date = walletDate,
+                    rowType = WalletIncomeExpenseType.Amount.name
                 )
                 CustomSpacerHeight(16)
-
+                LayoutPiece(
+                    amount = walletAmount,
+                    amountName = walletName,
+                    note = walletNote,
+                    date = walletDate,
+                    rowType = WalletIncomeExpenseType.Nots.name
+                )
+                CustomSpacerHeight(16)
+                LayoutPiece(
+                    amount = walletAmount,
+                    amountName = walletName,
+                    note = walletNote,
+                    date = walletDate,
+                    rowType = WalletIncomeExpenseType.Date.name
+                )
+                CustomSpacerHeight(16)
                 ElevatedButton(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(ButtonHeight),
                     onClick = {
                         // TODO:  adam burada 0 ve 0 girerse kullanıcıya toast gösterilecek. 0 adet olamaz diye!
-                        amount.value = ""
-                        amountTotalLiras.value = ""
+                        var walletAmount = "0"
+                        var walletName = ""
+                        var walletNote = ""
+                        var walletDate = ""
                         onDismiss()
                     },
                     shape = RoundedCornerShape(ButtonXSmallHeight),
-                    enabled = amount.value.isNotEmpty() && amountTotalLiras.value.isNotEmpty(),
+                    enabled = walletAmount.value.isNotEmpty() && walletName.value.isNotEmpty() && walletDate.value.isNotEmpty(),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = if (isBuyColor) greened else soldDark,
                         contentColor = colorScheme.onPrimary
                     )
                 ) {
                     Text(
-                        text = investType,
+                        text = walletType,
                         textAlign = TextAlign.Center,
                         style = Typo.font_19_w500.copy(color = colorScheme.onPrimary)
                     )

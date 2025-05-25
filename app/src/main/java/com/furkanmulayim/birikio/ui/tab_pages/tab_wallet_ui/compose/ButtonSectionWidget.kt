@@ -16,7 +16,7 @@ import com.furkanmulayim.birikio.ui.theme.AppSize
 
 @Composable
 fun ButtonSectionWidget(
-    navController: NavController
+    navController: NavController, buyOnClick: () -> Unit, soldOnClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -31,7 +31,9 @@ fun ButtonSectionWidget(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.wallet_total_invest),
             iconRes = R.drawable.svg_square_icon_invest_buy,
-            onClick = {})
+            onClick = {
+                buyOnClick()
+            })
 
         CustomSpacerWidth(4)
 
@@ -40,7 +42,9 @@ fun ButtonSectionWidget(
             modifier = Modifier.weight(1f),
             text = stringResource(id = R.string.wallet_total_outvest),
             iconRes = R.drawable.svg_square_icon_invest_sold,
-            onClick = {})
+            onClick = {
+                soldOnClick()
+            })
 
         CustomSpacerWidth(4)
 

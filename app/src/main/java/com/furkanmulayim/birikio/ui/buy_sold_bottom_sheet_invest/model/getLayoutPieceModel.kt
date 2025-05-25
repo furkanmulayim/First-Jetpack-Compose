@@ -1,4 +1,4 @@
-package com.furkanmulayim.birikio.ui.invest_buy_sold_bottom_sheet.model
+package com.furkanmulayim.birikio.ui.buy_sold_bottom_sheet_invest.model
 
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.core.enums.InvestImageEnum

@@ -1,8 +1,10 @@
-package com.furkanmulayim.birikio.ui.invest_buy_sold_bottom_sheet.compose
+package com.furkanmulayim.birikio.ui.buy_sold_bottom_sheet_wallet.compose
 
+import android.app.DatePickerDialog
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,19 +16,23 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerHeight
-import com.furkanmulayim.birikio.ui.invest_buy_sold_bottom_sheet.model.getLayoutPieceModel
+import com.furkanmulayim.birikio.ui.buy_sold_bottom_sheet_wallet.model.getLayoutPieceModel
 import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonHeight
 import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonIconsHeight
 import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonMediumIconsHeight
@@ -37,53 +43,22 @@ import com.furkanmulayim.birikio.ui.theme.AppSize.RadiusMedium
 import com.furkanmulayim.birikio.ui.theme.AppSize.one_dp
 import com.furkanmulayim.birikio.ui.theme.AppSize.zero_o_five
 import com.furkanmulayim.birikio.ui.theme.Typo
+import com.furkanmulayim.birikio.ui.theme.hint
 import com.furkanmulayim.birikio.ui.theme.twins_15
-import com.furkanmulayim.birikio.ui.theme.twins_40
 import com.furkanmulayim.birikio.ui.theme.twins_75
-
-@Composable
-fun InvestmentInputField(
-    value: MutableState<String>,
-    hint: String,
-    isNumeric: Boolean,
-    textStyle: androidx.compose.ui.text.TextStyle
-) {
-    BasicTextField(
-        value = value.value,
-        onValueChange = { newInput ->
-            if (isNumeric) {
-                // Ondalık sayı kontrolü: Sadece sayılar ve maksimum 1 tane nokta
-                if (newInput.matches(Regex("^\\d*\\.?\\d{0,}$"))) {
-                    value.value = newInput
-
-                }
-            } else {
-                value.value = newInput
-            }
-        },
-        keyboardOptions = KeyboardOptions(
-            keyboardType = if (isNumeric) KeyboardType.Decimal else KeyboardType.Text
-        ),
-        singleLine = true,
-        textStyle = textStyle,
-        modifier = Modifier.fillMaxWidth(),
-        decorationBox = { innerTextField ->
-            if (value.value.isEmpty()) {
-                Text(text = hint, style = textStyle.copy(color = twins_40))
-            }
-            innerTextField()
-        })
-}
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 @Composable
 fun LayoutPiece(
     amount: MutableState<String>?,
-    topAmount: MutableState<String>?,
+    amountName: MutableState<String>?,
     note: MutableState<String>?,
+    date: MutableState<String>?,
     rowType: String,
-    imageName: String = ""
 ) {
-    val model = getLayoutPieceModel(rowType, imageName)
+    val model = getLayoutPieceModel(rowType)
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -132,6 +107,7 @@ fun LayoutPiece(
                 .background(twins_75)
                 .height(50.dp)
         )
+        val color = hint
 
         // Right TextField
         Row(
@@ -141,18 +117,18 @@ fun LayoutPiece(
             verticalAlignment = Alignment.CenterVertically
         ) {
             when (model.inputType) {
-                1 -> amount?.let {
+                1 -> amountName?.let {
                     InvestmentInputField(
-                        it, model.hint, isNumeric = true, textStyle = Typo.font_25_w800.copy(
-                            colorScheme.onSecondary, textAlign = TextAlign.Center
+                        it, model.hint, isNumeric = false, textStyle = Typo.font_13_w500.copy(
+                            color, textAlign = TextAlign.Center
                         )
                     )
                 }
 
-                2 -> topAmount?.let {
+                2 -> amount?.let {
                     InvestmentInputField(
                         it, model.hint, isNumeric = true, textStyle = Typo.font_25_w800.copy(
-                            colorScheme.onSecondary, textAlign = TextAlign.Center
+                            color, textAlign = TextAlign.Center
                         )
                     )
                 }
@@ -160,11 +136,83 @@ fun LayoutPiece(
                 3 -> note?.let {
                     InvestmentInputField(
                         it, model.hint, isNumeric = false, textStyle = Typo.font_13_w500.copy(
-                            colorScheme.onSecondary, textAlign = TextAlign.Center
+                            color, textAlign = TextAlign.Center
                         )
                     )
+                }
+
+                4 -> date?.let {
+                    DatePicker(date)
                 }
             }
         }
     }
+}
+
+@Composable
+fun DatePicker(date: MutableState<String>) {
+    val context = LocalContext.current
+    val dateFormatter = remember { SimpleDateFormat("dd MMMM yyyy", Locale.getDefault()) }
+
+    val calendar = Calendar.getInstance()
+    val datePickerDialog = remember {
+        DatePickerDialog(
+            context,
+            { _, year, month, dayOfMonth ->
+                calendar.set(year, month, dayOfMonth)
+                date.value = dateFormatter.format(calendar.time)
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Button(onClick = { datePickerDialog.show() }) {
+            if (date.value.isNotEmpty()) {
+                Text(date.value)
+            } else {
+                Text("Tarih Seçiniz")
+            }
+        }
+    }
+}
+
+
+@Composable
+fun InvestmentInputField(
+    value: MutableState<String>, hint: String, isNumeric: Boolean, textStyle: TextStyle
+) {
+    BasicTextField(
+        value = value.value,
+        onValueChange = { newInput ->
+            if (isNumeric) {
+                // Ondalık sayı kontrolü: Sadece sayılar ve maksimum 1 tane nokta
+                if (newInput.matches(Regex("^\\d*\\.?\\d{0,}$"))) {
+                    value.value = newInput
+
+                }
+            } else {
+                value.value = newInput
+            }
+        },
+        keyboardOptions = KeyboardOptions(
+            keyboardType = if (isNumeric) KeyboardType.Decimal else KeyboardType.Text
+        ),
+        singleLine = true,
+        textStyle = textStyle,
+        modifier = Modifier.fillMaxWidth(),
+        decorationBox = { innerTextField ->
+            if (value.value.isEmpty()) {
+                Text(text = hint, style = textStyle)
+            }
+            innerTextField()
+        })
 }

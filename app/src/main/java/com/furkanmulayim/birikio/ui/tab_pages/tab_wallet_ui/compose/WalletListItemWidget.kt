@@ -48,7 +48,7 @@ fun WalletListItemWidget(investment: WalletModel, onClick: () -> Unit) {
         Box(
             modifier = Modifier.size(48.dp), contentAlignment = Alignment.Center
         ) {
-            var itemIcon = investment.category.getWalletNameToImage()
+            var itemIcon = investment.category.getWalletNameToImage(investment.isBuyed)
             Image(
                 painter = painterResource(itemIcon),
                 contentDescription = "Investment Icon",

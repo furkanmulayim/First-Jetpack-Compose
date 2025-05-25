@@ -14,7 +14,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerHeight
-import com.furkanmulayim.birikio.ui.invest_buy_sold_bottom_sheet.view.InvestBuySoldBottomSheet
+import com.furkanmulayim.birikio.ui.buy_sold_bottom_sheet_invest.view.InvestBuySoldBottomSheet
 import com.furkanmulayim.birikio.ui.tab_pages.tab_home_ui.viewmodel.HomeViewModel
 import com.furkanmulayim.birikio.ui.tab_pages.tab_investing_ui.compose.ButtonSectionWidget
 import com.furkanmulayim.birikio.ui.tab_pages.tab_investing_ui.compose.InvestingBalanceSectionWidget

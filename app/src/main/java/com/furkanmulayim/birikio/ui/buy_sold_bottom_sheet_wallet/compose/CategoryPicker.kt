@@ -1,4 +1,4 @@
-package com.furkanmulayim.birikio.ui.invest_buy_sold_bottom_sheet.compose
+package com.furkanmulayim.birikio.ui.buy_sold_bottom_sheet_wallet.compose
 
 
 import androidx.compose.foundation.Image
@@ -31,8 +31,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import com.furkanmulayim.birikio.R
-import com.furkanmulayim.birikio.core.enums.InvestImageEnum
-import com.furkanmulayim.birikio.core.extensions.getInvestNameToImage
+import com.furkanmulayim.birikio.core.enums.WalletExpenseCategoryEnum
+import com.furkanmulayim.birikio.core.enums.WalletIncomeCategoryEnum
+import com.furkanmulayim.birikio.core.extensions.getWalletNameToImage
 import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonHeight
 import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonIconsHeight
 import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonMediumIconsHeight
@@ -45,15 +46,21 @@ import com.furkanmulayim.birikio.ui.theme.twins_10
 import com.furkanmulayim.birikio.ui.theme.twins_15
 
 @Composable
-fun CurrencyPicker(
-    selectedCurrency: MutableState<String>
+fun CategoryPicker(
+    selectedCategory: MutableState<String>, isBuyColor: Boolean
 ) {
     var expanded by remember { mutableStateOf(false) }
     val options = mutableListOf<String>()
-    var itemIcon = selectedCurrency.value.getInvestNameToImage()
+    var itemIcon = selectedCategory.value.getWalletNameToImage(isBuyColor)
 
-    for (i in InvestImageEnum.entries) {
-        options.add(i.value)
+    if (isBuyColor) {
+        for (i in WalletIncomeCategoryEnum.entries) {
+            options.add(i.value)
+        }
+    } else {
+        for (i in WalletExpenseCategoryEnum.entries) {
+            options.add(i.value)
+        }
     }
 
     Box(
@@ -93,7 +100,7 @@ fun CurrencyPicker(
 
             Text(
                 modifier = Modifier.padding(start = Padding, end = PaddingXSmall),
-                text = selectedCurrency.value
+                text = selectedCategory.value
             )
             Icon(
                 painter = painterResource(id = R.drawable.svg_icon_arrow_down),
@@ -112,7 +119,7 @@ fun CurrencyPicker(
                 DropdownMenuItem(
                     onClick = {
                         expanded = false
-                        selectedCurrency.value = option
+                        selectedCategory.value = option
                     },
                     text = {
                         Row(
