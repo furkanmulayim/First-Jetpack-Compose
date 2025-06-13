@@ -58,6 +58,13 @@ dependencies {
     // Navigation Compose
     implementation(libs.androidx.navigation.compose)
 
+    // RETROFIT
+    implementation(libs.retrofit)
+
+    // GSON CONVERT
+    implementation(libs.gson.converter)
+    implementation(libs.gson)
+
     // Pager (Like Tab Bars)
     implementation(libs.accompanist.pager)
     implementation(libs.accompanist.pager.indicators)

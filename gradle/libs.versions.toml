@@ -1,6 +1,6 @@
 [versions]
 # Android & Kotlin
-agp = "8.10.0"
+agp = "8.10.1"
 kotlin = "2.0.0"
 
 # AndroidX Core
@@ -18,6 +18,9 @@ accompanist = "0.33.2-alpha"
 
 # Navigation
 navigation = "2.9.0"
+
+retrofit = "2.9.0"
+gson = "2.10.1"
 
 [libraries]
 # AndroidX Core
@@ -43,6 +46,13 @@ accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-
 # Navigation
 androidx-navigation-runtime-android = { group = "androidx.navigation", name = "navigation-runtime-android", version.ref = "navigation" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+
+# Retrofit
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+gson-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+
+# Gson
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
