@@ -7,16 +7,16 @@ import com.furkanmulayim.birikio.model.Currency
 fun calculateAllMoneys(goldOns: Double, curr: List<Currency>): AllMoneys? {
     val usdPrice = curr.find { it.code == "USD" }?.buying ?: return null
     val eurPrice = curr.find { it.code == "EUR" }?.buying ?: return null
-    val gramPrice = curr.find { it.code == "GRA" }?.buying ?: return null
+    var gramPrice = curr.find { it.code == "GRA" }?.buying ?: return null
 
     // Gramlar
-    val ceyrekGr = 1.79238
-    val yarimGr = 3.58451
-    val tamGr = 7.14770
-    val resatGr = 7.15604
+    val ceyrekGr = 1.79183
+    val yarimGr = 3.58367
+    val tamGr = 7.12858
+    val resatGr = 7.1535
 
     // Saflık oranı
-    val saflik22 = 0.9081
+    val saflik22 = 0.916
 
     val gramAltin24 = gramPrice
     val gramAltin22 = (gramAltin24 * saflik22)

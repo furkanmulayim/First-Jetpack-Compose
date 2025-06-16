@@ -1,10 +1,10 @@
 package com.furkanmulayim.birikio.module
 
 import com.furkanmulayim.birikio.data.api.BirikioApi
-import com.furkanmulayim.birikio.data.repository.RawGoldRepository
-import com.furkanmulayim.birikio.data.repository.RawGoldRepositoryImpl
 import com.furkanmulayim.birikio.data.repository.CurrencyRepository
 import com.furkanmulayim.birikio.data.repository.CurrencyRepositoryImpl
+import com.furkanmulayim.birikio.data.repository.RawGoldRepository
+import com.furkanmulayim.birikio.data.repository.RawGoldRepositoryImpl
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
