@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!-- PERMISSIONS -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- "allowBackup" Google backup and restore for app data -->
     <application

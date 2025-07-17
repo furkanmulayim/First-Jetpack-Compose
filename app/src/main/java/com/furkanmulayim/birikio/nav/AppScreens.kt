@@ -6,6 +6,7 @@ sealed class AppScreens(val route: String) {
     data object InvestingScreen : AppScreens("investing")
     data object IbanScreen : AppScreens("ibans") {
         fun createRoute() = "route"
-
     }
+
+    data object ExchangeRateScreen : AppScreens("exchange")
 }

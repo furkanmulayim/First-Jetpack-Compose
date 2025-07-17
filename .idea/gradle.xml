@@ -9,19 +9,8 @@
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$USER_HOME$/Kişisel/AndroidProj/Birikio" />
-            <option value="$USER_HOME$/Kişisel/AndroidProj/Birikio/app" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="testRunner" value="CHOOSE_PER_TEST" />
-        <option name="externalProjectPath" value="$USER_HOME$/Kişisel/AndroidProj/golden" />
-        <option name="gradleJvm" value="jbr-17" />
-        <option name="modules">
-          <set>
-            <option value="$USER_HOME$/Kişisel/AndroidProj/golden" />
-            <option value="$USER_HOME$/Kişisel/AndroidProj/golden/app" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
       </GradleProjectSettings>
