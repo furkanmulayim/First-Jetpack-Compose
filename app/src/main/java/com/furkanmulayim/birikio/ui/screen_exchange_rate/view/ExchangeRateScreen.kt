@@ -23,8 +23,6 @@ import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.core.component.buttons.icon_button.CustomIconButton
 import com.furkanmulayim.birikio.core.component.buttons.icon_button.CustomIconTextButton
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerHeight
-import com.furkanmulayim.birikio.core.extensions.curencyFormat
-import com.furkanmulayim.birikio.model.AllMoneys
 import com.furkanmulayim.birikio.ui.screen_exchange_rate.viewmodel.ExchangeRateViewModel
 import com.furkanmulayim.birikio.ui.theme.AppSize
 import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonIconsHeight
@@ -70,13 +68,9 @@ fun ExchangeRateScreen(
         }
         CustomSpacerHeight(20)
 
-       Item()
+        Item()
         Text("Güncelleme Zamanı: $updateTime")
 
-
-        var a = (curr!!.ceyrek * 14) + (curr!!.yarim * 4) + (curr!!.tam * 3) + (curr!!.gram22 * 150)
-
-        Text("Toplam: ${a.toString().curencyFormat()} ₺")
 
         CustomSpacerHeight(10)
         Text("USD: ${curr?.usd}")
@@ -110,7 +104,7 @@ fun Item() {
             .padding(horizontal = Padding, vertical = Padding)
             .fillMaxWidth()
             .height(26.dp)
-    ){
+    ) {
 
     }
 }

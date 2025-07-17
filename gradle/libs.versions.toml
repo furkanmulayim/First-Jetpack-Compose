@@ -1,26 +1,26 @@
 [versions]
 # Android & Kotlin
-agp = "8.10.1"
-kotlin = "2.0.0"
+agp = "8.11.1"
+kotlin = "2.2.0"
 
 # AndroidX Core
 coreKtx = "1.16.0"
-lifecycleRuntimeKtx = "2.9.0"
+lifecycleRuntimeKtx = "2.9.2"
 activityCompose = "1.10.1"
 
 # Jetpack Compose (BOM ile uyumlu)
-composeBom = "2025.05.00"
+composeBom = "2025.07.00"
 composeIcons = "1.7.8"
-composeWheelPicker = "1.0.0-beta04"
+composeWheelPicker = "1.0.0-rc02"
 
 # Accompanist
-accompanist = "0.33.2-alpha"
+accompanist = "0.36.0"
 
 # Navigation
-navigation = "2.9.0"
+navigation = "2.9.2"
 
-retrofit = "2.9.0"
-gson = "2.10.1"
+retrofit = "3.0.0"
+gson = "2.13.1"
 
 [libraries]
 # AndroidX Core
