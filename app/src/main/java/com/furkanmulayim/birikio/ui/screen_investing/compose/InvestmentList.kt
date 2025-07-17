@@ -1,4 +1,4 @@
-package com.furkanmulayim.birikio.ui.screens_tab.screen_wallet.compose
+package com.furkanmulayim.birikio.ui.screen_investing.compose
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerHeight
-import com.furkanmulayim.birikio.model.WalletModel
+import com.furkanmulayim.birikio.model.InvestModel
 import com.furkanmulayim.birikio.ui.theme.AppSize
 import com.furkanmulayim.birikio.ui.theme.Typo
 import com.furkanmulayim.birikio.ui.theme.twins
@@ -27,7 +27,7 @@ import com.furkanmulayim.birikio.ui.theme.twins
 
 //LİST SECTION
 @Composable
-fun WalletList(list: List<WalletModel>?) {
+fun InvestmentList(list: List<InvestModel>?) {
     CustomSpacerHeight(12)
     when {
         list == null -> StateIsLoading()
@@ -57,7 +57,7 @@ fun StateIsLoading() {
 
 // IF SUCCES STATE
 @Composable
-fun StateIsSuccess(list: List<WalletModel>) {
+fun StateIsSuccess(list: List<InvestModel>) {
 
     val headerText = stringResource(id = R.string.last_transaction)
     Column(
@@ -80,7 +80,7 @@ fun StateIsSuccess(list: List<WalletModel>) {
                 .clip(RoundedCornerShape(AppSize.RadiusButtons))
         ) {
             items(list) { investment ->
-                WalletListItemWidget(investment, onClick = {})
+                InvestListItemWidget(investment, onClick = {})
             }
         }
     }

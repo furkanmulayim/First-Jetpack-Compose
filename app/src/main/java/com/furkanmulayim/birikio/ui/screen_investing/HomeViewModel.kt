@@ -1,4 +1,4 @@
-package com.furkanmulayim.birikio.ui.screens_tab.screen_home.viewmodel
+package com.furkanmulayim.birikio.ui.screen_investing
 
 import androidx.lifecycle.ViewModel
 import com.furkanmulayim.birikio.data.repository.InvestRepository

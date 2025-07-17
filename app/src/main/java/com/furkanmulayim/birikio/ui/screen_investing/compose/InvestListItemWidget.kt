@@ -1,4 +1,4 @@
-package com.furkanmulayim.birikio.ui.screens_tab.screen_investing.compose
+package com.furkanmulayim.birikio.ui.screen_investing.compose
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

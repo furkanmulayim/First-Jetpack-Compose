@@ -29,7 +29,7 @@ fun CustomPrimaryButton(
     Column(
         modifier = modifier
             .padding(PaddingXSmall)
-            .aspectRatio(0.6f)
+            .aspectRatio(0.8f)
             .clip(RoundedCornerShape(ButtonIconsHeight))
             .background(colorScheme.secondary)
             .clickable { onClick() },
