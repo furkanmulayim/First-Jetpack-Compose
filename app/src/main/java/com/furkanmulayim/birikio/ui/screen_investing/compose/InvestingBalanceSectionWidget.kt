@@ -28,7 +28,7 @@ import com.furkanmulayim.birikio.ui.theme.twins
 
 @Composable
 fun InvestingBalanceSectionWidget(totalInvesting: String, isInvesting: Boolean) {
-    val totalWalletText = stringResource(id = R.string.total_money)
+    val totalMoneyText = stringResource(id = R.string.total_money)
     CustomSpacerHeight(24)
     Row(
         modifier = Modifier
@@ -43,7 +43,7 @@ fun InvestingBalanceSectionWidget(totalInvesting: String, isInvesting: Boolean) 
         ) {
             // TEXT -> INVESTİNG
             Text(
-                text = totalWalletText,
+                text = totalMoneyText,
                 style = Typo.font_11_w800.copy(
                     color = twins,
                     letterSpacing = 2.sp

@@ -1,7 +1,7 @@
 package com.furkanmulayim.birikio.ui.bottom_sheet_buy_sold_invest.model
 
 import com.furkanmulayim.birikio.R
-import com.furkanmulayim.birikio.core.enums.InvestImageEnum
+import com.furkanmulayim.birikio.core.enums.InvestE
 import com.furkanmulayim.birikio.core.enums.InvestmentBuySoldType
 import com.furkanmulayim.birikio.core.extensions.getInvestNameToImage
 
@@ -9,7 +9,7 @@ fun getLayoutPieceModel(rowType: String, imageName: String): LayoutPieceModel {
     return when (rowType) {
         InvestmentBuySoldType.Amount.name -> LayoutPieceModel(
             iconRes = imageName.getInvestNameToImage(),
-            title = InvestImageEnum.fromValue(imageName)?.value.orEmpty(),
+            title = InvestE.fromValue(imageName)?.value.orEmpty(),
             subtitle = "(ADET)",
             hint = "0",
             inputType = 1

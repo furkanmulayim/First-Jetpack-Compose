@@ -1,6 +1,5 @@
 package com.furkanmulayim.birikio.ui.screen_exchange_rate.view
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,28 +7,23 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.core.component.buttons.icon_button.CustomIconButton
 import com.furkanmulayim.birikio.core.component.buttons.icon_button.CustomIconTextButton
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerHeight
+import com.furkanmulayim.birikio.core.enums.InvestE
+import com.furkanmulayim.birikio.core.state.UiState
 import com.furkanmulayim.birikio.ui.screen_exchange_rate.viewmodel.ExchangeRateViewModel
 import com.furkanmulayim.birikio.ui.theme.AppSize
-import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonIconsHeight
-import com.furkanmulayim.birikio.ui.theme.AppSize.Padding
-import com.furkanmulayim.birikio.ui.theme.AppSize.RadiusMedium
-import com.furkanmulayim.birikio.ui.theme.AppSize.zero_o_five
-import com.furkanmulayim.birikio.ui.theme.twins_75
 
 
 @Composable
@@ -37,8 +31,8 @@ fun ExchangeRateScreen(
     navController: NavHostController, viewModel: ExchangeRateViewModel = viewModel()
 ) {
 
-    val updateTime by viewModel.updatedAt.collectAsState()
-    val curr by viewModel.allMoneys.collectAsState()
+    val uiState by viewModel.uiState.collectAsState()
+
 
     Column(
         modifier = Modifier
@@ -68,44 +62,36 @@ fun ExchangeRateScreen(
         }
         CustomSpacerHeight(20)
 
-        Item()
-        Text("Güncelleme Zamanı: $updateTime")
+        when (uiState) {
+            is UiState.Loading -> {
+                CircularProgressIndicator()
+            }
 
+            is UiState.Success -> {
+                val data = (uiState as UiState.Success).data
+                val moneyItems = listOf(
+                    InvestE.DOLLAR.value to data.usd,
+                    InvestE.EURO.value to data.eur,
+                    InvestE.GRAM24.value to data.gram24,
+                    InvestE.GRAM22.value to data.gram22,
+                    InvestE.CEYREK.value to data.ceyrek,
+                    InvestE.YARIM.value to data.yarim,
+                    InvestE.TAM.value to data.tam,
+                    InvestE.RESAT.value to data.resat
+                )
 
-        CustomSpacerHeight(10)
-        Text("USD: ${curr?.usd}")
-        CustomSpacerHeight(10)
-        Text("eur: ${curr?.eur}")
-        CustomSpacerHeight(10)
-        Text("gram24: ${curr?.gram24}")
-        CustomSpacerHeight(10)
-        Text("gram22: ${curr?.gram22}")
-        CustomSpacerHeight(10)
-        Text("ceyrek: ${curr?.ceyrek}")
-        CustomSpacerHeight(10)
-        Text("yarim: ${curr?.yarim}")
-        CustomSpacerHeight(10)
-        Text("tam: ${curr?.tam}")
-        CustomSpacerHeight(10)
-        Text("resat: ${curr?.resat}")
-    }
-}
+                moneyItems.forEach { (name, value) ->
+                    CustomSpacerHeight(10)
+                    Text(text = "$name: $value")
+                }
+            }
 
+            is UiState.Error -> {
+                val message = (uiState as UiState.Error).message
+                Text("Hata: $message")
+            }
+        }
 
-@Composable
-fun Item() {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .clip(RoundedCornerShape(RadiusMedium))
-            .border(
-                width = zero_o_five, color = twins_75, shape = RoundedCornerShape(ButtonIconsHeight)
-            )
-            .padding(horizontal = Padding, vertical = Padding)
-            .fillMaxWidth()
-            .height(26.dp)
-    ) {
 
     }
 }
-

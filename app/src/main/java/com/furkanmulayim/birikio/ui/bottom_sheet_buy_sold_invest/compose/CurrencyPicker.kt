@@ -31,7 +31,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import com.furkanmulayim.birikio.R
-import com.furkanmulayim.birikio.core.enums.InvestImageEnum
+import com.furkanmulayim.birikio.core.enums.InvestE
 import com.furkanmulayim.birikio.core.extensions.getInvestNameToImage
 import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonHeight
 import com.furkanmulayim.birikio.ui.theme.AppSize.ButtonIconsHeight
@@ -52,7 +52,7 @@ fun CurrencyPicker(
     val options = mutableListOf<String>()
     var itemIcon = selectedCurrency.value.getInvestNameToImage()
 
-    for (i in InvestImageEnum.entries) {
+    for (i in InvestE.entries) {
         options.add(i.value)
     }
 

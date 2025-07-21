@@ -4,10 +4,10 @@ import com.furkanmulayim.birikio.model.AllMoneys
 import com.furkanmulayim.birikio.model.Currency
 
 
-fun calculateAllMoneys(goldOns: Double, curr: List<Currency>): AllMoneys? {
-    val usdPrice = curr.find { it.code == "USD" }?.buying ?: return null
-    val eurPrice = curr.find { it.code == "EUR" }?.buying ?: return null
-    var gramPrice = curr.find { it.code == "GRA" }?.buying ?: return null
+fun calculateAllMoneys(curr: List<Currency>): AllMoneys {
+    val usdPrice = curr.find { it.code == "USD" }?.buying
+    val eurPrice = curr.find { it.code == "EUR" }?.buying
+    val gramPrice = curr.find { it.code == "GRA" }?.buying
 
     // Gramlar
     val ceyrekGr = 1.79183
@@ -18,12 +18,12 @@ fun calculateAllMoneys(goldOns: Double, curr: List<Currency>): AllMoneys? {
     // Saflık oranı
     val saflik22 = 0.916
 
-    val gramAltin24 = gramPrice
-    val gramAltin22 = (gramAltin24 * saflik22)
+    val gramAltin24 = gramPrice ?: 0.0
+    val gramAltin22 = gramAltin24 * saflik22
 
     return AllMoneys(
-        usd = usdPrice.Round(2),
-        eur = eurPrice.Round(2),
+        usd = usdPrice?.Round(2) ?: 0.0,
+        eur = eurPrice?.Round(2) ?: 0.0,
         gram24 = gramAltin24.toInt(),
         gram22 = gramAltin22.toInt(),
         ceyrek = (gramAltin22 * ceyrekGr).toInt(),

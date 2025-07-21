@@ -21,7 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerHeight
-import com.furkanmulayim.birikio.core.enums.InvestImageEnum
+import com.furkanmulayim.birikio.core.enums.InvestE
 import com.furkanmulayim.birikio.core.enums.InvestmentBuySoldType
 import com.furkanmulayim.birikio.ui.bottom_sheet_buy_sold_invest.compose.CurrencyPicker
 import com.furkanmulayim.birikio.ui.bottom_sheet_buy_sold_invest.compose.LayoutPiece
@@ -48,7 +48,7 @@ fun InvestBuySoldBottomSheet(
     }
 
     var nots = remember { mutableStateOf("") }
-    var invest = remember { mutableStateOf(InvestImageEnum.DOLLAR.value) }
+    var invest = remember { mutableStateOf(InvestE.DOLLAR.value) }
 
     if (showBottomSheet) {
         ModalBottomSheet(

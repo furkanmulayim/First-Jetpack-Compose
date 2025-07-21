@@ -4,7 +4,6 @@
     // General
     <string name="app_name">Birikio</string>
     <string name="my_investing">Yatırımlarım</string>
-    <string name="my_wallet">Cüzdanım</string>
     <string name="total_money">BAKİYE</string>
     <string name="last_transaction">SON İŞLEMLER</string>
 
@@ -16,31 +15,11 @@
     <string name="do_invest_change_now">SAT</string>
     <string name="do_invest_buy">Alış Yap</string>
     <string name="do_invest_change">Satış Yap</string>
-
     <string name="graphic">DETAY</string>
     <string name="change_rate">KURLAR</string>
-
-    // Wallet-Page
-    <string name="wallet_total_invest">GELİR</string>
-    <string name="wallet_total_outvest">GİDER</string>
-    <string name="do_wallet_buy">Gelir Ekle</string>
-    <string name="do_wallet_change">Gider Ekle</string>
-    <string name="wallet_total_detail">GRAFİK</string>
-    <string name="wallet_cards">IBANLAR</string>
-
 
     // Currency-Swap-Page
     <string name="swap_header">Exchange</string>
     <string name="swap_exchange_rate">Döviz Kuru</string>
-
-    // IBAN PAGE
-    <string name="iban_label">IBAN Numarası</string>
-    <string name="iban_header">IBAN Numarası Ekle</string>
-    <string name="iban_hint">XXXX XXXX XXXX XXXX XXXX XXXX</string>
-
-
-    // Exchange-Rate-Page
-    // Credit-Card-Page
-    // Profile-Page
 
 </resources>
