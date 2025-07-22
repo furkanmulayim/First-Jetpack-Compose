@@ -10,25 +10,25 @@ fun calculateAllMoneys(curr: List<Currency>): AllMoneys {
     val gramPrice = curr.find { it.code == "GRA" }?.buying
 
     // Gramlar
-    val ceyrekGr = 1.79183
-    val yarimGr = 3.58367
-    val tamGr = 7.12858
-    val resatGr = 7.1535
+    val goldQuarter = 1.79183
+    val goldHalf = 3.58367
+    val goldFull = 7.12858
+    val goldResat = 7.1535
 
     // Saflık oranı
-    val saflik22 = 0.916
+    val purity22 = 0.916
 
-    val gramAltin24 = gramPrice ?: 0.0
-    val gramAltin22 = gramAltin24 * saflik22
+    val goldGrams24 = gramPrice ?: 0.0
+    val goldGrams22 = goldGrams24 * purity22
 
     return AllMoneys(
-        usd = usdPrice?.Round(2) ?: 0.0,
-        eur = eurPrice?.Round(2) ?: 0.0,
-        gram24 = gramAltin24.toInt(),
-        gram22 = gramAltin22.toInt(),
-        ceyrek = (gramAltin22 * ceyrekGr).toInt(),
-        yarim = (gramAltin22 * yarimGr).toInt(),
-        tam = (gramAltin22 * tamGr).toInt(),
-        resat = (gramAltin22 * resatGr).toInt()
+        usd = usdPrice?.round(2) ?: 0.0,
+        eur = eurPrice?.round(2) ?: 0.0,
+        grams24 = goldGrams24.toInt(),
+        grams22 = goldGrams22.toInt(),
+        quart = (goldGrams22 * goldQuarter).toInt(),
+        half = (goldGrams22 * goldHalf).toInt(),
+        full = (goldGrams22 * goldFull).toInt(),
+        resat = (goldGrams22 * goldResat).toInt()
     )
 }

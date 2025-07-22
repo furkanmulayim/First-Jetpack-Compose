@@ -3,18 +3,15 @@ package com.furkanmulayim.birikio.core.extensions
 import java.text.NumberFormat
 import java.util.Locale
 
-fun String.curencyFormat(): String {
-    // Geçerli bir sayı olup olmadığını kontrol et
-    val number = this.replace(".", "").replace(",", ".").toDoubleOrNull()
-    if (number == null) {
-        return "Hesaplanamadı"
-    }
+fun String.currencyFormat(symbol: String = "₺"): String {
+    val sanitized = this.trim()
 
-    val numberFormat = NumberFormat.getNumberInstance(Locale.forLanguageTag("tr-TR")).apply {
+    val number = sanitized.toDoubleOrNull() ?: sanitized.replace(",", ".").toDoubleOrNull()
+    ?: return "Not Calculated"
+
+    val formatter = NumberFormat.getNumberInstance(Locale.forLanguageTag("tr-TR")).apply {
         minimumFractionDigits = 0
         maximumFractionDigits = 2
     }
-
-    // Sayıyı biçimlendir ve '₺' simgesini ekle
-    return numberFormat.format(number)
+    return "${formatter.format(number)} $symbol"
 }

@@ -25,11 +25,11 @@ import com.furkanmulayim.birikio.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.birikio.nav.AppScreens
 import com.furkanmulayim.birikio.ui.bottom_sheet_buy_sold_invest.view.InvestBuySoldBottomSheet
 import com.furkanmulayim.birikio.ui.bottom_sheet_swap.view.SwapBottomSheet
-import com.furkanmulayim.birikio.ui.screen_investing.HomeViewModel
 import com.furkanmulayim.birikio.ui.screen_investing.compose.ButtonSectionWidget
 import com.furkanmulayim.birikio.ui.screen_investing.compose.InvestingBalanceSectionWidget
 import com.furkanmulayim.birikio.ui.screen_investing.compose.InvestmentList
 import com.furkanmulayim.birikio.ui.screen_investing.compose.TickerBasicMarquee
+import com.furkanmulayim.birikio.ui.screen_investing.viewmodel.HomeViewModel
 import com.furkanmulayim.birikio.ui.theme.AppSize
 import kotlinx.coroutines.launch
 
@@ -66,18 +66,19 @@ private fun InvestingContent(
 
     val investmentList by viewModel.investmentList.collectAsState()
     val investmentBalance by viewModel.investingBalance.collectAsState()
+    val goldState by viewModel.uiState.collectAsState()
 
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
 
 
-        var showCurrencSwapBottomSheet by remember { mutableStateOf(false) }
+        var showCurrencySwapBottomSheet by remember { mutableStateOf(false) }
         val coroutineScope = rememberCoroutineScope()
 
         SwapBottomSheet(
-            showBottomSheet = showCurrencSwapBottomSheet,
-            onDismiss = { showCurrencSwapBottomSheet = false })
+            showBottomSheet = showCurrencySwapBottomSheet,
+            onDismiss = { showCurrencySwapBottomSheet = false })
 
         Row(
             modifier = Modifier
@@ -104,7 +105,7 @@ private fun InvestingContent(
             CustomIconButton(
                 icon = R.drawable.svg_icon_swap, onClick = {
                     coroutineScope.launch {
-                        showCurrencSwapBottomSheet = true
+                        showCurrencySwapBottomSheet = true
                     }
                 })
         }
@@ -113,7 +114,7 @@ private fun InvestingContent(
             totalInvesting = investmentBalance, isInvesting = true
         ) // Balance Money
         CustomSpacerHeight(16)
-        TickerBasicMarquee()
+        TickerBasicMarquee(goldState)
         CustomSpacerHeight(16)
         ButtonSectionWidget(navController, buyOnClick = {
             investType = buyString

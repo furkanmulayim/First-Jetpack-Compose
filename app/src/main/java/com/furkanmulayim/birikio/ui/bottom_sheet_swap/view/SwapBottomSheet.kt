@@ -67,11 +67,11 @@ fun SwapBottomSheet(
     showBottomSheet: Boolean, onDismiss: () -> Unit
 ) {
     if (showBottomSheet) {
-        var fromCurrency = remember { mutableStateOf(SwapImageEnum.TRY.value) }
-        var toCurrency = remember { mutableStateOf(SwapImageEnum.DOLLAR.value) }
+        val fromCurrency = remember { mutableStateOf(SwapImageEnum.TRY.value) }
+        val toCurrency = remember { mutableStateOf(SwapImageEnum.DOLLAR.value) }
 
-        var topAmount = remember { mutableStateOf("") }
-        var bottomAmount = remember { mutableStateOf("") }
+        val topAmount = remember { mutableStateOf("") }
+        val bottomAmount = remember { mutableStateOf("") }
 
         ModalBottomSheet(
             sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false),
@@ -146,7 +146,7 @@ fun PlainNumberInput(
             value = value.value,
             onValueChange = { newValue ->
                 // Sadece ondalıklı sayı formatına izin ver (maks. 1 tane nokta)
-                if (newValue.matches(Regex("^\\d*\\.?\\d*\$"))) {
+                if (newValue.matches(Regex("^\\d*\\.?\\d*$"))) {
                     value.value = newValue
                 }
             },
@@ -190,7 +190,7 @@ fun CurrencyPicker(
 ) {
     var expanded by remember { mutableStateOf(false) }
     val options = mutableListOf<String>()
-    var itemIcon = selectedCurrency.value.getSwapNameToImage()
+    val itemIcon = selectedCurrency.value.getSwapNameToImage()
 
     for (i in SwapImageEnum.entries) {
         options.add(i.value)

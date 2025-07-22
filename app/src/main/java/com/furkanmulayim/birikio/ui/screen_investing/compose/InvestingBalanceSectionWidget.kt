@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerWidth
-import com.furkanmulayim.birikio.core.extensions.curencyFormat
+import com.furkanmulayim.birikio.core.extensions.currencyFormat
 import com.furkanmulayim.birikio.ui.theme.AppSize
 import com.furkanmulayim.birikio.ui.theme.Typo
 import com.furkanmulayim.birikio.ui.theme.twins
@@ -58,7 +58,7 @@ fun InvestingBalanceSectionWidget(totalInvesting: String, isInvesting: Boolean) 
                 )
                 CustomSpacerWidth(5)
                 Text(
-                    text = totalInvesting.curencyFormat(),
+                    text = totalInvesting.currencyFormat(),
                     style = Typo.font_46_w800.copy(color)
                 )
             }
@@ -71,7 +71,7 @@ fun InvestingBalanceSectionWidget(totalInvesting: String, isInvesting: Boolean) 
                     text = "+₺", style = Typo.font_19_w500.copy(color = color)
                 )
                 Text(
-                    text = "1612,32".curencyFormat(), style = Typo.font_19_w500.copy(color)
+                    text = "1612,32".currencyFormat(), style = Typo.font_19_w500.copy(color)
                 )
 
                 CustomSpacerWidth(8)

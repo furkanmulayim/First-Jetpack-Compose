@@ -33,34 +33,15 @@ object Typo {
         fontSize = 25.sp,
     )
 
-
-    val font_19_w600 = TextStyle(
-        fontFamily = helveticaNeue,
-        fontWeight = FontWeight.W600,
-        fontSize = 19.sp,
-    )
-
     val font_19_w500 = TextStyle(
         fontFamily = helveticaNeue,
         fontWeight = FontWeight.W500,
         fontSize = 19.sp,
     )
 
-    val font_19_w300 = TextStyle(
-        fontFamily = helveticaNeue,
-        fontWeight = FontWeight.W400,
-        fontSize = 19.sp,
-    )
-
     val font_16_w500 = TextStyle(
         fontFamily = helveticaNeue,
         fontWeight = FontWeight.W500,
-        fontSize = 16.sp,
-    )
-
-    val font_16_w300 = TextStyle(
-        fontFamily = helveticaNeue,
-        fontWeight = FontWeight.W300,
         fontSize = 16.sp,
     )
 

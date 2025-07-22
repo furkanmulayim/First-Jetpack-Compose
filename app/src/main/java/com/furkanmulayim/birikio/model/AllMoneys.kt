@@ -3,10 +3,10 @@ package com.furkanmulayim.birikio.model
 data class AllMoneys(
     val usd: Double,
     val eur: Double,
-    val gram24: Int,
-    val gram22: Int,
-    val ceyrek: Int,
-    val yarim: Int,
-    val tam: Int,
+    val grams24: Int,
+    val grams22: Int,
+    val quart: Int,
+    val half: Int,
+    val full: Int,
     val resat: Int
 )

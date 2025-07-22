@@ -14,49 +14,70 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import com.furkanmulayim.birikio.core.enums.InvestE
+import com.furkanmulayim.birikio.core.extensions.currencyFormat
+import com.furkanmulayim.birikio.core.state.GoldUiState
+import com.furkanmulayim.birikio.model.AllMoneys
 import com.furkanmulayim.birikio.ui.theme.AppSize
 import com.furkanmulayim.birikio.ui.theme.Typo
+import com.furkanmulayim.birikio.ui.theme.blued
+import com.furkanmulayim.birikio.ui.theme.twins_75
 
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun TickerBasicMarquee() {
-    val text = buildAnnotatedString {
-        append("USD ")
-        withStyle(style = SpanStyle(color = colorScheme.onTertiary)) {
-            append("38.76₺")
+fun TickerBasicMarquee(goldState: GoldUiState<AllMoneys>) {
+
+    when (goldState) {
+        is GoldUiState.Loading -> {
+            //CircularProgressIndicator()
         }
-        append("  |  EUR ")
-        withStyle(style = SpanStyle(color = colorScheme.inverseSurface)) {
-            append("43.29₺")
+
+        is GoldUiState.Success -> {
+            val data = goldState.data
+            val moneyItems = listOf(
+                InvestE.DOLLAR.value to data.usd,
+                InvestE.EURO.value to data.eur,
+                InvestE.GRAM24.value to data.grams24,
+                InvestE.GRAM22.value to data.grams22,
+                InvestE.CEYREK.value to data.quart,
+                InvestE.YARIM.value to data.half,
+                InvestE.TAM.value to data.full,
+                InvestE.RESAT.value to data.resat
+            )
+
+            val text = buildAnnotatedString {
+                moneyItems.forEachIndexed { index, (name, value) ->
+                    append("$name ")
+                    withStyle(style = SpanStyle(color = blued)) {
+                        append(value.toString().currencyFormat())
+                    }
+                    withStyle(style = SpanStyle(color = twins_75)) {
+                        append("   |   ")
+                    }
+                }
+            }
+
+            Text(
+                text = text,
+                modifier = Modifier
+                    .background(colorScheme.secondary)
+                    .padding(vertical = AppSize.PaddingSmall)
+                    .fillMaxWidth()
+                    .basicMarquee(
+                        iterations = Int.MAX_VALUE,
+                        spacing = MarqueeSpacing.fractionOfContainer(0f),
+                        velocity = 75.dp
+                    ),
+                style = Typo.font_16_w500.copy(colorScheme.scrim)
+            )
         }
-        append("  |  Ons Altın ")
-        withStyle(style = SpanStyle(color = colorScheme.onTertiary)) {
-            append("112.800$")
+
+        is GoldUiState.Error -> {
+            val message = goldState.message
+            Text("Unexpected Fail: $message")
         }
-        append("  |  Gram Altın ₂₂ ")
-        withStyle(style = SpanStyle(color = colorScheme.inverseSurface)) {
-            append("3.712₺")
-        }
-        append("  |  Gram Altın ₂₄ ")
-        withStyle(style = SpanStyle(color = colorScheme.onTertiary)) {
-            append("3.912₺")
-        }
-        append("  | ")
     }
-    Text(
-        text = text,
-        modifier = Modifier
-            .background(colorScheme.secondary)
-            .padding(vertical = AppSize.PaddingSmall)
-            .fillMaxWidth()
-            .basicMarquee(
-                iterations = Int.MAX_VALUE,
-                spacing = MarqueeSpacing.fractionOfContainer(0f),
-                velocity = 35.dp
-            ),
-        style = Typo.font_16_w500.copy(colorScheme.scrim)
-    )
 }
 
 

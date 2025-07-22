@@ -20,7 +20,7 @@ import androidx.compose.ui.res.painterResource
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerWidth
-import com.furkanmulayim.birikio.core.extensions.curencyFormat
+import com.furkanmulayim.birikio.core.extensions.currencyFormat
 import com.furkanmulayim.birikio.core.extensions.getInvestNameToImage
 import com.furkanmulayim.birikio.model.InvestModel
 import com.furkanmulayim.birikio.ui.theme.AppSize
@@ -59,7 +59,7 @@ fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
 
             Row {
                 Text(
-                    text = "${investment.currentPrice.curencyFormat()}₺",
+                    text = "${investment.currentPrice.currencyFormat()}₺",
                     style = Typo.font_13_w500.copy(twins)
                 )
                 CustomSpacerWidth(4)
@@ -78,7 +78,7 @@ fun InvestListItemWidget(investment: InvestModel, onClick: () -> Unit) {
 
             CustomSpacerHeight(6)
             Text(
-                text = "~${investment.totalPrice.curencyFormat()}₺",
+                text = "~${investment.totalPrice.currencyFormat()}₺",
                 style = Typo.font_13_w500.copy(twins)
             )
         }

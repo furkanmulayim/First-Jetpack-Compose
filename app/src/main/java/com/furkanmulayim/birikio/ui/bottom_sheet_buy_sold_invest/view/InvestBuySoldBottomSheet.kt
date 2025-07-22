@@ -39,16 +39,16 @@ fun InvestBuySoldBottomSheet(
     showBottomSheet: Boolean, onDismiss: () -> Unit, investType: String, isBuyColor: Boolean
 ) {
 
-    var amount = remember { mutableStateOf("") }
-    var amountTotalLiras = remember { mutableStateOf("") }
+    val amount = remember { mutableStateOf("") }
+    val amountTotalLiras = remember { mutableStateOf("") }
     var subAmountTotal: Double = 0.0
     if (amount.value.isNotEmpty() && amountTotalLiras.value.isNotEmpty()) {
         subAmountTotal = (amount.value.toDouble() * amountTotalLiras.value.toDouble())
         subAmountTotal = (subAmountTotal * 100).roundToInt() / 100.0
     }
 
-    var nots = remember { mutableStateOf("") }
-    var invest = remember { mutableStateOf(InvestE.DOLLAR.value) }
+    val nots = remember { mutableStateOf("") }
+    val invest = remember { mutableStateOf(InvestE.DOLLAR.value) }
 
     if (showBottomSheet) {
         ModalBottomSheet(

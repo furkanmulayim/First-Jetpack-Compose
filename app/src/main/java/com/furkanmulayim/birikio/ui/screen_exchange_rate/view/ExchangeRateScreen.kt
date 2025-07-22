@@ -21,17 +21,17 @@ import com.furkanmulayim.birikio.core.component.buttons.icon_button.CustomIconBu
 import com.furkanmulayim.birikio.core.component.buttons.icon_button.CustomIconTextButton
 import com.furkanmulayim.birikio.core.component.others.CustomSpacerHeight
 import com.furkanmulayim.birikio.core.enums.InvestE
-import com.furkanmulayim.birikio.core.state.UiState
-import com.furkanmulayim.birikio.ui.screen_exchange_rate.viewmodel.ExchangeRateViewModel
+import com.furkanmulayim.birikio.core.state.GoldUiState
+import com.furkanmulayim.birikio.ui.screen_investing.viewmodel.HomeViewModel
 import com.furkanmulayim.birikio.ui.theme.AppSize
 
 
 @Composable
 fun ExchangeRateScreen(
-    navController: NavHostController, viewModel: ExchangeRateViewModel = viewModel()
+    navController: NavHostController, viewModel: HomeViewModel = viewModel()
 ) {
 
-    val uiState by viewModel.uiState.collectAsState()
+    val goldState by viewModel.uiState.collectAsState()
 
 
     Column(
@@ -62,21 +62,21 @@ fun ExchangeRateScreen(
         }
         CustomSpacerHeight(20)
 
-        when (uiState) {
-            is UiState.Loading -> {
+        when (goldState) {
+            is GoldUiState.Loading -> {
                 CircularProgressIndicator()
             }
 
-            is UiState.Success -> {
-                val data = (uiState as UiState.Success).data
+            is GoldUiState.Success -> {
+                val data = (goldState as GoldUiState.Success).data
                 val moneyItems = listOf(
                     InvestE.DOLLAR.value to data.usd,
                     InvestE.EURO.value to data.eur,
-                    InvestE.GRAM24.value to data.gram24,
-                    InvestE.GRAM22.value to data.gram22,
-                    InvestE.CEYREK.value to data.ceyrek,
-                    InvestE.YARIM.value to data.yarim,
-                    InvestE.TAM.value to data.tam,
+                    InvestE.GRAM24.value to data.grams24,
+                    InvestE.GRAM22.value to data.grams22,
+                    InvestE.CEYREK.value to data.quart,
+                    InvestE.YARIM.value to data.half,
+                    InvestE.TAM.value to data.full,
                     InvestE.RESAT.value to data.resat
                 )
 
@@ -86,9 +86,9 @@ fun ExchangeRateScreen(
                 }
             }
 
-            is UiState.Error -> {
-                val message = (uiState as UiState.Error).message
-                Text("Hata: $message")
+            is GoldUiState.Error -> {
+                val message = (goldState as GoldUiState.Error).message
+                Text("Unexpected Fail: $message")
             }
         }
 
