@@ -2,53 +2,33 @@ package com.furkanmulayim.birikio.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+
+//OTHER
+val light = Color(0xFFFFFFFF)
+val dark = Color(0xFFFFFFFF)
+
 // PRIMARY
-val primaryLight = Color(0xFF1D1B20)
-val primaryDark = Color(0xFFFFFFFF)
+val primaryLight = Color(0xFF007AFF)
+val primaryDark = Color(0xFF007AFF)
 
-val secondaryLight = Color(0xFFF6F6F6)
-val secondaryDark = Color(0xFF1D1B20)
+// BACKGROUND
+val background_light = Color(0xFFF2F2F7)
+val background_dark = Color(0xFF111111)
 
-val onSecondaryContainerLight = Color(0xFF1D1B20)
-val onSecondaryContainerDark = Color(0xFFF6F6F6)
+// TEXT
+val text_light = dark
+val text_dark = light
 
-val onSecondaryLight = Color(0xFF4B4B4B)
-val onSecondaryDark = Color(0xFFD9D9D9)
+val text_disabled_light = Color(0xFF8A8A8E)
+val text_disabled_dark = Color(0xFF98989F)
 
-val scrimLight = Color(0xFF3D3D3D)
-val scrimDark = Color(0xFFDDDDDD)
+val text_bar_light = Color(0xFF7F7F85)
+val text_bar_dark = text_disabled_dark
 
-val surfaceLight = Color(0xFF414141)
-val surfaceDark = Color(0xFF989898)
+// CARD
+val card_background_light = light
+val card_background_dark = Color(0xFF1C1C1C)
 
-
-val onSurfaceLight = Color(0xFF363636)
-val onSurfaceDark = Color(0xFFB7B7B7)
-
-val tertiaryLight = Color(0xFFB8F6B7)
-val tertiaryDark = Color(0xFF375736)
-
-
-val hint = Color(0xFF898989)
-val twins = Color(0xFF6E6E6E)
-val textTwins = Color(0xFF5B5B5B)
-val twins_75 = Color(0x756E6E6E)
-val twins_40 = Color(0x406E6E6E)
-val twins_15 = Color(0x22858585)
-val twins_10 = Color(0x10858585)
-
-val soldLight = Color(0xFFD67070)
-val soldDark = Color(0xFFDD6A6A)
-
-val blued = Color(0xFF3F6EB5)
-val greened = Color(0xFF388E3C)
-
-
-val greened_20 = Color(0x15388E3C)
-val solded_20 = Color(0x15DD6A6A)
-
-val pinked = Color(0xFFEE0979)
-val oranged = Color(0xFFFF6A00)
-
-val onTertiaryLight = Color(0xFF509F4E)
-val onTertiaryDark = Color(0xFF569B61)
+// SEARCH BAR & BARS
+val bar_back_light = Color(0xFFE3E3E8)
+val bar_back_dark = card_background_dark

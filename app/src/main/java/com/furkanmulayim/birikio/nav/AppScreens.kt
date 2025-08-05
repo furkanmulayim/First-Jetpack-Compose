@@ -4,5 +4,5 @@ sealed class AppScreens(val route: String) {
 
     data object InvestingScreen : AppScreens("investing")
 
-    data object ExchangeRateScreen : AppScreens("exchange")
+    data object OnboardingScreen : AppScreens("onboarding")
 }

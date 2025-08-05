@@ -55,6 +55,9 @@ dependencies {
     // Navigation Compose
     implementation(libs.androidx.navigation.compose)
 
+    // Data Store
+    implementation(libs.androidx.datastore.preferences)
+
     // RETROFIT
     implementation(libs.retrofit)
 
