@@ -42,4 +42,7 @@ val text_disabled_dark = Color(0xFF000000)
 ///                         TRANSPARENT
 //----------------------------------------------------------------
 
-val transparent40 = Color(0x66494949)
+val transparent40 = Color(0x25494949)
+
+val selectedBorder = Color(0x8C494949)
+val unSelectedBorder = Color(0x33494949)

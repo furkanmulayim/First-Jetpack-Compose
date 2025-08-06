@@ -4,6 +4,8 @@
     <string name="hello">Selam</string>
 
 
-    <string name="balanceButtonBuySold">Al/Sat</string>
-    <string name="balanceButtonDetail">Detay</string>
+    <string name="balanceButtonBalance">Varlığım</string>
+    <string name="balanceButtonBuy">Al</string>
+    <string name="balanceButtonSold">Sat</string>
+    <string name="balanceButtonDetail">Geçmiş</string>
 </resources>

@@ -14,7 +14,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
@@ -39,7 +38,8 @@ fun CustomIconButtonUnderText(icon: Int, text: String, onClick: () -> Unit) {
         ) {
             Icon(
                 painterResource(icon),
-                tint = Color.White,
+                //tint = Color.White,
+                tint = colorScheme.primary,
                 contentDescription = "menu",
             )
         }

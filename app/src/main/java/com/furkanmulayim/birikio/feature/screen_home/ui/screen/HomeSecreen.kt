@@ -22,7 +22,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -32,7 +31,10 @@ import com.furkanmulayim.birikio.design.component.others.CustomSpacerHeight
 import com.furkanmulayim.birikio.design.component.others.CustomSpacerWidth
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
-import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.BalanceDetailPager
+import com.furkanmulayim.birikio.design.theme.selectedBorder
+import com.furkanmulayim.birikio.design.theme.unSelectedBorder
+import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.BalancePager
+import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.CardPager
 import com.furkanmulayim.birikio.feature.screen_home.ui.viewmodel.HomeViewModel
 
 @Composable
@@ -78,7 +80,7 @@ private fun AppBarSection(
                 )
             }
         }
-        CustomIconButton(R.drawable.svg_icon_settings, onClick = onActionClick)
+        CustomIconButton(R.drawable.settings, onClick = onActionClick)
     }
 }
 
@@ -89,8 +91,8 @@ private fun PagerSection(pagerState: PagerState) {
         state = pagerState, modifier = Modifier.fillMaxWidth()
     ) { page ->
         when (page) {
-            0 -> BalanceDetailPager()
-            1 -> BalanceDetailPager()
+            0 -> BalancePager()
+            1 -> CardPager()
         }
     }
     CustomSpacerHeight(Appsize.padding6)
@@ -103,7 +105,8 @@ private fun PagerSection(pagerState: PagerState) {
         horizontalArrangement = Arrangement.Center
     ) {
         repeat(pagerState.pageCount) { iteration ->
-            val color = if (pagerState.currentPage == iteration) Color.DarkGray else Color.LightGray
+            val color =
+                if (pagerState.currentPage == iteration) selectedBorder else unSelectedBorder
             Box(
                 modifier = Modifier
                     .padding(4.dp)

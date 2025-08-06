@@ -15,6 +15,7 @@ object Appsize {
     val iconButtonSize = 36.dp
     val profileButtonSize = 48.dp
     val bottomTextIConButtonSize = 42.dp
+    val balancePagerSize = 190.dp
 
 
     // radius
@@ -25,6 +26,7 @@ object Appsize {
     val padding4 = 4.dp
     val padding6 = 6.dp
     val padding8 = 8.dp
+    val padding10 = 10.dp
     val padding12 = 12.dp
     val padding16 = 16.dp
     val padding20 = 20.dp
