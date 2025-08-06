@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.furkanmulayim.birikio.core.state.GoldUiState
 import com.furkanmulayim.birikio.model.AllMoneys
-import com.furkanmulayim.birikio.ui.theme.AppSize
 import com.furkanmulayim.birikio.ui.theme.Typo
 
 
@@ -38,7 +37,7 @@ fun TickerBasicMarquee(goldState: GoldUiState<AllMoneys>) {
                 text = "text",
                 modifier = Modifier
                     .background(colorScheme.secondary)
-                    .padding(vertical = AppSize.PaddingSmall)
+                    .padding(vertical = 12.dp)
                     .fillMaxWidth()
                     .basicMarquee(
                         iterations = Int.MAX_VALUE,

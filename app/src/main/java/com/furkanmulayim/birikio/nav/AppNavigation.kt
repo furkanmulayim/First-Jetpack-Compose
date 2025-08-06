@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.furkanmulayim.birikio.ui.screen_investing.view.InvestingScreen
+import com.furkanmulayim.birikio.ui.screen_investing.view.HomeScreen
 import com.furkanmulayim.birikio.ui.screen_onboarding.view.OnboardingScreen
 
 // AppNavigation.kt
@@ -19,13 +19,13 @@ fun AppNavigation(
         navController = navController, startDestination = startDestination
     ) {
 
-        composable(AppScreens.InvestingScreen.route) {
-            InvestingScreen(navController)
+        composable(AppScreens.HomeScreen.route) {
+            HomeScreen(navController)
         }
         composable(AppScreens.OnboardingScreen.route) {
             OnboardingScreen(
                 onStartClicked = {
-                    navController.navigate(AppScreens.InvestingScreen.route) {
+                    navController.navigate(AppScreens.HomeScreen.route) {
                         popUpTo(AppScreens.OnboardingScreen.route) { inclusive = true }
                     }
                 }

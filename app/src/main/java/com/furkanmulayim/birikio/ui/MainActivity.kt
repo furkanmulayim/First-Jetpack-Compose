@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
             LaunchedEffect(Unit) {
                 OnboardingDataStore.readOnboardingState(context).collect { shown ->
                     startDestination = if (shown) {
-                        AppScreens.OnboardingScreen.route
+                        AppScreens.HomeScreen.route
                     } else {
                         AppScreens.OnboardingScreen.route
                     }
