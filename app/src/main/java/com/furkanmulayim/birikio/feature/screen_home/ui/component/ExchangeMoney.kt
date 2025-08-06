@@ -3,6 +3,7 @@ package com.furkanmulayim.birikio.feature.screen_home.ui.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -39,10 +40,7 @@ import com.furkanmulayim.birikio.design.theme.primaryContainer
 import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
 
 private fun calculateConvertedAmount(
-    currencies: List<RateCurrency>,
-    leftAmount: String,
-    leftCode: String,
-    rightCode: String
+    currencies: List<RateCurrency>, leftAmount: String, leftCode: String, rightCode: String
 ): String {
     val l =
         currencies.firstOrNull { it.code == leftCode }?.price?.replace(",", ".")?.toDoubleOrNull()
@@ -58,7 +56,7 @@ private fun calculateConvertedAmount(
 @Composable
 fun ExchangeMoney(list: List<RateCurrency>) {
 
-    var leftAmount by remember { mutableStateOf("1") }
+    var leftAmount by remember { mutableStateOf("10") }
     var leftCode by remember { mutableStateOf("USD") }
     var rightCode by remember { mutableStateOf("TL") }
 
@@ -206,7 +204,10 @@ private fun CurrencyPicker(
     Row(
         modifier = Modifier
             .clip(RoundedCornerShape(Appsize.radius8))
-            .clickable { expanded = true },
+            .clickable(
+                indication = null,
+                interactionSource = remember { MutableInteractionSource() }
+            ) { expanded = true },
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
@@ -231,7 +232,7 @@ private fun CurrencyPicker(
             }
         }
         CustomSpacerWidth(padding4)
-        Text(selectedCode, style = Typo.font_12_w500)
+        Text(selectedCode, style = Typo.font_12_w700)
 
         CustomSpacerWidth(Appsize.size4)
         DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
