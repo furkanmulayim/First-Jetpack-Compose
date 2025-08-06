@@ -9,13 +9,14 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val LightColorScheme = lightColorScheme(
     primary = primary,
     surface = surface_light, // Page Back
     inverseSurface = surface_dark,
-    primaryContainer = iconButtonBackLight, // Container Back
+    primaryContainer = Color.White, // Container Back
     onPrimaryContainer = icon_button_foreground_light // Container icon & text
 )
 private val DarkColorScheme = darkColorScheme(

@@ -6,9 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.furkanmulayim.birikio.core.state.GoldUiState
 import com.furkanmulayim.birikio.core.util.calculateAllMoneys
 import com.furkanmulayim.birikio.feature.screen_home.data.model.AllMoneys
-import com.furkanmulayim.birikio.feature.screen_home.data.model.InvestModel
 import com.furkanmulayim.birikio.feature.screen_home.data.repo.CurrencyRepository
-import com.furkanmulayim.birikio.feature.screen_home.data.repo.InvestRepository
 import com.furkanmulayim.birikio.feature.screen_home.di.NetworkModule
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -24,9 +22,6 @@ class HomeViewModel(
 
     private val _investingBalance = MutableStateFlow("")
     val investingBalance: MutableStateFlow<String> = _investingBalance
-
-    private val _investmentList = MutableStateFlow<List<InvestModel>?>(emptyList())
-    val investmentList: StateFlow<List<InvestModel>?> = _investmentList
 
 
     private val _uiState = MutableStateFlow<GoldUiState<AllMoneys>>(GoldUiState.Loading)
@@ -57,7 +52,7 @@ class HomeViewModel(
 
 
     fun fetchInvestments() {
-        _investmentList.value = InvestRepository().getInvestments()
+
     }
 
     fun fetchInvestingBalance() {

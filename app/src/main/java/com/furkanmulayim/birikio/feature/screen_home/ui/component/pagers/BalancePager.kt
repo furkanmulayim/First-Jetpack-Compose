@@ -3,6 +3,7 @@ package com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,33 +15,24 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.design.component.buttons.CustomIconButtonUnderText
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
-import java.text.NumberFormat
-import java.util.Currency
-import java.util.Locale
+import com.furkanmulayim.birikio.design.theme.transparent40
 
 @Composable
 fun BalancePager(
 ) {
 
-    val balanceMoney = 345_624.0 // todo viewModel’den gelecek
-
-    val formatted = remember(balanceMoney) {
-        NumberFormat.getCurrencyInstance(Locale("tr", "TR")).apply {
-            currency = Currency.getInstance("TRY")
-            maximumFractionDigits = 0
-        }.format(balanceMoney)
-    }
+    val balanceMoney = 345.624 // todo viewModel’den gelecek
 
     val textBalance = stringResource(R.string.balanceButtonBalance)
     val textDetail = stringResource(R.string.balanceButtonDetail)
@@ -54,7 +46,10 @@ fun BalancePager(
             .height(Appsize.balancePagerSize)
             .padding(horizontal = Appsize.padding20)
             .clip(RoundedCornerShape(Appsize.radius12))
-            .background(colorScheme.primaryContainer),
+            .background(colorScheme.primaryContainer)
+            .border(
+                width = 1.dp, color = transparent40, shape = RoundedCornerShape(Appsize.radius12)
+            ),
         contentAlignment = Alignment.Center
     ) {
         Image(
@@ -79,7 +74,7 @@ fun BalancePager(
                 color = colorScheme.onPrimaryContainer
             )
             Text(
-                text = formatted, // örn: ₺345.624
+                text = "$balanceMoney₺", // örn: ₺345.624
                 style = Typo.font_43_w800
             )
 
@@ -90,16 +85,16 @@ fun BalancePager(
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
                 CustomIconButtonUnderText(
-                    icon = R.drawable.balance_total, text = textBalance, onClick = {})
+                    icon = R.drawable.balance_button_total, text = textBalance, onClick = {})
 
                 CustomIconButtonUnderText(
-                    icon = R.drawable.balance_history, text = textDetail, onClick = {})
+                    icon = R.drawable.balance_button_history, text = textDetail, onClick = {})
 
                 CustomIconButtonUnderText(
-                    icon = R.drawable.balance_buy, text = textBuy, onClick = {})
+                    icon = R.drawable.balance_button_buy, text = textBuy, onClick = {})
 
                 CustomIconButtonUnderText(
-                    icon = R.drawable.balance_sold, text = textSold, onClick = {})
+                    icon = R.drawable.balance_button_sold, text = textSold, onClick = {})
             }
         }
     }

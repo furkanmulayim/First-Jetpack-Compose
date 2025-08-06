@@ -6,12 +6,15 @@ import androidx.compose.ui.unit.dp
 object Appsize {
 
 
+    val size1 = 1.dp
     val size3 = 3.dp
+    val size4 = 8.dp
     val size24 = 24.dp
 
     val zero = 0.dp
 
     // Button Size
+    val iconButtonMiniSize = 24.dp
     val iconButtonSize = 36.dp
     val profileButtonSize = 48.dp
     val bottomTextIConButtonSize = 42.dp
@@ -19,6 +22,7 @@ object Appsize {
 
 
     // radius
+    val radius8 = 8.dp
     val radius12 = 16.dp
     val radius100 = 100.dp
 

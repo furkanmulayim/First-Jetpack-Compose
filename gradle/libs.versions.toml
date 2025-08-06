@@ -1,16 +1,16 @@
 [versions]
 # Android & Kotlin
-agp = "8.12.0"
-kotlin = "2.2.0"
+agp = "8.12.1"
+kotlin = "2.2.10"
 datastore = "1.1.7"
 
 # AndroidX Core
-coreKtx = "1.16.0"
+coreKtx = "1.17.0"
 lifecycleRuntimeKtx = "2.9.2"
 activityCompose = "1.10.1"
 
 # Jetpack Compose (BOM ile uyumlu)
-composeBom = "2025.07.00"
+composeBom = "2025.08.00"
 composeIcons = "1.7.8"
 composeWheelPicker = "1.0.0-rc02"
 
@@ -18,10 +18,11 @@ composeWheelPicker = "1.0.0-rc02"
 accompanist = "0.36.0"
 
 # Navigation
-navigation = "2.9.2"
+navigation = "2.9.3"
 
 retrofit = "3.0.0"
 gson = "2.13.1"
+foundation = "1.9.0"
 
 [libraries]
 # AndroidX Core
@@ -55,6 +56,7 @@ gson-converter = { group = "com.squareup.retrofit2", name = "converter-gson", ve
 
 # Gson
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+androidx-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

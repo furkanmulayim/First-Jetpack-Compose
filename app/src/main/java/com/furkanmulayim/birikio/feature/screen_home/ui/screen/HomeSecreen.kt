@@ -2,6 +2,7 @@ package com.furkanmulayim.birikio.feature.screen_home.ui.screen
 
 import CustomIconButton
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,6 +17,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,12 +29,17 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.furkanmulayim.birikio.R
+import com.furkanmulayim.birikio.design.component.others.CustomHorizontalDivider
 import com.furkanmulayim.birikio.design.component.others.CustomSpacerHeight
 import com.furkanmulayim.birikio.design.component.others.CustomSpacerWidth
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
 import com.furkanmulayim.birikio.design.theme.selectedBorder
+import com.furkanmulayim.birikio.design.theme.transparent40
 import com.furkanmulayim.birikio.design.theme.unSelectedBorder
+import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
+import com.furkanmulayim.birikio.feature.screen_home.ui.component.ExchangeMoney
+import com.furkanmulayim.birikio.feature.screen_home.ui.component.RateList
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.BalancePager
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.CardPager
 import com.furkanmulayim.birikio.feature.screen_home.ui.viewmodel.HomeViewModel
@@ -52,6 +59,7 @@ fun HomeScreen(
     ) {
         AppBarSection(name = name, onProfileClick = { /* todo */ }, onActionClick = { /* todo */ })
         PagerSection(pagerState)
+        RateSection()
     }
 }
 
@@ -62,7 +70,7 @@ private fun AppBarSection(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = Appsize.padding20, end = Appsize.padding20),
+            .padding(horizontal = Appsize.padding20),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
@@ -80,7 +88,7 @@ private fun AppBarSection(
                 )
             }
         }
-        CustomIconButton(R.drawable.settings, onClick = onActionClick)
+        CustomIconButton(R.drawable.home_button_settings, onClick = onActionClick)
     }
 }
 
@@ -109,7 +117,7 @@ private fun PagerSection(pagerState: PagerState) {
                 if (pagerState.currentPage == iteration) selectedBorder else unSelectedBorder
             Box(
                 modifier = Modifier
-                    .padding(4.dp)
+                    .padding(Appsize.padding4)
                     .height(Appsize.size3)
                     .width(Appsize.size24)
                     .clip(CircleShape)
@@ -119,3 +127,31 @@ private fun PagerSection(pagerState: PagerState) {
     }
 }
 
+
+@Composable
+private fun RateSection() {
+    val horizontalPadding = Appsize.padding20
+    val list = listOf(
+        RateCurrency(
+            name = "Dolar", icon = R.drawable.money_dollar, code = "USD", price = "42,35"
+        ), RateCurrency(
+            name = "Euro", icon = R.drawable.money_euro, code = "EUR", price = "45,35"
+        ), RateCurrency(
+            name = "Gram", icon = R.drawable.money_gram, code = "GR", price = "4535"
+        ), RateCurrency(
+            name = "TL", icon = R.drawable.money_try, code = "TL", price = "1"
+        )
+    )
+
+    Column(
+        modifier = Modifier
+            .padding(horizontal = horizontalPadding)
+            .border(
+                width = 0.5.dp, color = transparent40, shape = RoundedCornerShape(Appsize.radius12)
+            ),
+    ) {
+        RateList(list.dropLast(1))
+        CustomHorizontalDivider()
+        ExchangeMoney(list)
+    }
+}

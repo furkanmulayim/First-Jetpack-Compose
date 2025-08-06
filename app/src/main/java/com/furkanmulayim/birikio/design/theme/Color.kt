@@ -6,6 +6,8 @@ import androidx.compose.ui.graphics.Color
 //                              PRIMARY
 //----------------------------------------------------------------
 val primary = Color(0xFF007AFF)
+val primaryContainer = Color(0x19007AFF)
+val primaryLine = Color(0xFFE8F3FF)
 
 
 //----------------------------------------------------------------
@@ -44,5 +46,7 @@ val text_disabled_dark = Color(0xFF000000)
 
 val transparent40 = Color(0x25494949)
 
+
+///                       INDICATOR STATE
 val selectedBorder = Color(0x8C494949)
 val unSelectedBorder = Color(0x33494949)

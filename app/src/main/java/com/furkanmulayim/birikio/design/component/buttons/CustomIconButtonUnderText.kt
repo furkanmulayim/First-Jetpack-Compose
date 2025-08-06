@@ -1,6 +1,7 @@
 package com.furkanmulayim.birikio.design.component.buttons
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -15,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
 import com.furkanmulayim.birikio.design.theme.transparent40
@@ -23,15 +25,19 @@ import com.furkanmulayim.birikio.design.theme.transparent40
 @Composable
 fun CustomIconButtonUnderText(icon: Int, text: String, onClick: () -> Unit) {
     val size = Appsize
+    val shape = RoundedCornerShape(size.radius12)
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Column(
             modifier = Modifier
-                .clip(RoundedCornerShape(size.radius12))
+                .clip(shape)
                 .width(size.bottomTextIConButtonSize)
                 .wrapContentHeight()
                 .background(transparent40)
+                .border(
+                    width = 0.2.dp, color = colorScheme.primary, shape = shape
+                )
                 .clickable { onClick() }
                 .padding(size.padding8),
             horizontalAlignment = Alignment.CenterHorizontally,

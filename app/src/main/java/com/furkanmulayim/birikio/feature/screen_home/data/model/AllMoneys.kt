@@ -10,3 +10,4 @@ data class AllMoneys(
     val full: Int,
     val resat: Int
 )
+
