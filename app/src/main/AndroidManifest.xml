@@ -17,7 +17,7 @@
 
         <!-- "exported" activity as the app's entry point -->
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".feature.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Birikio">
             <intent-filter>

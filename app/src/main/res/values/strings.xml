@@ -1,25 +1,9 @@
 <resources>
-    <string name="yolo_test">yolo</string>
-
-    // General
     <string name="app_name">Birikio</string>
-    <string name="my_investing">Yatırımlarım</string>
-    <string name="total_money">BAKİYE</string>
-    <string name="last_transaction">SON İŞLEMLER</string>
 
-    // Investing-Page
-    <string name="welcome">Hoşgeldiniz</string>
-    <string name="day">12 Şubat Salı</string>
-    <string name="total_investing">Toplam Yatırımınız</string>
-    <string name="do_invest_buy_now">AL</string>
-    <string name="do_invest_change_now">SAT</string>
-    <string name="do_invest_buy">Alış Yap</string>
-    <string name="do_invest_change">Satış Yap</string>
-    <string name="graphic">DETAY</string>
-    <string name="change_rate">KURLAR</string>
+    <string name="hello">Selam</string>
 
-    // Currency-Swap-Page
-    <string name="swap_header">Exchange</string>
-    <string name="swap_exchange_rate">Döviz Kuru</string>
 
+    <string name="balanceButtonBuySold">Al/Sat</string>
+    <string name="balanceButtonDetail">Detay</string>
 </resources>
