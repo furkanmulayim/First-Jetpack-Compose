@@ -44,6 +44,7 @@ import com.furkanmulayim.birikio.design.theme.unSelectedBorder
 import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.ExchangeMoney
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.RateList
+import com.furkanmulayim.birikio.feature.screen_home.ui.component.RecentActivities
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.BalancePager
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.CardPager
 import com.furkanmulayim.birikio.feature.screen_home.ui.viewmodel.HomeViewModel
@@ -61,16 +62,14 @@ fun HomeScreen(
             .fillMaxSize()
             .background(colorScheme.surface)
             .clickable(
-                indication = null,
-                interactionSource = remember { MutableInteractionSource() }
-            ) {
+                indication = null, interactionSource = remember { MutableInteractionSource() }) {
                 focusManager.clearFocus()
             }
-            .padding(top = Appsize.padding64)
-    ) {
+            .padding(top = Appsize.padding64)) {
         AppBarSection(name = name, onProfileClick = { /* todo */ }, onActionClick = { /* todo */ })
         PagerSection(pagerState)
         RateSection()
+        RecentList()
     }
 }
 
@@ -165,4 +164,9 @@ private fun RateSection() {
         CustomHorizontalDivider()
         ExchangeMoney(list)
     }
+}
+
+@Composable
+private fun RecentList() {
+    RecentActivities(isShowButtonVisible = true)
 }

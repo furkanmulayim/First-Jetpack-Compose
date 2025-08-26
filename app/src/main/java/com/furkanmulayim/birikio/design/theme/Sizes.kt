@@ -22,6 +22,7 @@ object Appsize {
 
 
     // radius
+    val radius4 = 6.dp
     val radius8 = 8.dp
     val radius12 = 16.dp
     val radius100 = 100.dp

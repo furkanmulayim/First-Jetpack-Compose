@@ -22,6 +22,11 @@ val surface_dark = Color(0xFF111111)
 val iconButtonBackLight = Color(0xFFE5E5EA)
 val iconButtonBackDark = Color(0xFF212121)
 
+
+val iconButtonDarkBackLight = Color(0xFFE5E5E9)
+val iconButtonDarkBackDark = Color(0xFF3B3B3B)
+
+
 ///                     ICON BUTTON FOREGROUND
 val icon_button_foreground_light = Color(0xFF959598)
 val icon_button_foreground_dark = Color(0xFF959598)

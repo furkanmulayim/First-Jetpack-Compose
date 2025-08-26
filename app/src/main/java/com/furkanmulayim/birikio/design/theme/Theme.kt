@@ -13,18 +13,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val LightColorScheme = lightColorScheme(
-    primary = primary,
-    surface = surface_light, // Page Back
-    inverseSurface = surface_dark,
-    primaryContainer = Color.White, // Container Back
-    onPrimaryContainer = icon_button_foreground_light // Container icon & text
+    primary = primary, surface = surface_light, // Page Back
+    inverseSurface = surface_dark, primaryContainer = Color.White, // Container Back
+    onPrimaryContainer = icon_button_foreground_light, // Container icon & text
+    secondaryContainer = iconButtonDarkBackLight // DARK Container icon & text
 )
 private val DarkColorScheme = darkColorScheme(
     primary = primary,
     surface = surface_dark,
     inverseSurface = surface_light,
     primaryContainer = iconButtonBackDark,
-    onPrimaryContainer = icon_button_foreground_dark
+    onPrimaryContainer = icon_button_foreground_dark, // Container icon & text
+    secondaryContainer = iconButtonDarkBackDark // DARK Container icon & text
 )
 
 
