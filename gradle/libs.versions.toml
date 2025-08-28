@@ -23,6 +23,7 @@ navigation = "2.9.3"
 retrofit = "3.0.0"
 gson = "2.13.1"
 foundation = "1.9.0"
+uiGraphics = "1.9.0"
 
 [libraries]
 # AndroidX Core
@@ -57,6 +58,7 @@ gson-converter = { group = "com.squareup.retrofit2", name = "converter-gson", ve
 # Gson
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 androidx-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

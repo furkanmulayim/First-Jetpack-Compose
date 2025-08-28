@@ -27,7 +27,7 @@ fun CardPager(
             .fillMaxWidth()
             .height(Appsize.balancePagerSize)
             .padding(horizontal = Appsize.padding20)
-            .clip(RoundedCornerShape(Appsize.radius12))
+            .clip(RoundedCornerShape(Appsize.radius16))
             .background(colorScheme.primaryContainer), contentAlignment = Alignment.Center
     ) {
         Image(

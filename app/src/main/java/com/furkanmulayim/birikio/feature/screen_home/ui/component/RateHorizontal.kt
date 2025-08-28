@@ -1,10 +1,7 @@
 package com.furkanmulayim.birikio.feature.screen_home.ui.component
 
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -19,11 +16,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import com.furkanmulayim.birikio.design.component.others.CustomSpacerWidth
 import com.furkanmulayim.birikio.design.theme.Appsize
@@ -35,22 +30,11 @@ import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
 fun RateList(list: List<RateCurrency>) {
     val scrollState = rememberScrollState()
 
-    LaunchedEffect(Unit) {
-        while (true) {
-            val distance = scrollState.maxValue
-            scrollState.animateScrollBy(
-                distance.toFloat(),
-                animationSpec = tween(durationMillis = 8000, easing = LinearEasing)
-            )
-            scrollState.scrollTo(0)
-        }
-    }
-
     Row(
         modifier = Modifier
             .clip(
                 RoundedCornerShape(
-                    topStart = Appsize.radius12, topEnd = Appsize.radius12
+                    topStart = Appsize.radius16, topEnd = Appsize.radius16
                 )
             )
             .background(colorScheme.primaryContainer)
@@ -59,7 +43,7 @@ fun RateList(list: List<RateCurrency>) {
                 enabled = true, onClick = { /* todo */ })
             .padding(Appsize.padding12)
     ) {
-        (list + list).forEach { item ->
+        list.forEach { item ->
             RateItem(item)
             CustomSpacerWidth(Appsize.padding16)
         }
@@ -86,7 +70,7 @@ private fun RateItem(rateCurrency: RateCurrency) {
         ) {
             Icon(
                 painterResource(rateCurrency.icon),
-                tint = Color.Unspecified,
+                tint = colorScheme.secondary,
                 contentDescription = rateCurrency.name,
             )
         }

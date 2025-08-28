@@ -7,6 +7,7 @@ object Appsize {
 
 
     val size1 = 1.dp
+    val size2 = 2.dp
     val size3 = 3.dp
     val size4 = 8.dp
     val size24 = 24.dp
@@ -24,7 +25,7 @@ object Appsize {
     // radius
     val radius4 = 6.dp
     val radius8 = 8.dp
-    val radius12 = 16.dp
+    val radius16 = 16.dp
     val radius100 = 100.dp
 
     // paddings
@@ -38,8 +39,10 @@ object Appsize {
     val padding64 = 64.dp
 
     // icon size
+    val iconSize100 = 100.dp
     val iconSize32 = 32.dp
     val iconSize24 = 24.dp
+    val iconSize16 = 16.dp
 
 
 }

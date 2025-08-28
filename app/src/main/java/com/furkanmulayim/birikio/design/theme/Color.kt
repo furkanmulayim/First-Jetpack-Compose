@@ -6,7 +6,12 @@ import androidx.compose.ui.graphics.Color
 //                              PRIMARY
 //----------------------------------------------------------------
 val primary = Color(0xFF007AFF)
-val primaryContainer = Color(0x19007AFF)
+val solded = Color(0xFFDC5E60)
+val secondary = Color(0xFF2C2B2B)
+val secondaryDark = Color(0xFF989898)
+
+val button = Color(0x25007AFF)
+val primaryContainer = Color(0x0F5E5E5E)
 val primaryLine = Color(0xFFE8F3FF)
 
 

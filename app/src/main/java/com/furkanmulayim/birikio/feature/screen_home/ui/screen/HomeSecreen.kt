@@ -18,8 +18,10 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,6 +40,7 @@ import com.furkanmulayim.birikio.design.component.others.CustomSpacerHeight
 import com.furkanmulayim.birikio.design.component.others.CustomSpacerWidth
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
+import com.furkanmulayim.birikio.design.theme.button
 import com.furkanmulayim.birikio.design.theme.selectedBorder
 import com.furkanmulayim.birikio.design.theme.transparent40
 import com.furkanmulayim.birikio.design.theme.unSelectedBorder
@@ -57,19 +60,29 @@ fun HomeScreen(
     val name = stringResource(R.string.hello) + ", Furkan!" // todo name viewModel’den gelecek
     val pagerState = rememberPagerState(pageCount = { 2 })
 
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorScheme.surface)
-            .clickable(
-                indication = null, interactionSource = remember { MutableInteractionSource() }) {
-                focusManager.clearFocus()
-            }
-            .padding(top = Appsize.padding64)) {
+            .background(button)
+            .padding(top = Appsize.padding64)
+    ) {
         AppBarSection(name = name, onProfileClick = { /* todo */ }, onActionClick = { /* todo */ })
-        PagerSection(pagerState)
-        RateSection()
-        RecentList()
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState()) // scroll ekledik
+                .background(colorScheme.surface)
+                .clickable(
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() }) {
+                    focusManager.clearFocus()
+                }) {
+            PagerSection(pagerState)
+            RateSection()
+            RecentList()
+        }
     }
 }
 
@@ -100,6 +113,8 @@ private fun AppBarSection(
         }
         CustomIconButton(R.drawable.home_button_settings, onClick = onActionClick)
     }
+    CustomSpacerHeight(Appsize.padding12)
+    CustomHorizontalDivider()
 }
 
 @Composable
@@ -157,7 +172,7 @@ private fun RateSection() {
         modifier = Modifier
             .padding(horizontal = horizontalPadding)
             .border(
-                width = 0.5.dp, color = transparent40, shape = RoundedCornerShape(Appsize.radius12)
+                width = 0.5.dp, color = transparent40, shape = RoundedCornerShape(Appsize.radius16)
             ),
     ) {
         RateList(list.dropLast(1))
@@ -169,4 +184,6 @@ private fun RateSection() {
 @Composable
 private fun RecentList() {
     RecentActivities(isShowButtonVisible = true)
+    RecentActivities(isShowButtonVisible = false)
+    CustomSpacerHeight(Appsize.padding64)
 }

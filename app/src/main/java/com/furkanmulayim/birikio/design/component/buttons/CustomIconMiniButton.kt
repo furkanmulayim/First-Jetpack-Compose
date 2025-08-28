@@ -24,7 +24,7 @@ fun CustomIconMiniButton(icon: Int, onClick: () -> Unit) {
         Modifier
             .size(Appsize.iconButtonSize)
             .background(colorScheme.primaryContainer)
-            .clip(RoundedCornerShape(Appsize.radius12))
+            .clip(RoundedCornerShape(Appsize.radius16))
             .clickable { onClick() }
             .padding(Appsize.padding6),
         contentAlignment = Alignment.Center,

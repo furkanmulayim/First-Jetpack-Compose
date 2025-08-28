@@ -55,10 +55,10 @@ fun BalancePager(
             .fillMaxWidth()
             .height(Appsize.balancePagerSize)
             .padding(horizontal = Appsize.padding20)
-            .clip(RoundedCornerShape(Appsize.radius12))
+            .clip(RoundedCornerShape(Appsize.radius16))
             .background(colorScheme.primaryContainer)
             .border(
-                width = 1.dp, color = transparent40, shape = RoundedCornerShape(Appsize.radius12)
+                width = 1.dp, color = transparent40, shape = RoundedCornerShape(Appsize.radius16)
             ), contentAlignment = Alignment.Center
     ) {
         Image(

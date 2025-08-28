@@ -16,7 +16,9 @@ private val LightColorScheme = lightColorScheme(
     primary = primary, surface = surface_light, // Page Back
     inverseSurface = surface_dark, primaryContainer = Color.White, // Container Back
     onPrimaryContainer = icon_button_foreground_light, // Container icon & text
-    secondaryContainer = iconButtonDarkBackLight // DARK Container icon & text
+    secondaryContainer = iconButtonDarkBackLight, // DARK Container icon & text
+    secondary = secondary
+
 )
 private val DarkColorScheme = darkColorScheme(
     primary = primary,
@@ -24,7 +26,9 @@ private val DarkColorScheme = darkColorScheme(
     inverseSurface = surface_light,
     primaryContainer = iconButtonBackDark,
     onPrimaryContainer = icon_button_foreground_dark, // Container icon & text
-    secondaryContainer = iconButtonDarkBackDark // DARK Container icon & text
+    secondaryContainer = iconButtonDarkBackDark, // DARK Container icon & text
+    secondary = secondaryDark
+
 )
 
 

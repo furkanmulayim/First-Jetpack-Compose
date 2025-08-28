@@ -13,6 +13,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import com.furkanmulayim.birikio.design.theme.Appsize
+import com.furkanmulayim.birikio.design.theme.button
 
 
 @Composable
@@ -20,9 +21,9 @@ fun CustomIconButton(icon: Int, onClick: () -> Unit, isProfile: Boolean = false)
     val size = Appsize
     Box(
         Modifier
-            .clip(RoundedCornerShape(if (isProfile) size.radius100 else size.radius12))
+            .clip(RoundedCornerShape(if (isProfile) size.radius100 else size.radius16))
             .size(if (isProfile) size.profileButtonSize else size.iconButtonSize)
-            .background(if (isProfile) colorScheme.onPrimaryContainer else colorScheme.primaryContainer)
+            .background(if (isProfile) colorScheme.onPrimaryContainer else button)
             .clickable { onClick() }
             .padding(size.padding8),
         contentAlignment = Alignment.Center,

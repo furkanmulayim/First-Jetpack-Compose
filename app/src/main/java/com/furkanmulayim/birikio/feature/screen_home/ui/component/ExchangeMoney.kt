@@ -67,7 +67,7 @@ fun ExchangeMoney(list: List<RateCurrency>) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(bottomStart = Appsize.radius12, bottomEnd = Appsize.radius12))
+            .clip(RoundedCornerShape(bottomStart = Appsize.radius16, bottomEnd = Appsize.radius16))
             .background(colorScheme.primaryContainer)
             .padding(Appsize.padding12),
         verticalAlignment = Alignment.CenterVertically
@@ -130,7 +130,7 @@ fun LeftExchangeItem(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clip(RoundedCornerShape(Appsize.radius12))
+                        .clip(RoundedCornerShape(Appsize.radius16))
                         .padding(vertical = Appsize.padding8),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
@@ -179,7 +179,7 @@ fun RightExchangeItem(
                 .clip(RoundedCornerShape(Appsize.radius8))
                 .background(colorScheme.primaryContainer)
                 .fillMaxWidth()
-                .clip(RoundedCornerShape(Appsize.radius12))
+                .clip(RoundedCornerShape(Appsize.radius16))
                 .padding(vertical = Appsize.padding8),
         )
         CurrencyPicker(
