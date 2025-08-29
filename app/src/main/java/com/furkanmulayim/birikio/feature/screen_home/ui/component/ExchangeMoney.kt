@@ -56,7 +56,7 @@ private fun calculateConvertedAmount(
 @Composable
 fun ExchangeMoney(list: List<RateCurrency>) {
 
-    var leftAmount by remember { mutableStateOf("10") }
+    var leftAmount by remember { mutableStateOf("18.75") }
     var leftCode by remember { mutableStateOf("USD") }
     var rightCode by remember { mutableStateOf("TL") }
 
@@ -111,7 +111,7 @@ fun LeftExchangeItem(
         modifier = modifier
             .height(34.dp)
             .clip(RoundedCornerShape(9.5.dp))
-            .background(color = primaryContainer),
+            .background(color = colorScheme.surfaceVariant),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
@@ -120,12 +120,14 @@ fun LeftExchangeItem(
             onValueChange = { raw -> onAmountChange(raw.filter { it.isDigit() || it == '.' || it == ',' }) },
             singleLine = true,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            textStyle = Typo.font_12_w500.copy(textAlign = TextAlign.Center),
+            textStyle = Typo.font_12_w500.copy(
+                textAlign = TextAlign.Center, color = colorScheme.inverseSurface
+            ),
             modifier = Modifier
                 .weight(1f)
                 .padding(horizontal = Appsize.padding4)
                 .clip(RoundedCornerShape(Appsize.radius8))
-                .background(colorScheme.primaryContainer),
+                .background(colorScheme.surfaceBright),
             decorationBox = { innerTextField ->
                 Row(
                     modifier = Modifier
@@ -166,18 +168,20 @@ fun RightExchangeItem(
         modifier = modifier
             .height(34.dp)
             .clip(RoundedCornerShape(9.5.dp))
-            .background(color = primaryContainer),
+            .background(color = colorScheme.surfaceVariant),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         Text(
             text = amount,
-            style = Typo.font_12_w500.copy(textAlign = TextAlign.Center),
+            style = Typo.font_12_w500.copy(
+                textAlign = TextAlign.Center, color = colorScheme.inverseSurface
+            ),
             modifier = Modifier
                 .weight(1f)
                 .padding(horizontal = Appsize.padding4)
                 .clip(RoundedCornerShape(Appsize.radius8))
-                .background(colorScheme.primaryContainer)
+                .background(colorScheme.surfaceBright)
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(Appsize.radius16))
                 .padding(vertical = Appsize.padding8),
@@ -206,8 +210,7 @@ private fun CurrencyPicker(
             .clip(RoundedCornerShape(Appsize.radius8))
             .clickable(
                 indication = null,
-                interactionSource = remember { MutableInteractionSource() }
-            ) { expanded = true },
+                interactionSource = remember { MutableInteractionSource() }) { expanded = true },
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {

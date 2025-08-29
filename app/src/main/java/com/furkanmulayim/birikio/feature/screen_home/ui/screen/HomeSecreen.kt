@@ -40,9 +40,7 @@ import com.furkanmulayim.birikio.design.component.others.CustomSpacerHeight
 import com.furkanmulayim.birikio.design.component.others.CustomSpacerWidth
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
-import com.furkanmulayim.birikio.design.theme.button
 import com.furkanmulayim.birikio.design.theme.selectedBorder
-import com.furkanmulayim.birikio.design.theme.transparent40
 import com.furkanmulayim.birikio.design.theme.unSelectedBorder
 import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.ExchangeMoney
@@ -64,7 +62,7 @@ fun HomeScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(button)
+            .background(colorScheme.surfaceVariant)
             .padding(top = Appsize.padding64)
     ) {
         AppBarSection(name = name, onProfileClick = { /* todo */ }, onActionClick = { /* todo */ })
@@ -172,7 +170,9 @@ private fun RateSection() {
         modifier = Modifier
             .padding(horizontal = horizontalPadding)
             .border(
-                width = 0.5.dp, color = transparent40, shape = RoundedCornerShape(Appsize.radius16)
+                width = 0.5.dp,
+                color = colorScheme.outline,
+                shape = RoundedCornerShape(Appsize.radius16)
             ),
     ) {
         RateList(list.dropLast(1))

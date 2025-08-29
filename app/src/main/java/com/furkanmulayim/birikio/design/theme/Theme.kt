@@ -13,21 +13,30 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val LightColorScheme = lightColorScheme(
-    primary = primary, surface = surface_light, // Page Back
-    inverseSurface = surface_dark, primaryContainer = Color.White, // Container Back
-    onPrimaryContainer = icon_button_foreground_light, // Container icon & text
-    secondaryContainer = iconButtonDarkBackLight, // DARK Container icon & text
-    secondary = secondary
+    primary = Color(0xFF007AFF),//
+    surface = Color(0xFFF2F2F7), // Page Back
+    inverseSurface = Color(0xFF111111), // Page icon & text
+    surfaceVariant = Color(0xFFF5F5FF), // Exchange Back, App Bar
+    surfaceBright = Color.White,
+    primaryContainer = Color.White, // All Container Back
+    onPrimaryContainer = Color(0xFF959598), // Container icon & text
+    secondaryContainer = Color(0xFFE5E5E9), // DARK Container icon & text
+    secondary = Color(0xFF2C2B2B),
+    outline = Color(0x25494949)
+
 
 )
 private val DarkColorScheme = darkColorScheme(
-    primary = primary,
-    surface = surface_dark,
-    inverseSurface = surface_light,
-    primaryContainer = iconButtonBackDark,
-    onPrimaryContainer = icon_button_foreground_dark, // Container icon & text
-    secondaryContainer = iconButtonDarkBackDark, // DARK Container icon & text
-    secondary = secondaryDark
+    primary = Color(0xFF007AFF),
+    surface = Color(0xFF111111),
+    inverseSurface = Color(0xFFF2F2F7),
+    surfaceVariant = Color(0xFF1A1919),
+    surfaceBright = Color(0xFF252424),
+    primaryContainer = Color(0xFF212121),
+    onPrimaryContainer = Color(0xFF959598),
+    secondaryContainer = Color(0xFF3B3B3B),
+    secondary = Color(0xFF989898),
+    outline = Color(0x25494949)
 
 )
 

@@ -34,7 +34,6 @@ import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.design.component.buttons.CustomIconButtonUnderText
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
-import com.furkanmulayim.birikio.design.theme.transparent40
 
 @Composable
 fun BalancePager(
@@ -58,7 +57,9 @@ fun BalancePager(
             .clip(RoundedCornerShape(Appsize.radius16))
             .background(colorScheme.primaryContainer)
             .border(
-                width = 1.dp, color = transparent40, shape = RoundedCornerShape(Appsize.radius16)
+                width = 1.dp,
+                color = colorScheme.outline,
+                shape = RoundedCornerShape(Appsize.radius16)
             ), contentAlignment = Alignment.Center
     ) {
         Image(

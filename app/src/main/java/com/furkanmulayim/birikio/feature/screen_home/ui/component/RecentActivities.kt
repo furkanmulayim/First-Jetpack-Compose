@@ -5,7 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -16,10 +16,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -35,7 +35,6 @@ import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
 import com.furkanmulayim.birikio.design.theme.primaryContainer
 import com.furkanmulayim.birikio.design.theme.solded
-import com.furkanmulayim.birikio.design.theme.transparent40
 import com.furkanmulayim.birikio.feature.screen_home.data.model.RecentTransaction
 import java.util.Locale
 
@@ -45,8 +44,7 @@ fun RecentActivities(isShowButtonVisible: Boolean) {
 
     SectionCard {
         if (isShowButtonVisible) {
-            SectionHeader(
-                title = "Son İşlemlerim", onClick = { /* TODO */ })
+            SectionHeader(onClick = { /* TODO */ })
             RecentTransactionList(fakeRecentTransactions())
         } else {
             EmptyState()
@@ -64,39 +62,35 @@ private fun SectionCard(content: @Composable ColumnScope.() -> Unit) {
             .fillMaxWidth()
             .clip(shape)
             .background(colorScheme.primaryContainer)
-            .border(0.2.dp, transparent40, shape)
+            .border(0.2.dp, colorScheme.outline, shape)
             .padding(horizontal = Appsize.padding12, vertical = Appsize.padding8), content = content
     )
 }
 
 @Composable
 private fun SectionHeader(
-    title: String, onClick: () -> Unit
+    onClick: () -> Unit
 ) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Box(
-            modifier = Modifier
-                .size(Appsize.iconButtonSize)
-                .padding(Appsize.padding6)
-                .clip(RoundedCornerShape(Appsize.radius4))
-                .background(colorScheme.secondaryContainer)
-                .padding(Appsize.padding6),
-            contentAlignment = Alignment.Center
-        ) {
-            Icon(painterResource(R.drawable.svg_recent_activity), null)
-        }
+    Row(
+        modifier = Modifier
+            .padding(horizontal = Appsize.padding12)
+            .padding(top = Appsize.padding4),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
 
-        Text(title, style = Typo.font_15_w600)
+        Text("Son İşlemlerim", style = Typo.font_14_w600)
 
         Spacer(Modifier.weight(1f))
 
         Text(
-            "Gör",
+            "Tamamını Gör",
             style = Typo.font_12_w500.copy(colorScheme.primary),
             modifier = Modifier
                 .clip(RoundedCornerShape(Appsize.radius8))
-                .clickable(onClick = onClick)
-                .border(Appsize.size1, colorScheme.primary, RoundedCornerShape(Appsize.radius8))
+                .clickable(
+                    onClick = onClick,
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() })
                 .padding(Appsize.size4)
         )
     }
@@ -148,14 +142,14 @@ private fun RecentTransactionItem(item: RecentTransaction) {
             contentDescription = null,
             colorFilter = ColorFilter.tint(colorScheme.secondary),
             modifier = Modifier
-                .size(Appsize.bottomTextIConButtonSize)
-                .clip(RoundedCornerShape(Appsize.radius16))
+                .size(Appsize.iconButtonSize)
+                .clip(RoundedCornerShape(Appsize.radius12))
                 .background(primaryContainer)
         )
         Spacer(Modifier.width(Appsize.padding12))
 
         Column(Modifier.weight(1f)) {
-            Text(item.name, style = Typo.font_15_w600)
+            Text(item.name, style = Typo.font_15_w500)
             CustomSpacerHeight(Appsize.size3)
             Text(item.date, style = Typo.font_12_w500.copy(color = colorScheme.secondary))
         }
@@ -196,12 +190,12 @@ private fun Double.formatTL(noSymbol: Boolean = false): String {
 
 private fun fakeRecentTransactions(): List<RecentTransaction> = listOf(
     RecentTransaction(
-        1, "Dolar", "12 Temmuz 2025", 100.0, 32.0, 3200.0, R.drawable.money_dollar, true
+        1, "Dolar", "12 Temmuz", 100.0, 32.0, 3200.0, R.drawable.money_dollar, true
     ),
     RecentTransaction(
-        2, "Çeyrek", "12 Temmuz 2025", 40.0, 6400.0, 25600.0, R.drawable.money_ceyrek, false
+        2, "Çeyrek", "12 Temmuz", 40.0, 6400.0, 25600.0, R.drawable.money_ceyrek, false
     ),
     RecentTransaction(
-        3, "Euro", "12 Temmuz 2025", 144.0, 350.0, 350.0, R.drawable.money_euro, false
+        3, "Euro", "12 Temmuz", 144.0, 350.0, 350.0, R.drawable.money_euro, false
     ),
 )

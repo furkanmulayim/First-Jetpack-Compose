@@ -82,7 +82,7 @@ private fun RateItem(rateCurrency: RateCurrency) {
                 style = Typo.font_12_w500
             )
             Text(
-                text = "${rateCurrency.price}₺", style = Typo.font_14_w700
+                text = "${rateCurrency.price}₺", style = Typo.font_14_w600
             )
         }
     }
