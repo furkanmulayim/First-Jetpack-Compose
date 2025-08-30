@@ -120,7 +120,9 @@ fun BalancePager(
                     icon = R.drawable.balance_button_buy_sold, text = textBuySold, onClick = {})
 
                 CustomIconButtonUnderText(
-                    icon = R.drawable.balance_button_sold, text = textExchangeRate, onClick = {})
+                    icon = R.drawable.balance_button_exchange_rate,
+                    text = textExchangeRate,
+                    onClick = {})
 
             }
         }
