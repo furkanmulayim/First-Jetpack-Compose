@@ -50,6 +50,7 @@ import com.furkanmulayim.birikio.feature.screen_home.ui.component.RecentActiviti
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.BalancePager
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.CardPager
 import com.furkanmulayim.birikio.feature.screen_home.ui.viewmodel.HomeViewModel
+import com.furkanmulayim.birikio.navigation.Screens
 
 @Composable
 fun HomeScreen(
@@ -68,13 +69,15 @@ fun HomeScreen(
     ) {
         AppBarSection(
             name = textName,
-            onProfileClick = { /* todo */ },
-            onActionClick = { /* todo */ })
+            onProfileClick = { navController.navigate(Screens.Profile.route) },
+            onActionClick = {
+                navController.navigate(Screens.Settings.route)
+            })
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState()) // scroll ekledik
+                .verticalScroll(rememberScrollState())
                 .background(colorScheme.surface)
                 .clickable(
                     indication = null,
@@ -82,8 +85,11 @@ fun HomeScreen(
                     focusManager.clearFocus()
                 }) {
             PagerSection(pagerState)
-            DoubleButtonSection()
-            RateSection()
+            DoubleButtonSection(
+                leftOnclick = { navController.navigate(Screens.Goals.route) },
+                rightOnClick = { navController.navigate(Screens.Wallet.route) })
+            RateSection(
+                rateClick = { navController.navigate(Screens.RateExchange.route) })
             RecentList()
         }
     }
@@ -157,24 +163,22 @@ private fun PagerSection(pagerState: PagerState) {
 }
 
 @Composable
-private fun DoubleButtonSection() {
+private fun DoubleButtonSection(leftOnclick: () -> Unit, rightOnClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = Appsize.padding20),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        DoubleButtons(leftOnClick = {
-            // todo
-        }, rightOnClick = {
-            //todo
-        })
+        DoubleButtons(
+            leftOnClick = leftOnclick, rightOnClick = rightOnClick
+        )
     }
 }
 
 
 @Composable
-private fun RateSection() {
+private fun RateSection(rateClick: () -> Unit) {
     val horizontalPadding = Appsize.padding20
     val list = listOf(
         RateCurrency(
@@ -197,7 +201,7 @@ private fun RateSection() {
                 shape = RoundedCornerShape(Appsize.radius16)
             ),
     ) {
-        RateList(list.dropLast(1))
+        RateList(list.dropLast(1), rateClick)
         CustomHorizontalDivider()
         ExchangeMoney(list)
     }
@@ -206,6 +210,5 @@ private fun RateSection() {
 @Composable
 private fun RecentList() {
     RecentActivities(isShowButtonVisible = true)
-    RecentActivities(isShowButtonVisible = false)
     CustomSpacerHeight(Appsize.padding64)
 }

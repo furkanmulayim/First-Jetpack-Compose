@@ -19,7 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import com.furkanmulayim.birikio.design.theme.BirikioTheme
 import com.furkanmulayim.birikio.feature.screen_onboarding.data.local.OnboardingDataStore
 import com.furkanmulayim.birikio.navigation.AppNavigation
-import com.furkanmulayim.birikio.navigation.AppScreens
+import com.furkanmulayim.birikio.navigation.Screens
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,9 +34,9 @@ class MainActivity : ComponentActivity() {
             LaunchedEffect(Unit) {
                 OnboardingDataStore.readOnboardingState(context).collect { shown ->
                     startDestination = if (shown) {
-                        AppScreens.HomeScreen.route
+                        Screens.Home.route
                     } else {
-                        AppScreens.OnboardingScreen.route
+                        Screens.Onboarding.route
                     }
                 }
             }

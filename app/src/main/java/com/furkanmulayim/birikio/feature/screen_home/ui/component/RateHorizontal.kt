@@ -27,7 +27,7 @@ import com.furkanmulayim.birikio.design.theme.primaryContainer
 import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
 
 @Composable
-fun RateList(list: List<RateCurrency>) {
+fun RateList(list: List<RateCurrency>, rateClick: () -> Unit) {
     val scrollState = rememberScrollState()
 
     Row(
@@ -40,7 +40,8 @@ fun RateList(list: List<RateCurrency>) {
             .background(colorScheme.primaryContainer)
             .horizontalScroll(scrollState, enabled = false)
             .clickable(
-                enabled = true, onClick = { /* todo */ })
+                enabled = true, onClick = rateClick
+            )
             .padding(Appsize.padding12)
     ) {
         list.forEach { item ->
