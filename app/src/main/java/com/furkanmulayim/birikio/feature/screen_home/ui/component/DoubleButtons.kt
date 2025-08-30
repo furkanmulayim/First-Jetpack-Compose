@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.design.component.others.CustomSpacerHeight
@@ -34,12 +35,12 @@ fun DoubleButtons(
     leftOnClick: () -> Unit, rightOnClick: () -> Unit
 ) {
 
-    val leftText = "Hedeflerim"
-    val leftDescText = "Kişisel Belirlenen"
+    val textLeft = stringResource(R.string.twinsLeft)
+    val textLeftDesc = stringResource(R.string.twinsLeftDesc)
     val leftIcon = R.drawable.twins_button_left
 
-    val rightText = "Cüzdanım"
-    val rightDescText = "Kart ve Hesaplar"
+    val textRight = stringResource(R.string.twinsRight)
+    val textRightDesc = stringResource(R.string.twinsRightDesc)
     val rightIcon = R.drawable.twins_button_right
 
     val weight = 1F
@@ -49,11 +50,11 @@ fun DoubleButtons(
             .padding(bottom = Appsize.padding16)
     ) {
         ButtonItem(
-            leftOnClick, modifier = Modifier.weight(weight), leftText, leftDescText, leftIcon
+            leftOnClick, modifier = Modifier.weight(weight), textLeft, textLeftDesc, leftIcon
         )
         CustomSpacerWidth(Appsize.padding12)
         ButtonItem(
-            rightOnClick, modifier = Modifier.weight(weight), rightText, rightDescText, rightIcon
+            rightOnClick, modifier = Modifier.weight(weight), textRight, textRightDesc, rightIcon
         )
     }
 }

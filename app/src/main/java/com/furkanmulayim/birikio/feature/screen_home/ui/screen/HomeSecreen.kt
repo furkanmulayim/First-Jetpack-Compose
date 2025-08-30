@@ -56,7 +56,7 @@ fun HomeScreen(
     navController: NavController, viewModel: HomeViewModel = viewModel()
 ) {
     val focusManager = LocalFocusManager.current
-    val name = stringResource(R.string.hello) + ", Furkan!" // todo name viewModel’den gelecek
+    val textName = stringResource(R.string.hello) + ", Furkan!" // todo name viewModel’den gelecek
     val pagerState = rememberPagerState(pageCount = { 2 })
 
 
@@ -66,7 +66,10 @@ fun HomeScreen(
             .background(colorScheme.surfaceVariant)
             .padding(top = Appsize.padding64)
     ) {
-        AppBarSection(name = name, onProfileClick = { /* todo */ }, onActionClick = { /* todo */ })
+        AppBarSection(
+            name = textName,
+            onProfileClick = { /* todo */ },
+            onActionClick = { /* todo */ })
 
         Column(
             modifier = Modifier
@@ -90,6 +93,7 @@ fun HomeScreen(
 private fun AppBarSection(
     name: String, onProfileClick: () -> Unit, onActionClick: () -> Unit
 ) {
+    val textWelcomeBack = stringResource(R.string.welcomeBack)
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -107,7 +111,7 @@ private fun AppBarSection(
                     style = Typo.font_19_w800
                 )
                 Text(
-                    text = "Tekrar Hoşgeldin!", style = Typo.font_16_w500
+                    text = textWelcomeBack, style = Typo.font_16_w500
                 )
             }
         }

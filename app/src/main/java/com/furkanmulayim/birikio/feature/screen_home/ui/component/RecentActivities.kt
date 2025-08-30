@@ -26,6 +26,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.furkanmulayim.birikio.R
@@ -71,6 +72,9 @@ private fun SectionCard(content: @Composable ColumnScope.() -> Unit) {
 private fun SectionHeader(
     onClick: () -> Unit
 ) {
+
+    val textHeader = stringResource(R.string.recentActivity)
+    val textViewAll = stringResource(R.string.viewAll)
     Row(
         modifier = Modifier
             .padding(horizontal = Appsize.padding12)
@@ -78,12 +82,12 @@ private fun SectionHeader(
         verticalAlignment = Alignment.CenterVertically
     ) {
 
-        Text("Son İşlemlerim", style = Typo.font_14_w600)
+        Text(textHeader, style = Typo.font_14_w600)
 
         Spacer(Modifier.weight(1f))
 
         Text(
-            "Tamamını Gör",
+            textViewAll,
             style = Typo.font_12_w500.copy(colorScheme.primary),
             modifier = Modifier
                 .clip(RoundedCornerShape(Appsize.radius8))
@@ -98,6 +102,8 @@ private fun SectionHeader(
 
 @Composable
 private fun EmptyState() {
+    val textEmptyState = stringResource(R.string.emptyStateNoActivity)
+    val textEmptyStateDesc = stringResource(R.string.emptyStateNoActivityDesc)
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Image(
             painter = painterResource(R.drawable.empty_list),
@@ -108,18 +114,16 @@ private fun EmptyState() {
                 .padding(vertical = Appsize.padding12)
         )
         Text(
-            text = "Herhangi bir işlem yapmadınız", style = Typo.font_15_w600.copy(
+            text = textEmptyState, style = Typo.font_15_w600.copy(
                 color = colorScheme.secondary, textAlign = TextAlign.Center
             ), modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = Appsize.padding8)
         )
         Text(
-            text = "Varlıklarım menüsünden işlem yapmanız gerekiyor.",
-            style = Typo.font_12_w500.copy(
+            text = textEmptyStateDesc, style = Typo.font_12_w500.copy(
                 color = colorScheme.secondary, textAlign = TextAlign.Center
-            ),
-            modifier = Modifier
+            ), modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = Appsize.padding8)
         )
@@ -181,8 +185,10 @@ private fun RecentTransactionList(transactions: List<RecentTransaction>) {
 }
 
 
+@Composable
 private fun Double.formatTL(noSymbol: Boolean = false): String {
-    val localeTR = Locale.forLanguageTag("tr-TR")
+    val textLanguageTag = stringResource(R.string.languageTag)
+    val localeTR = Locale.forLanguageTag(textLanguageTag)
     val s = String.format(localeTR, "%,.2f", this)
     return if (noSymbol) s else "${s}₺"
 }

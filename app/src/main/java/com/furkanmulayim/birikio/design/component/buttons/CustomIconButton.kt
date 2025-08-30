@@ -31,7 +31,7 @@ fun CustomIconButton(icon: Int, onClick: () -> Unit, isProfile: Boolean = false)
         Icon(
             painterResource(icon),
             tint = if (isProfile) Color.Unspecified else colorScheme.primary,
-            contentDescription = "menu",
+            contentDescription = null,
         )
     }
 }

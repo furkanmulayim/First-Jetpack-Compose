@@ -80,7 +80,7 @@ fun BalancePager(
             Row {
                 Text(
                     modifier = Modifier.padding(top = Appsize.padding6, bottom = Appsize.padding8),
-                    text = "Varlıklarım",
+                    text = stringResource(R.string.balanceDesc),
                     style = Typo.font_16_w500,
                     color = colorScheme.onPrimaryContainer
                 )
@@ -89,7 +89,7 @@ fun BalancePager(
                         if (isBalanceVisible) R.drawable.eye_button_active else R.drawable.eye_button_inactive
                     ),
                     tint = colorScheme.primary,
-                    contentDescription = "Show balance",
+                    contentDescription = null,
                     modifier = Modifier
                         .size(Appsize.size24)
                         .padding(start = Appsize.padding8)
@@ -100,7 +100,7 @@ fun BalancePager(
                         ) { isBalanceVisible = !isBalanceVisible })
             }
             Text(
-                text = if (isBalanceVisible) "$balanceMoney₺" else "*** *** ₺",
+                text = if (isBalanceVisible) "$balanceMoney₺" else stringResource(R.string.balancePass),
                 style = Typo.font_43_w800
             )
 

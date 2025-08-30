@@ -28,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -56,7 +57,9 @@ private fun calculateConvertedAmount(
 @Composable
 fun ExchangeMoney(list: List<RateCurrency>) {
 
-    var leftAmount by remember { mutableStateOf("18.75") }
+    val textLeftAmount = stringResource(R.string.exchangeLeftAmount)
+
+    var leftAmount by remember { mutableStateOf(textLeftAmount) }
     var leftCode by remember { mutableStateOf("USD") }
     var rightCode by remember { mutableStateOf("TL") }
 

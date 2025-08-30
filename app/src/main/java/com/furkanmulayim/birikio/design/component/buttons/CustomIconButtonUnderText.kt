@@ -41,7 +41,7 @@ fun CustomIconButtonUnderText(icon: Int, text: String, onClick: () -> Unit) {
                 painterResource(icon),
                 //tint = Color.White,
                 tint = colorScheme.primary,
-                contentDescription = "menu",
+                contentDescription = null,
             )
         }
         Text(

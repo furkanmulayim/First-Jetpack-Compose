@@ -2,9 +2,37 @@
     <string name="app_name">Birikio</string>
 
     <string name="hello">Selam</string>
+    <string name="welcomeBack">Tekrar Hoşgeldin!</string>
+
+    <string name="languageTag">tr-TR</string>
+
+    <!--   Balance Section -->
+    <string name="balanceDesc">Varlıklarım</string>
+    <string name="balancePass">*** *** ₺</string>
 
     <string name="balanceButtonBalance">Varlığım</string>
     <string name="balanceButtonBuy">Al</string>
     <string name="balanceButtonSold">Sat</string>
     <string name="balanceButtonDetail">Geçmiş</string>
+
+
+    <!--   Exchange Section -->
+    <string name="exchangeLeftAmount">18.75</string>
+
+    <!--   Twins Section -->
+    <string name="twinsLeft">Hedeflerim</string>
+    <string name="twinsLeftDesc">Kişisel belirlenen</string>
+    <string name="twinsRight">Cüzdanım</string>
+    <string name="twinsRightDesc">Kart ve Hesaplar</string>
+
+
+    <!--   Recent Activity Section -->
+    <string name="recentActivity">Son İşlemler</string>
+    <string name="viewAll">Tümünü Gör</string>
+
+
+    <!--   Others -->
+    <string name="calculateFail">Hesaplama Başarısız</string>
+    <string name="emptyStateNoActivity">Herhangi bir işlem yapmadınız</string>
+    <string name="emptyStateNoActivityDesc">Varlıklarım menüsünden işlem yapmanız gerekiyor.</string>
 </resources>

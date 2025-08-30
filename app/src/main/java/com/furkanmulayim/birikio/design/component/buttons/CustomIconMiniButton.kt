@@ -32,7 +32,7 @@ fun CustomIconMiniButton(icon: Int, onClick: () -> Unit) {
         Icon(
             painterResource(icon),
             tint = colorScheme.primary,
-            contentDescription = "button",
+            contentDescription = null,
         )
     }
     CustomSpacerWidth(Appsize.size4)
