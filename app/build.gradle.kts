@@ -56,6 +56,7 @@ dependencies {
 
     // Navigation Compose
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.accompanist.navigation.animation)
 
     // Data Store
     implementation(libs.androidx.datastore.preferences)

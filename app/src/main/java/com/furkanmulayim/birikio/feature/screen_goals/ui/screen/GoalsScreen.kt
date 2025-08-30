@@ -43,7 +43,6 @@ fun GoalsScreen(
                     indication = null,
                     interactionSource = remember { MutableInteractionSource() }) {
                     focusManager.clearFocus()
-                }) {
-        }
+                }) {}
     }
 }

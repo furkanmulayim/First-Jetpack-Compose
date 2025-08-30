@@ -1,6 +1,8 @@
 package com.furkanmulayim.birikio.navigation
 
-import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -16,18 +18,48 @@ import com.furkanmulayim.birikio.feature.screen_recents.ui.screen.RecentsScreen
 import com.furkanmulayim.birikio.feature.screen_settings.ui.screen.SettingsScreen
 import com.furkanmulayim.birikio.feature.screen_wallet.ui.screen.WalletScreen
 
-// AppNavigation.kt
-@OptIn(ExperimentalAnimationApi::class)
+// Animation constants
+private const val ANIMATION_DURATION = 300
+
+// Enter animations (sağdan sola giriş)
+private val slideInFromRight = slideInHorizontally(
+    initialOffsetX = { fullWidth -> fullWidth },
+    animationSpec = tween(ANIMATION_DURATION)
+)
+
+// Exit animations (soldan sağa çıkış)
+private val slideOutToLeft = slideOutHorizontally(
+    targetOffsetX = { fullWidth -> -fullWidth },
+    animationSpec = tween(ANIMATION_DURATION)
+)
+
+// Pop enter animations (soldan sağa giriş - geri gelirken)
+private val slideInFromLeft = slideInHorizontally(
+    initialOffsetX = { fullWidth -> -fullWidth },
+    animationSpec = tween(ANIMATION_DURATION)
+)
+
+// Pop exit animations (sağdan sola çıkış - geri giderken)
+private val slideOutToRight = slideOutHorizontally(
+    targetOffsetX = { fullWidth -> fullWidth },
+    animationSpec = tween(ANIMATION_DURATION)
+)
+
 @Composable
 fun AppNavigation(
-    navController: NavHostController, startDestination: String
+    navController: NavHostController,
+    startDestination: String
 ) {
     NavHost(
-        navController = navController, startDestination = startDestination
+        navController = navController,
+        startDestination = startDestination,
+        enterTransition = { slideInFromRight },
+        exitTransition = { slideOutToLeft },
+        popEnterTransition = { slideInFromLeft },
+        popExitTransition = { slideOutToRight }
     ) {
 
-
-        composable(Screens.Onboarding.route) {
+        composable(route = Screens.Onboarding.route) {
             OnboardingScreen(
                 onStartClicked = {
                     navController.navigate(Screens.Home.route) {
@@ -35,31 +67,40 @@ fun AppNavigation(
                     }
                 })
         }
-        composable(Screens.Home.route) {
+
+        composable(route = Screens.Home.route) {
             HomeScreen(navController)
         }
-        composable(Screens.Balance.route) {
+
+        composable(route = Screens.Balance.route) {
             BalanceScreen(navController)
         }
-        composable(Screens.BuySold.route) {
+
+        composable(route = Screens.BuySold.route) {
             BuySoldScreen(navController)
         }
-        composable(Screens.Recents.route) {
+
+        composable(route = Screens.Recents.route) {
             RecentsScreen(navController)
         }
-        composable(Screens.RateExchange.route) {
+
+        composable(route = Screens.RateExchange.route) {
             RateExchangeScreen(navController)
         }
-        composable(Screens.Wallet.route) {
+
+        composable(route = Screens.Wallet.route) {
             WalletScreen(navController)
         }
-        composable(Screens.Goals.route) {
+
+        composable(route = Screens.Goals.route) {
             GoalsScreen(navController)
         }
-        composable(Screens.Settings.route) {
+
+        composable(route = Screens.Settings.route) {
             SettingsScreen(navController)
         }
-        composable(Screens.Profile.route) {
+
+        composable(route = Screens.Profile.route) {
             ProfileScreen(navController)
         }
     }
