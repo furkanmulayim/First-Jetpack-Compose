@@ -1,4 +1,4 @@
-package com.furkanmulayim.birikio.feature.screen_rate_exchange.ui.screen
+package com.furkanmulayim.birikio.feature.screen_balance.ui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,10 +20,9 @@ import com.furkanmulayim.birikio.design.component.app_bar.AppBarSection
 import com.furkanmulayim.birikio.design.theme.Appsize
 
 @Composable
-fun RateExchangeScreen(
+fun BalanceScreen(
     navController: NavController
 ) {
-
     val focusManager = LocalFocusManager.current
     Column(
         modifier = Modifier
@@ -32,7 +31,7 @@ fun RateExchangeScreen(
             .padding(top = Appsize.padding64)
     ) {
         AppBarSection(
-            name = stringResource(R.string.nameRateExchange),
+            name = stringResource(R.string.nameBalance),
             onBackClick = { navController.popBackStack() })
 
         Column(

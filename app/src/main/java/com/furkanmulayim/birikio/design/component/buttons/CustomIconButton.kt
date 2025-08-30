@@ -17,13 +17,18 @@ import com.furkanmulayim.birikio.design.theme.button
 
 
 @Composable
-fun CustomIconButton(icon: Int, onClick: () -> Unit, isProfile: Boolean = false) {
+fun CustomIconButton(
+    icon: Int,
+    color: Color? = null,
+    onClick: () -> Unit,
+    isProfile: Boolean = false
+) {
     val size = Appsize
     Box(
         Modifier
             .clip(RoundedCornerShape(if (isProfile) size.radius100 else size.radius16))
             .size(if (isProfile) size.profileButtonSize else size.iconButtonSize)
-            .background(if (isProfile) colorScheme.onPrimaryContainer else button)
+            .background(if (isProfile) colorScheme.onPrimaryContainer else color ?: button)
             .clickable { onClick() }
             .padding(size.padding8),
         contentAlignment = Alignment.Center,

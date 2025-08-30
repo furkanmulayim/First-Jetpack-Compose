@@ -3,17 +3,16 @@
 
     <string name="hello">Selam</string>
     <string name="welcomeBack">Tekrar Hoşgeldin!</string>
-
     <string name="languageTag">tr-TR</string>
 
     <!--   Balance Section -->
     <string name="balanceDesc">Varlıklarım</string>
     <string name="balancePass">*** *** ₺</string>
 
-    <string name="balanceButtonBalance">Varlığım</string>
-    <string name="balanceButtonBuy">Al</string>
-    <string name="balanceButtonSold">Sat</string>
-    <string name="balanceButtonDetail">Geçmiş</string>
+    <string name="balanceButtonBalance">Varlıklarım</string>
+    <string name="balanceButtonBuySold">Al / Sat</string>
+    <string name="balanceButtonDetail">İşlemlerim</string>
+    <string name="balanceButtonExchangeRate">Güncel Kur</string>
 
 
     <!--   Exchange Section -->
@@ -27,8 +26,18 @@
 
 
     <!--   Recent Activity Section -->
-    <string name="recentActivity">Son İşlemler</string>
+    <string name="recentActivity">İşlem Geçmişim</string>
     <string name="viewAll">Tümünü Gör</string>
+
+
+    <!--  Page Names -->
+    <string name="nameSettings">Ayarlarım</string>
+    <string name="nameBalance">Varlıklarım</string>
+    <string name="nameBuySold">Alım Satım</string>
+    <string name="nameRateExchange">Güncel Kurlar</string>
+    <string name="nameRecents">İşlem Geçmişim</string>
+    <string name="nameGoals">Hedeflerim</string>
+    <string name="nameWallet">Cüzdanım</string>
 
 
     <!--   Others -->

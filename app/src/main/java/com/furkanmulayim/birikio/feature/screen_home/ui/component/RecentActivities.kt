@@ -40,12 +40,12 @@ import com.furkanmulayim.birikio.feature.screen_home.data.model.RecentTransactio
 import java.util.Locale
 
 @Composable
-fun RecentActivities(isShowButtonVisible: Boolean) {
+fun RecentActivities(isShowButtonVisible: Boolean, allViewOnClick: () -> Unit) {
     CustomSpacerHeight(Appsize.padding20)
 
     SectionCard {
         if (isShowButtonVisible) {
-            SectionHeader(onClick = { /* TODO */ })
+            SectionHeader(onClick = allViewOnClick)
             RecentTransactionList(fakeRecentTransactions())
         } else {
             EmptyState()

@@ -90,7 +90,8 @@ fun HomeScreen(
                 rightOnClick = { navController.navigate(Screens.Wallet.route) })
             RateSection(
                 rateClick = { navController.navigate(Screens.RateExchange.route) })
-            RecentList()
+            RecentList(
+                allViewOnClick = { navController.navigate(Screens.Recents.route) })
         }
     }
 }
@@ -208,7 +209,7 @@ private fun RateSection(rateClick: () -> Unit) {
 }
 
 @Composable
-private fun RecentList() {
-    RecentActivities(isShowButtonVisible = true)
+private fun RecentList(allViewOnClick: () -> Unit) {
+    RecentActivities(isShowButtonVisible = true, allViewOnClick)
     CustomSpacerHeight(Appsize.padding64)
 }

@@ -45,8 +45,8 @@ fun BalancePager(
 
     val textBalance = stringResource(R.string.balanceButtonBalance)
     val textDetail = stringResource(R.string.balanceButtonDetail)
-    val textBuy = stringResource(R.string.balanceButtonBuy)
-    val textSold = stringResource(R.string.balanceButtonSold)
+    val textBuySold = stringResource(R.string.balanceButtonBuySold)
+    val textExchangeRate = stringResource(R.string.balanceButtonExchangeRate)
 
     Box(
         modifier = Modifier
@@ -117,10 +117,11 @@ fun BalancePager(
                     icon = R.drawable.balance_button_history, text = textDetail, onClick = {})
 
                 CustomIconButtonUnderText(
-                    icon = R.drawable.balance_button_buy, text = textBuy, onClick = {})
+                    icon = R.drawable.balance_button_buy, text = textBuySold, onClick = {})
 
                 CustomIconButtonUnderText(
-                    icon = R.drawable.balance_button_sold, text = textSold, onClick = {})
+                    icon = R.drawable.balance_button_sold, text = textExchangeRate, onClick = {})
+
             }
         }
     }

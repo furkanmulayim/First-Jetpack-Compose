@@ -3,6 +3,7 @@ package com.furkanmulayim.birikio.navigation
 object Routes {
     const val ONBOARDING = "onboarding"
     const val HOME = "home"
+    const val BALANCE = "balance"
     const val BUYSOLD = "buysold"
     const val RECENT = "recent"
     const val RATE_EXCHANGE = "exchange"
@@ -15,6 +16,7 @@ object Routes {
 sealed class Screens(val route: String) {
     data object Onboarding : Screens(Routes.ONBOARDING)
     data object Home : Screens(Routes.HOME)
+    data object Balance : Screens(Routes.BALANCE)
     data object BuySold : Screens(Routes.BUYSOLD)
     data object Recents : Screens(Routes.RECENT)
     data object RateExchange : Screens(Routes.RATE_EXCHANGE)

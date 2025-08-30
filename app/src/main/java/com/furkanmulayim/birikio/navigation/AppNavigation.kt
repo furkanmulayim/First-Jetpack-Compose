@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.furkanmulayim.birikio.feature.screen_balance.ui.screen.BalanceScreen
 import com.furkanmulayim.birikio.feature.screen_buy_sold.ui.screen.BuySoldScreen
 import com.furkanmulayim.birikio.feature.screen_goals.ui.screen.GoalsScreen
 import com.furkanmulayim.birikio.feature.screen_home.ui.screen.HomeScreen
@@ -36,6 +37,9 @@ fun AppNavigation(
         }
         composable(Screens.Home.route) {
             HomeScreen(navController)
+        }
+        composable(Screens.Balance.route) {
+            BalanceScreen(navController)
         }
         composable(Screens.BuySold.route) {
             BuySoldScreen(navController)
