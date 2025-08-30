@@ -1,6 +1,6 @@
 [versions]
 # Android & Kotlin
-agp = "8.12.1"
+agp = "8.12.2"
 kotlin = "2.2.10"
 datastore = "1.1.7"
 
