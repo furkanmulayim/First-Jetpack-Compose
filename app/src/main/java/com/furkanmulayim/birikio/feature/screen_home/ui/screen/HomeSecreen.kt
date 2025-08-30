@@ -43,6 +43,7 @@ import com.furkanmulayim.birikio.design.theme.Typo
 import com.furkanmulayim.birikio.design.theme.selectedBorder
 import com.furkanmulayim.birikio.design.theme.unSelectedBorder
 import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
+import com.furkanmulayim.birikio.feature.screen_home.ui.component.DoubleButtons
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.ExchangeMoney
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.RateList
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.RecentActivities
@@ -78,6 +79,7 @@ fun HomeScreen(
                     focusManager.clearFocus()
                 }) {
             PagerSection(pagerState)
+            DoubleButtonSection()
             RateSection()
             RecentList()
         }
@@ -147,6 +149,22 @@ private fun PagerSection(pagerState: PagerState) {
                     .background(color)
             )
         }
+    }
+}
+
+@Composable
+private fun DoubleButtonSection() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = Appsize.padding20),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        DoubleButtons(leftOnClick = {
+            // todo
+        }, rightOnClick = {
+            //todo
+        })
     }
 }
 

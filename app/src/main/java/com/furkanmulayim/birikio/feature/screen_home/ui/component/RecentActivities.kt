@@ -62,7 +62,7 @@ private fun SectionCard(content: @Composable ColumnScope.() -> Unit) {
             .fillMaxWidth()
             .clip(shape)
             .background(colorScheme.primaryContainer)
-            .border(0.2.dp, colorScheme.outline, shape)
+            .border(0.5.dp, colorScheme.outline, shape)
             .padding(horizontal = Appsize.padding12, vertical = Appsize.padding8), content = content
     )
 }

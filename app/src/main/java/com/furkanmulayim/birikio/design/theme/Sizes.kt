@@ -18,6 +18,7 @@ object Appsize {
     val iconButtonMiniSize = 24.dp
     val iconButtonSize = 36.dp
     val profileButtonSize = 48.dp
+    val doubleButtonSize = 50.dp
     val bottomTextIConButtonSize = 42.dp
     val balancePagerSize = 190.dp
 
@@ -35,6 +36,7 @@ object Appsize {
     val padding8 = 8.dp
     val padding10 = 10.dp
     val padding12 = 12.dp
+    val padding14 = 14.dp
     val padding16 = 16.dp
     val padding20 = 20.dp
     val padding64 = 64.dp
