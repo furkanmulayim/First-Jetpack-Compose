@@ -15,7 +15,6 @@ import com.furkanmulayim.birikio.feature.screen_onboarding.ui.screen.OnboardingS
 import com.furkanmulayim.birikio.feature.screen_profile.ui.screen.ProfileScreen
 import com.furkanmulayim.birikio.feature.screen_rate_exchange.ui.screen.RateExchangeScreen
 import com.furkanmulayim.birikio.feature.screen_recents.ui.screen.RecentsScreen
-import com.furkanmulayim.birikio.feature.screen_settings.ui.screen.SettingsScreen
 import com.furkanmulayim.birikio.feature.screen_wallet.ui.screen.WalletScreen
 
 // Animation constants
@@ -96,9 +95,6 @@ fun AppNavigation(
             GoalsScreen(navController)
         }
 
-        composable(route = Screens.Settings.route) {
-            SettingsScreen(navController)
-        }
 
         composable(route = Screens.Profile.route) {
             ProfileScreen(navController)
