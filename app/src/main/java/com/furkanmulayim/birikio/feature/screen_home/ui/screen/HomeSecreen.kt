@@ -54,17 +54,16 @@ import com.furkanmulayim.birikio.navigation.Screens
 
 @Composable
 fun HomeScreen(
-    navController: NavController, viewModel: HomeViewModel = viewModel()
+    navController: NavController, viewModel: HomeViewModel = viewModel(),
 ) {
     val focusManager = LocalFocusManager.current
     val textName = stringResource(R.string.hello) + ", Furkan!" // todo name viewModel’den gelecek
     val pagerState = rememberPagerState(pageCount = { 2 })
 
-
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorScheme.surfaceVariant)
+            .background(colorScheme.surface)
             .padding(top = Appsize.padding64)
     ) {
         AppBarSection(
@@ -96,7 +95,7 @@ fun HomeScreen(
 
 @Composable
 private fun AppBarSection(
-    name: String, onProfileClick: () -> Unit
+    name: String, onProfileClick: () -> Unit,
 ) {
     val textWelcomeBack = stringResource(R.string.welcomeBack)
     Row(

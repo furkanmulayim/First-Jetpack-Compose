@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun OnboardingScreen(
-    onStartClicked: () -> Unit
+    onStartClicked: () -> Unit,
 ) {
     OnboardingContent(
         onStartClicked = onStartClicked
@@ -30,7 +30,7 @@ fun OnboardingScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun OnboardingContent(
-    onStartClicked: () -> Unit
+    onStartClicked: () -> Unit,
 ) {
     Column(
         modifier = Modifier

@@ -5,6 +5,8 @@ import androidx.compose.ui.graphics.Color
 val solded = Color(0xFFDC5E60)
 
 val button = Color(0x25007AFF)
+val soldedLight = Color(0x25FF0000)
+
 val primaryContainer = Color(0x0F5E5E5E)
 
 

@@ -47,7 +47,7 @@ private val slideOutToRight = slideOutHorizontally(
 @Composable
 fun AppNavigation(
     navController: NavHostController,
-    startDestination: String
+    startDestination: String,
 ) {
     NavHost(
         navController = navController,

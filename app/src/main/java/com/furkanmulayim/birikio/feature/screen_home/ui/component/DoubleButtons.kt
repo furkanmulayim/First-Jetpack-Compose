@@ -32,7 +32,7 @@ import com.furkanmulayim.birikio.design.theme.Typo
 
 @Composable
 fun DoubleButtons(
-    leftOnClick: () -> Unit, rightOnClick: () -> Unit
+    leftOnClick: () -> Unit, rightOnClick: () -> Unit,
 ) {
 
     val textLeft = stringResource(R.string.twinsLeft)
@@ -61,7 +61,7 @@ fun DoubleButtons(
 
 @Composable
 private fun ButtonItem(
-    onClick: () -> Unit, modifier: Modifier = Modifier, text: String, desc: String, icon: Int
+    onClick: () -> Unit, modifier: Modifier = Modifier, text: String, desc: String, icon: Int,
 ) {
     Row(
         modifier = modifier

@@ -8,5 +8,5 @@ data class RecentTransaction(
     val amount: Double,
     val total: Double,
     val icon: Int,
-    val isSold: Boolean
+    val isSold: Boolean,
 )

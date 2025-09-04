@@ -1,3 +1,5 @@
+package com.furkanmulayim.birikio.design.component.buttons
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -14,23 +16,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.furkanmulayim.birikio.design.theme.Appsize
-import com.furkanmulayim.birikio.design.theme.button
 
 
 @Composable
-fun CustomIconButton(
-    icon: Int,
-    color: Color? = null,
-    onClick: (() -> Unit?)?,
-    isProfile: Boolean = false,
-    sized: Int? = 0,
+fun CustomProfileButton(
+    icon: Int, onClick: (() -> Unit?)?, sized: Int = 0,
 ) {
     val size = Appsize
     Box(
         Modifier
-            .clip(RoundedCornerShape(if (isProfile) size.radius100 else size.radius16))
-            .size(if (isProfile) size.profileButtonSize else (if (sized == 0) size.iconButtonSize else sized!!.dp))
-            .background(if (isProfile) colorScheme.onPrimaryContainer else color ?: button)
+            .clip(RoundedCornerShape(size.radius100))
+            .size(if (sized > 0) sized.dp else size.profileButtonSize)
+            .background(colorScheme.onPrimaryContainer)
             .clickable(
                 enabled = onClick != null
             ) {
@@ -41,7 +38,7 @@ fun CustomIconButton(
     ) {
         Icon(
             painterResource(icon),
-            tint = if (isProfile) Color.Unspecified else colorScheme.primary,
+            tint = Color.Unspecified,
             contentDescription = null,
         )
     }

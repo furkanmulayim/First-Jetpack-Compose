@@ -21,7 +21,7 @@ import com.furkanmulayim.birikio.design.theme.Appsize
 
 @Composable
 fun WalletScreen(
-    navController: NavController
+    navController: NavController,
 ) {
     val focusManager = LocalFocusManager.current
     Column(
