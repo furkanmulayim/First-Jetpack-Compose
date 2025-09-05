@@ -31,7 +31,7 @@
 
 
     <!--  Page Names -->
-    <string name="nameSettings">Ayarlarım</string>
+    <string name="nameProfie">Profilim</string>
     <string name="nameBalance">Varlıklarım</string>
     <string name="nameBuySold">Alım Satım</string>
     <string name="nameRateExchange">Güncel Kurlar</string>

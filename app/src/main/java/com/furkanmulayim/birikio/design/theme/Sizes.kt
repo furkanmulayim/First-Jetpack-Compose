@@ -43,8 +43,11 @@ object Appsize {
 
     // icon size
     val iconSize100 = 100.dp
+    val iconSize40 = 40.dp
     val iconSize32 = 32.dp
+    val iconSize28 = 28.dp
     val iconSize24 = 24.dp
+    val iconSize20 = 20.dp
     val iconSize16 = 16.dp
 
 

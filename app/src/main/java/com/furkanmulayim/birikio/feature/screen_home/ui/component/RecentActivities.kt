@@ -70,7 +70,7 @@ private fun SectionCard(content: @Composable ColumnScope.() -> Unit) {
 
 @Composable
 private fun SectionHeader(
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
 
     val textHeader = stringResource(R.string.recentActivity)

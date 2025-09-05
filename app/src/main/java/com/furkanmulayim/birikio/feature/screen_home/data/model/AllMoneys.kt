@@ -8,6 +8,6 @@ data class AllMoneys(
     val quart: Int,
     val half: Int,
     val full: Int,
-    val resat: Int
+    val resat: Int,
 )
 

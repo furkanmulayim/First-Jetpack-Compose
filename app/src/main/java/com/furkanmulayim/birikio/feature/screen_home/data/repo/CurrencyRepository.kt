@@ -10,7 +10,7 @@ interface CurrencyRepository {
 }
 
 class CurrencyRepositoryImpl(
-    private val api: BirikioApi
+    private val api: BirikioApi,
 ) : CurrencyRepository {
 
     override suspend fun getCurrencies(): List<Currency> {

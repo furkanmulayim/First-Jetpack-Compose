@@ -54,25 +54,22 @@ import com.furkanmulayim.birikio.navigation.Screens
 
 @Composable
 fun HomeScreen(
-    navController: NavController, viewModel: HomeViewModel = viewModel()
+    navController: NavController, viewModel: HomeViewModel = viewModel(),
 ) {
     val focusManager = LocalFocusManager.current
     val textName = stringResource(R.string.hello) + ", Furkan!" // todo name viewModel’den gelecek
     val pagerState = rememberPagerState(pageCount = { 2 })
 
-
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorScheme.surfaceVariant)
+            .background(colorScheme.surface)
             .padding(top = Appsize.padding64)
     ) {
         AppBarSection(
             name = textName,
             onProfileClick = { navController.navigate(Screens.Profile.route) },
-            onActionClick = {
-                navController.navigate(Screens.Settings.route)
-            })
+        )
 
         Column(
             modifier = Modifier
@@ -98,7 +95,7 @@ fun HomeScreen(
 
 @Composable
 private fun AppBarSection(
-    name: String, onProfileClick: () -> Unit, onActionClick: () -> Unit
+    name: String, onProfileClick: () -> Unit,
 ) {
     val textWelcomeBack = stringResource(R.string.welcomeBack)
     Row(
@@ -109,7 +106,7 @@ private fun AppBarSection(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            CustomIconButton(R.drawable.profile, onClick = onProfileClick, isProfile = true)
+            CustomIconButton(R.drawable.profile, onClick = null, isProfile = true)
             CustomSpacerWidth(Appsize.padding8)
             Column {
                 Text(
@@ -122,7 +119,7 @@ private fun AppBarSection(
                 )
             }
         }
-        CustomIconButton(R.drawable.home_button_settings, onClick = onActionClick)
+        CustomIconButton(R.drawable.home_button_settings, onClick = onProfileClick)
     }
     CustomSpacerHeight(Appsize.padding12)
     CustomHorizontalDivider()

@@ -41,7 +41,7 @@ import com.furkanmulayim.birikio.design.theme.primaryContainer
 import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
 
 private fun calculateConvertedAmount(
-    currencies: List<RateCurrency>, leftAmount: String, leftCode: String, rightCode: String
+    currencies: List<RateCurrency>, leftAmount: String, leftCode: String, rightCode: String,
 ): String {
     val l =
         currencies.firstOrNull { it.code == leftCode }?.price?.replace(",", ".")?.toDoubleOrNull()
@@ -108,7 +108,7 @@ fun LeftExchangeItem(
     selectedCode: String,
     onCodeChange: (String) -> Unit,
     codes: List<String>,
-    currencies: List<RateCurrency>
+    currencies: List<RateCurrency>,
 ) {
     Row(
         modifier = modifier
@@ -165,7 +165,7 @@ fun RightExchangeItem(
     selectedCode: String,
     onCodeChange: (String) -> Unit,
     codes: List<String>,
-    currencies: List<RateCurrency>
+    currencies: List<RateCurrency>,
 ) {
     Row(
         modifier = modifier
@@ -203,7 +203,7 @@ private fun CurrencyPicker(
     selectedCode: String,
     onCodeChange: (String) -> Unit,
     codes: List<String>,
-    currencies: List<RateCurrency>
+    currencies: List<RateCurrency>,
 ) {
     var expanded by remember { mutableStateOf(false) }
     val padding4 = Appsize.padding4
