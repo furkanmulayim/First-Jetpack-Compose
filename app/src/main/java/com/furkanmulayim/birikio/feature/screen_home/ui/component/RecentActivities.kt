@@ -51,6 +51,7 @@ fun RecentActivities(isShowButtonVisible: Boolean, allViewOnClick: () -> Unit) {
             EmptyState()
         }
     }
+    CustomSpacerHeight(Appsize.padding64)
 }
 
 
@@ -59,7 +60,6 @@ private fun SectionCard(content: @Composable ColumnScope.() -> Unit) {
     val shape = RoundedCornerShape(Appsize.radius16)
     Column(
         modifier = Modifier
-            .padding(horizontal = Appsize.padding20)
             .fillMaxWidth()
             .clip(shape)
             .background(colorScheme.primaryContainer)

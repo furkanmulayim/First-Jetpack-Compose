@@ -1,10 +1,7 @@
 package com.furkanmulayim.birikio.feature.screen_home.ui.screen
 
-import CustomIconButton
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,15 +15,10 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme.colorScheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalFocusManager
@@ -37,14 +29,14 @@ import androidx.navigation.NavController
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.design.component.others.CustomHorizontalDivider
 import com.furkanmulayim.birikio.design.component.others.CustomSpacerHeight
-import com.furkanmulayim.birikio.design.component.others.CustomSpacerWidth
+import com.furkanmulayim.birikio.design.component.page.CustomScaffold
 import com.furkanmulayim.birikio.design.theme.Appsize
-import com.furkanmulayim.birikio.design.theme.Typo
 import com.furkanmulayim.birikio.design.theme.selectedBorder
 import com.furkanmulayim.birikio.design.theme.unSelectedBorder
 import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.DoubleButtons
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.ExchangeMoney
+import com.furkanmulayim.birikio.feature.screen_home.ui.component.HomeAppBarSection
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.RateList
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.RecentActivities
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.BalancePager
@@ -56,7 +48,7 @@ import com.furkanmulayim.birikio.navigation.Screens
 fun HomeScreen(
     navController: NavController, viewModel: HomeViewModel = viewModel(),
 ) {
-    val focusManager = LocalFocusManager.current
+    LocalFocusManager.current
     val textName = stringResource(R.string.hello) + ", Furkan!" // todo name viewModel’den gelecek
     val pagerState = rememberPagerState(pageCount = { 2 })
 
@@ -66,21 +58,12 @@ fun HomeScreen(
             .background(colorScheme.surface)
             .padding(top = Appsize.padding64)
     ) {
-        AppBarSection(
+        HomeAppBarSection(
             name = textName,
             onProfileClick = { navController.navigate(Screens.Profile.route) },
         )
 
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .background(colorScheme.surface)
-                .clickable(
-                    indication = null,
-                    interactionSource = remember { MutableInteractionSource() }) {
-                    focusManager.clearFocus()
-                }) {
+        CustomScaffold {
             PagerSection(pagerState)
             DoubleButtonSection(
                 leftOnclick = { navController.navigate(Screens.Goals.route) },
@@ -93,37 +76,6 @@ fun HomeScreen(
     }
 }
 
-@Composable
-private fun AppBarSection(
-    name: String, onProfileClick: () -> Unit,
-) {
-    val textWelcomeBack = stringResource(R.string.welcomeBack)
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = Appsize.padding20),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            CustomIconButton(R.drawable.profile, onClick = null, isProfile = true)
-            CustomSpacerWidth(Appsize.padding8)
-            Column {
-                Text(
-                    modifier = Modifier.padding(bottom = Appsize.padding4),
-                    text = "$name 👻",
-                    style = Typo.font_19_w800
-                )
-                Text(
-                    text = textWelcomeBack, style = Typo.font_16_w500
-                )
-            }
-        }
-        CustomIconButton(R.drawable.home_button_settings, onClick = onProfileClick)
-    }
-    CustomSpacerHeight(Appsize.padding12)
-    CustomHorizontalDivider()
-}
 
 @Composable
 private fun PagerSection(pagerState: PagerState) {
@@ -163,10 +115,7 @@ private fun PagerSection(pagerState: PagerState) {
 @Composable
 private fun DoubleButtonSection(leftOnclick: () -> Unit, rightOnClick: () -> Unit) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = Appsize.padding20),
-        horizontalArrangement = Arrangement.SpaceBetween
+        modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
     ) {
         DoubleButtons(
             leftOnClick = leftOnclick, rightOnClick = rightOnClick
@@ -177,7 +126,6 @@ private fun DoubleButtonSection(leftOnclick: () -> Unit, rightOnClick: () -> Uni
 
 @Composable
 private fun RateSection(rateClick: () -> Unit) {
-    val horizontalPadding = Appsize.padding20
     val list = listOf(
         RateCurrency(
             name = "Dolar", icon = R.drawable.money_dollar, code = "USD", price = "42,35"
@@ -191,13 +139,11 @@ private fun RateSection(rateClick: () -> Unit) {
     )
 
     Column(
-        modifier = Modifier
-            .padding(horizontal = horizontalPadding)
-            .border(
-                width = 0.5.dp,
-                color = colorScheme.outline,
-                shape = RoundedCornerShape(Appsize.radius16)
-            ),
+        modifier = Modifier.border(
+            width = 0.5.dp,
+            color = colorScheme.outline,
+            shape = RoundedCornerShape(Appsize.radius16)
+        ),
     ) {
         RateList(list.dropLast(1), rateClick)
         CustomHorizontalDivider()
@@ -208,5 +154,4 @@ private fun RateSection(rateClick: () -> Unit) {
 @Composable
 private fun RecentList(allViewOnClick: () -> Unit) {
     RecentActivities(isShowButtonVisible = true, allViewOnClick)
-    CustomSpacerHeight(Appsize.padding64)
 }

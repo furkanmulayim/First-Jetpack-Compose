@@ -53,7 +53,6 @@ fun BalancePager(
             .padding(top = Appsize.padding20)
             .fillMaxWidth()
             .height(Appsize.balancePagerSize)
-            .padding(horizontal = Appsize.padding20)
             .clip(RoundedCornerShape(Appsize.radius16))
             .background(colorScheme.primaryContainer)
             .border(

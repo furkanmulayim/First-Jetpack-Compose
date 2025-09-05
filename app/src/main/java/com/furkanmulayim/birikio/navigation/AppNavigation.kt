@@ -18,7 +18,7 @@ import com.furkanmulayim.birikio.feature.screen_recents.ui.screen.RecentsScreen
 import com.furkanmulayim.birikio.feature.screen_wallet.ui.screen.WalletScreen
 
 // Animation constants
-private const val ANIMATION_DURATION = 300
+private const val ANIMATION_DURATION = 500
 
 // Enter animations (sağdan sola giriş)
 private val slideInFromRight = slideInHorizontally(
