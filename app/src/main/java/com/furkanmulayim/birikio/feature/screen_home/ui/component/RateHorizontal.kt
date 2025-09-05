@@ -38,7 +38,7 @@ fun RateList(list: List<RateCurrency>, rateClick: () -> Unit) {
                 )
             )
             .background(colorScheme.primaryContainer)
-            .horizontalScroll(scrollState, enabled = false)
+            .horizontalScroll(scrollState, enabled = true)
             .clickable(
                 enabled = true, onClick = rateClick
             )
