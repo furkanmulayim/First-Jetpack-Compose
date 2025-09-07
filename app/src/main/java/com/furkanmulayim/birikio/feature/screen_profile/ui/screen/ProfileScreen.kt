@@ -18,12 +18,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavController
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.design.component.app_bar.AppBarSection
+import com.furkanmulayim.birikio.design.component.card.GeneralCard
 import com.furkanmulayim.birikio.design.component.page.CustomScaffold
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
 import com.furkanmulayim.birikio.feature.screen_profile.ui.component.AccessibilityContent
 import com.furkanmulayim.birikio.feature.screen_profile.ui.component.DeleteContent
-import com.furkanmulayim.birikio.feature.screen_profile.ui.component.GeneralCard
 import com.furkanmulayim.birikio.feature.screen_profile.ui.component.HelpContent
 import com.furkanmulayim.birikio.feature.screen_profile.ui.component.ProfileCard
 

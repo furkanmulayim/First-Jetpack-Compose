@@ -37,6 +37,7 @@ import com.furkanmulayim.birikio.design.theme.Typo
 import com.furkanmulayim.birikio.design.theme.primaryContainer
 import com.furkanmulayim.birikio.design.theme.solded
 import com.furkanmulayim.birikio.feature.screen_home.data.model.RecentTransaction
+import com.furkanmulayim.birikio.silinecekler.listBeDeletedRecents
 import java.util.Locale
 
 @Composable
@@ -46,7 +47,7 @@ fun RecentActivities(isShowButtonVisible: Boolean, allViewOnClick: () -> Unit) {
     SectionCard {
         if (isShowButtonVisible) {
             SectionHeader(onClick = allViewOnClick)
-            RecentTransactionList(fakeRecentTransactions())
+            RecentTransactionList(listBeDeletedRecents)
         } else {
             EmptyState()
         }
@@ -192,16 +193,3 @@ private fun Double.formatTL(noSymbol: Boolean = false): String {
     val s = String.format(localeTR, "%,.2f", this)
     return if (noSymbol) s else "${s}₺"
 }
-
-
-private fun fakeRecentTransactions(): List<RecentTransaction> = listOf(
-    RecentTransaction(
-        1, "Dolar", "12 Temmuz", 100.0, 32.0, 3200.0, R.drawable.money_dollar, true
-    ),
-    RecentTransaction(
-        2, "Çeyrek", "12 Temmuz", 40.0, 6400.0, 25600.0, R.drawable.money_ceyrek, false
-    ),
-    RecentTransaction(
-        3, "Euro", "12 Temmuz", 144.0, 350.0, 350.0, R.drawable.money_euro, false
-    ),
-)

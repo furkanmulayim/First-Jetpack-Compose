@@ -11,8 +11,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.design.component.app_bar.AppBarSection
+import com.furkanmulayim.birikio.design.component.card.GeneralCard
 import com.furkanmulayim.birikio.design.component.page.CustomScaffold
 import com.furkanmulayim.birikio.design.theme.Appsize
+import com.furkanmulayim.birikio.feature.screen_rate_exchange.ui.component.ExchangeMoneyVertical
+import com.furkanmulayim.birikio.silinecekler.listBeDeletedCurrency
 
 @Composable
 fun RateExchangeScreen(
@@ -28,6 +31,22 @@ fun RateExchangeScreen(
             name = stringResource(R.string.nameRateExchange),
             onBackClick = { navController.popBackStack() })
 
-        CustomScaffold { }
+        CustomScaffold {
+            ExchangeSection()
+            RateCourSection()
+        }
     }
+}
+
+@Composable
+private fun ExchangeSection() {
+    GeneralCard {
+        ExchangeMoneyVertical(listBeDeletedCurrency)
+    }
+}
+
+
+@Composable
+private fun RateCourSection() {
+
 }

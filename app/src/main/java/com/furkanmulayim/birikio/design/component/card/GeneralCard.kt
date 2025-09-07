@@ -1,4 +1,4 @@
-package com.furkanmulayim.birikio.feature.screen_profile.ui.component
+package com.furkanmulayim.birikio.design.component.card
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
