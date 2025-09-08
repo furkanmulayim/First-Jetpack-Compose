@@ -21,7 +21,6 @@ import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -33,9 +32,8 @@ import com.furkanmulayim.birikio.design.component.page.CustomScaffold
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.selectedBorder
 import com.furkanmulayim.birikio.design.theme.unSelectedBorder
-import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.DoubleButtons
-import com.furkanmulayim.birikio.feature.screen_home.ui.component.ExchangeMoney
+import com.furkanmulayim.birikio.feature.screen_home.ui.component.ExchangeMoneyHorizontal
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.HomeAppBarSection
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.RateList
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.RecentActivities
@@ -43,12 +41,12 @@ import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.Balance
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.CardPager
 import com.furkanmulayim.birikio.feature.screen_home.ui.viewmodel.HomeViewModel
 import com.furkanmulayim.birikio.navigation.Screens
+import com.furkanmulayim.birikio.silinecekler.listBeDeletedCurrency
 
 @Composable
 fun HomeScreen(
     navController: NavController, viewModel: HomeViewModel = viewModel(),
 ) {
-    LocalFocusManager.current
     val textName = stringResource(R.string.hello) + ", Furkan!" // todo name viewModel’den gelecek
     val pagerState = rememberPagerState(pageCount = { 2 })
 
@@ -64,7 +62,12 @@ fun HomeScreen(
         )
 
         CustomScaffold {
-            PagerSection(pagerState)
+            PagerSection(
+                pagerState,
+                onBalanceClick = { navController.navigate(Screens.Balance.route) },
+                onRecentsClick = { navController.navigate(Screens.Recents.route) },
+                onBuySoldClick = { navController.navigate(Screens.BuySold.route) },
+                onRateExchangeClick = { navController.navigate(Screens.RateExchange.route) })
             DoubleButtonSection(
                 leftOnclick = { navController.navigate(Screens.Goals.route) },
                 rightOnClick = { navController.navigate(Screens.Wallet.route) })
@@ -78,13 +81,19 @@ fun HomeScreen(
 
 
 @Composable
-private fun PagerSection(pagerState: PagerState) {
+private fun PagerSection(
+    pagerState: PagerState,
+    onBalanceClick: () -> Unit,
+    onRecentsClick: () -> Unit,
+    onBuySoldClick: () -> Unit,
+    onRateExchangeClick: () -> Unit,
+) {
 
     HorizontalPager(
         state = pagerState, modifier = Modifier.fillMaxWidth()
     ) { page ->
         when (page) {
-            0 -> BalancePager()
+            0 -> BalancePager(onBalanceClick, onRecentsClick, onBuySoldClick, onRateExchangeClick)
             1 -> CardPager()
         }
     }
@@ -126,17 +135,7 @@ private fun DoubleButtonSection(leftOnclick: () -> Unit, rightOnClick: () -> Uni
 
 @Composable
 private fun RateSection(rateClick: () -> Unit) {
-    val list = listOf(
-        RateCurrency(
-            name = "Dolar", icon = R.drawable.money_dollar, code = "USD", price = "42,35"
-        ), RateCurrency(
-            name = "Euro", icon = R.drawable.money_euro, code = "EUR", price = "45,35"
-        ), RateCurrency(
-            name = "Gram", icon = R.drawable.money_gram, code = "GR", price = "4535"
-        ), RateCurrency(
-            name = "TL", icon = R.drawable.money_try, code = "TL", price = "1"
-        )
-    )
+    val list = listBeDeletedCurrency
 
     Column(
         modifier = Modifier.border(
@@ -147,7 +146,7 @@ private fun RateSection(rateClick: () -> Unit) {
     ) {
         RateList(list.dropLast(1), rateClick)
         CustomHorizontalDivider()
-        ExchangeMoney(list)
+        ExchangeMoneyHorizontal(list)
     }
 }
 

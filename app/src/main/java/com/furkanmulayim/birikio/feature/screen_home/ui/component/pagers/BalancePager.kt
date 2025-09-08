@@ -37,6 +37,10 @@ import com.furkanmulayim.birikio.design.theme.Typo
 
 @Composable
 fun BalancePager(
+    onBalanceClick: () -> Unit,
+    onRecentsClick: () -> Unit,
+    onBuySoldClick: () -> Unit,
+    onRateExchangeClick: () -> Unit,
 ) {
 
     val balanceMoney = 345.624 // todo viewModel’den gelecek
@@ -110,18 +114,24 @@ fun BalancePager(
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
                 CustomIconButtonUnderText(
-                    icon = R.drawable.balance_button_total, text = textBalance, onClick = {})
+                    icon = R.drawable.balance_button_total,
+                    text = textBalance,
+                    onClick = { onBalanceClick() })
 
                 CustomIconButtonUnderText(
-                    icon = R.drawable.balance_button_history, text = textDetail, onClick = {})
+                    icon = R.drawable.balance_button_history,
+                    text = textDetail,
+                    onClick = { onRecentsClick() })
 
                 CustomIconButtonUnderText(
-                    icon = R.drawable.balance_button_buy_sold, text = textBuySold, onClick = {})
+                    icon = R.drawable.balance_button_buy_sold,
+                    text = textBuySold,
+                    onClick = { onBuySoldClick() })
 
                 CustomIconButtonUnderText(
                     icon = R.drawable.balance_button_exchange_rate,
                     text = textExchangeRate,
-                    onClick = {})
+                    onClick = { onRateExchangeClick() })
 
             }
         }

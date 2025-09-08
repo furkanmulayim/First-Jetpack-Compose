@@ -55,7 +55,7 @@ private fun calculateConvertedAmount(
 }
 
 @Composable
-fun ExchangeMoney(list: List<RateCurrency>) {
+fun ExchangeMoneyHorizontal(list: List<RateCurrency>) {
 
     val textLeftAmount = stringResource(R.string.exchangeLeftAmount)
 
@@ -63,7 +63,7 @@ fun ExchangeMoney(list: List<RateCurrency>) {
     var leftCode by remember { mutableStateOf("USD") }
     var rightCode by remember { mutableStateOf("TL") }
 
-    val rightAmount = remember(leftAmount, leftCode, rightCode, list) {
+    var rightAmount = remember(leftAmount, leftCode, rightCode, list) {
         calculateConvertedAmount(list, leftAmount, leftCode, rightCode)
     }
 
@@ -87,6 +87,7 @@ fun ExchangeMoney(list: List<RateCurrency>) {
 
         CustomIconMiniButton(R.drawable.home_button_exchange) {
             leftCode = rightCode.also { rightCode = leftCode }
+            leftAmount = rightAmount.also { rightAmount = leftAmount }
         }
 
         RightExchangeItem(
@@ -240,7 +241,7 @@ private fun CurrencyPicker(
         CustomSpacerWidth(padding4)
         Text(selectedCode, style = Typo.font_12_w700)
 
-        CustomSpacerWidth(Appsize.size4)
+        CustomSpacerWidth(Appsize.size8)
         DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
             codes.forEach { code ->
                 DropdownMenuItem(text = { Text(code) }, onClick = {
