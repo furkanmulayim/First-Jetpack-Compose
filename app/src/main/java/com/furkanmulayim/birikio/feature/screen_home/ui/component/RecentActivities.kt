@@ -96,7 +96,7 @@ private fun SectionHeader(
                     onClick = onClick,
                     indication = null,
                     interactionSource = remember { MutableInteractionSource() })
-                .padding(Appsize.size4)
+                .padding(Appsize.size8)
         )
     }
 }

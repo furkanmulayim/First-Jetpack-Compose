@@ -30,11 +30,15 @@
     <string name="viewAll">Tümünü Gör</string>
 
 
+    <!--   Rate and Exchange PAGE -->
+    <string name="nameRate">Güncel Kurlar</string>
+
+
     <!--  Page Names -->
     <string name="nameProfie">Profilim</string>
     <string name="nameBalance">Varlıklarım</string>
     <string name="nameBuySold">Alım Satım</string>
-    <string name="nameRateExchange">Güncel Kurlar</string>
+    <string name="nameExchange">Döviz Çevirici</string>
     <string name="nameRecents">İşlem Geçmişim</string>
     <string name="nameGoals">Hedeflerim</string>
     <string name="nameWallet">Cüzdanım</string>

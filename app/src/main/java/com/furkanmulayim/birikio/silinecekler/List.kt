@@ -10,7 +10,13 @@ val listBeDeletedCurrency = listOf(
     ), RateCurrency(
         name = "Euro", icon = R.drawable.money_euro, code = "EUR", price = "45,35"
     ), RateCurrency(
-        name = "Gram", icon = R.drawable.money_gram, code = "GR", price = "4535"
+        name = "Gram", icon = R.drawable.money_gram, code = "GR", price = "4.535"
+    ), RateCurrency(
+        name = "Çeyrek Altın", icon = R.drawable.money_ceyrek, code = "CYR", price = "6.832"
+    ), RateCurrency(
+        name = "Yarım Altın", icon = R.drawable.money_yarim, code = "YRM", price = "13.456"
+    ), RateCurrency(
+        name = "Tam Altın", icon = R.drawable.money_tam, code = "TAM", price = "28.756"
     ), RateCurrency(
         name = "TL", icon = R.drawable.money_try, code = "TL", price = "1"
     )

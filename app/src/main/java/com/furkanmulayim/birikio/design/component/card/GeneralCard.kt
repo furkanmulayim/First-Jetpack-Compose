@@ -25,3 +25,32 @@ fun GeneralCard(view: @Composable () -> Unit) {
         view()
     }
 }
+
+@Composable
+fun GeneralCardShortPaddings(view: @Composable () -> Unit) {
+    CustomSpacerHeight(Appsize.padding10)
+    Column(
+        modifier = Modifier
+            .clip(RoundedCornerShape(Appsize.radius16))
+            .background(colorScheme.primaryContainer)
+            .border(0.5.dp, colorScheme.outline, RoundedCornerShape(Appsize.radius16))
+
+    ) {
+        view()
+    }
+}
+
+@Composable
+fun GeneralCardNoPaddings(view: @Composable () -> Unit) {
+    Column(
+        modifier = Modifier
+            .clip(RoundedCornerShape(Appsize.radius16))
+            .background(colorScheme.primaryContainer)
+            .border(0.5.dp, colorScheme.outline, RoundedCornerShape(Appsize.radius16))
+
+    ) {
+        view()
+    }
+}
+
+

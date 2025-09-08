@@ -19,7 +19,7 @@ import com.furkanmulayim.birikio.design.theme.Appsize
 
 @Composable
 fun CustomIconMiniButton(icon: Int, onClick: () -> Unit) {
-    CustomSpacerWidth(Appsize.size4)
+    CustomSpacerWidth(Appsize.size8)
     Box(
         Modifier
             .size(Appsize.iconButtonSize)
@@ -35,5 +35,5 @@ fun CustomIconMiniButton(icon: Int, onClick: () -> Unit) {
             contentDescription = null,
         )
     }
-    CustomSpacerWidth(Appsize.size4)
+    CustomSpacerWidth(Appsize.size8)
 }

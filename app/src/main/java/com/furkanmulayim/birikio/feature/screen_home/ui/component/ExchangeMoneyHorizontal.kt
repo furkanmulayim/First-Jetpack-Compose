@@ -241,7 +241,7 @@ private fun CurrencyPicker(
         CustomSpacerWidth(padding4)
         Text(selectedCode, style = Typo.font_12_w700)
 
-        CustomSpacerWidth(Appsize.size4)
+        CustomSpacerWidth(Appsize.size8)
         DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
             codes.forEach { code ->
                 DropdownMenuItem(text = { Text(code) }, onClick = {

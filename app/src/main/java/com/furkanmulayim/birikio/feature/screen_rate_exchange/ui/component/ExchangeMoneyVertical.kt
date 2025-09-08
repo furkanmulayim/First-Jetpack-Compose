@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -70,6 +71,11 @@ fun ExchangeMoneyVertical(list: List<RateCurrency>) {
     var rightAmount = remember(leftAmount, leftCode, rightCode, list) {
         calculateConvertedAmount(list, leftAmount, leftCode, rightCode)
     }
+    Text(
+        modifier = Modifier.padding(top = Appsize.padding16, start = Appsize.padding16),
+        text = "$leftAmount $leftCode = $rightAmount $rightCode",
+        style = Typo.font_12_w500
+    )
 
     Column(
         modifier = Modifier
@@ -87,11 +93,13 @@ fun ExchangeMoneyVertical(list: List<RateCurrency>) {
             codes = list.map { it.code },
             currencies = list
         )
+        Spacer(Modifier.height(Appsize.size4))
 
-        CustomIconMiniButton(R.drawable.home_button_exchange) {
+        CustomIconMiniButton(R.drawable.home_button_exchange_vertical) {
             leftCode = rightCode.also { rightCode = leftCode }
             leftAmount = rightAmount.also { rightAmount = leftAmount }
         }
+        Spacer(Modifier.height(Appsize.size4))
 
         RightExchangeItem(
             amount = rightAmount,
@@ -116,7 +124,7 @@ private fun LeftExchangeItem(
     Row(
         modifier = modifier
             .height(Appsize.doubleButtonSize)
-            .clip(RoundedCornerShape(9.5.dp))
+            .clip(RoundedCornerShape(Appsize.radius18))
             .background(color = colorScheme.surfaceVariant),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly
@@ -133,7 +141,7 @@ private fun LeftExchangeItem(
                 .weight(1f)
                 .padding(horizontal = Appsize.padding4)
                 .height(Appsize.bottomTextIConButtonSize)
-                .clip(RoundedCornerShape(Appsize.radius8))
+                .clip(RoundedCornerShape(Appsize.radius16))
                 .background(colorScheme.surfaceBright),
             decorationBox = { innerTextField ->
                 Row(
@@ -174,7 +182,7 @@ private fun RightExchangeItem(
     Row(
         modifier = modifier
             .height(Appsize.doubleButtonSize)
-            .clip(RoundedCornerShape(9.5.dp))
+            .clip(RoundedCornerShape(Appsize.radius18))
             .background(colorScheme.surfaceVariant),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly
@@ -190,8 +198,7 @@ private fun RightExchangeItem(
             Text(
                 text = amount,
                 style = Typo.font_15_w500.copy(
-                    textAlign = TextAlign.Center,
-                    color = colorScheme.inverseSurface
+                    textAlign = TextAlign.Center, color = colorScheme.inverseSurface
                 ),
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
@@ -216,7 +223,7 @@ private fun CurrencyPicker(
     currencies: List<RateCurrency>,
 ) {
     var expanded by remember { mutableStateOf(false) }
-    val padding4 = Appsize.padding4
+    val padding4 = Appsize.padding10
 
     Row(
         modifier = Modifier
@@ -232,7 +239,7 @@ private fun CurrencyPicker(
 
         Box(
             modifier = Modifier
-                .size(20.dp)
+                .size(30.dp)
                 .clip(CircleShape)
                 .background(primaryContainer),
             contentAlignment = Alignment.Center
@@ -243,7 +250,7 @@ private fun CurrencyPicker(
                     painter = painterResource(id = currency.icon),
                     contentDescription = currency.name,
                     modifier = Modifier
-                        .size(20.dp)
+                        .size(30.dp)
                         .clip(CircleShape)
                 )
             }
@@ -251,7 +258,7 @@ private fun CurrencyPicker(
         CustomSpacerWidth(padding4)
         Text(selectedCode, style = Typo.font_15_w600)
 
-        CustomSpacerWidth(Appsize.size4)
+        CustomSpacerWidth(Appsize.size8)
         DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
             codes.forEach { code ->
                 DropdownMenuItem(text = { Text(code) }, onClick = {

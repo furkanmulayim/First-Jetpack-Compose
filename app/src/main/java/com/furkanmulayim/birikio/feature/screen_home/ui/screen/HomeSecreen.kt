@@ -47,7 +47,6 @@ import com.furkanmulayim.birikio.silinecekler.listBeDeletedCurrency
 fun HomeScreen(
     navController: NavController, viewModel: HomeViewModel = viewModel(),
 ) {
-    navController.navigate(Screens.RateExchange.route)
     val textName = stringResource(R.string.hello) + ", Furkan!" // todo name viewModel’den gelecek
     val pagerState = rememberPagerState(pageCount = { 2 })
 
