@@ -1,5 +1,6 @@
 package com.furkanmulayim.birikio.feature.screen_home.ui.screen
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -17,8 +18,15 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
@@ -43,12 +51,17 @@ import com.furkanmulayim.birikio.feature.screen_home.ui.viewmodel.HomeViewModel
 import com.furkanmulayim.birikio.navigation.Screens
 import com.furkanmulayim.birikio.silinecekler.listBeDeletedCurrency
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     navController: NavController, viewModel: HomeViewModel = viewModel(),
 ) {
     val textName = stringResource(R.string.hello) + ", Furkan!" // todo name viewModel’den gelecek
     val pagerState = rememberPagerState(pageCount = { 2 })
+
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false)
+    var showSheet by remember { mutableStateOf(true) }
+    BackHandler(enabled = showSheet) { showSheet = false }
 
     Column(
         modifier = Modifier
@@ -66,7 +79,7 @@ fun HomeScreen(
                 pagerState,
                 onBalanceClick = { navController.navigate(Screens.Balance.route) },
                 onRecentsClick = { navController.navigate(Screens.Recents.route) },
-                onBuySoldClick = { navController.navigate(Screens.BuySold.route) },
+                onBuySoldClick = { showSheet = true },
                 onRateExchangeClick = { navController.navigate(Screens.RateExchange.route) })
             DoubleButtonSection(
                 leftOnclick = { navController.navigate(Screens.Goals.route) },
@@ -75,6 +88,17 @@ fun HomeScreen(
                 rateClick = { navController.navigate(Screens.RateExchange.route) })
             RecentList(
                 allViewOnClick = { navController.navigate(Screens.Recents.route) })
+        }
+
+        if (showSheet) {
+            ModalBottomSheet(
+                sheetState = sheetState,
+                onDismissRequest = { showSheet = false }
+            ) {
+                com.furkanmulayim.birikio.feature.sheet_buy_sold.ui.screen.BuySoldContent(
+                    onClose = { showSheet = false }
+                )
+            }
         }
     }
 }

@@ -8,7 +8,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.furkanmulayim.birikio.feature.screen_balance.ui.screen.BalanceScreen
-import com.furkanmulayim.birikio.feature.screen_buy_sold.ui.screen.BuySoldScreen
 import com.furkanmulayim.birikio.feature.screen_goals.ui.screen.GoalsScreen
 import com.furkanmulayim.birikio.feature.screen_home.ui.screen.HomeScreen
 import com.furkanmulayim.birikio.feature.screen_onboarding.ui.screen.OnboardingScreen
@@ -22,26 +21,22 @@ private const val ANIMATION_DURATION = 500
 
 // Enter animations (sağdan sola giriş)
 private val slideInFromRight = slideInHorizontally(
-    initialOffsetX = { fullWidth -> fullWidth },
-    animationSpec = tween(ANIMATION_DURATION)
+    initialOffsetX = { fullWidth -> fullWidth }, animationSpec = tween(ANIMATION_DURATION)
 )
 
 // Exit animations (soldan sağa çıkış)
 private val slideOutToLeft = slideOutHorizontally(
-    targetOffsetX = { fullWidth -> -fullWidth },
-    animationSpec = tween(ANIMATION_DURATION)
+    targetOffsetX = { fullWidth -> -fullWidth }, animationSpec = tween(ANIMATION_DURATION)
 )
 
 // Pop enter animations (soldan sağa giriş - geri gelirken)
 private val slideInFromLeft = slideInHorizontally(
-    initialOffsetX = { fullWidth -> -fullWidth },
-    animationSpec = tween(ANIMATION_DURATION)
+    initialOffsetX = { fullWidth -> -fullWidth }, animationSpec = tween(ANIMATION_DURATION)
 )
 
 // Pop exit animations (sağdan sola çıkış - geri giderken)
 private val slideOutToRight = slideOutHorizontally(
-    targetOffsetX = { fullWidth -> fullWidth },
-    animationSpec = tween(ANIMATION_DURATION)
+    targetOffsetX = { fullWidth -> fullWidth }, animationSpec = tween(ANIMATION_DURATION)
 )
 
 @Composable
@@ -55,8 +50,7 @@ fun AppNavigation(
         enterTransition = { slideInFromRight },
         exitTransition = { slideOutToLeft },
         popEnterTransition = { slideInFromLeft },
-        popExitTransition = { slideOutToRight }
-    ) {
+        popExitTransition = { slideOutToRight }) {
 
         composable(route = Screens.Onboarding.route) {
             OnboardingScreen(
@@ -73,10 +67,6 @@ fun AppNavigation(
 
         composable(route = Screens.Balance.route) {
             BalanceScreen(navController)
-        }
-
-        composable(route = Screens.BuySold.route) {
-            BuySoldScreen(navController)
         }
 
         composable(route = Screens.Recents.route) {
