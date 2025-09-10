@@ -48,6 +48,7 @@ import com.furkanmulayim.birikio.feature.screen_home.ui.component.RecentActiviti
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.BalancePager
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.CardPager
 import com.furkanmulayim.birikio.feature.screen_home.ui.viewmodel.HomeViewModel
+import com.furkanmulayim.birikio.feature.sheet_buy_sold.ui.screen.BuySoldSheet
 import com.furkanmulayim.birikio.navigation.Screens
 import com.furkanmulayim.birikio.silinecekler.listBeDeletedCurrency
 
@@ -95,7 +96,7 @@ fun HomeScreen(
                 sheetState = sheetState,
                 onDismissRequest = { showSheet = false }
             ) {
-                com.furkanmulayim.birikio.feature.sheet_buy_sold.ui.screen.BuySoldContent(
+                BuySoldSheet(
                     onClose = { showSheet = false }
                 )
             }

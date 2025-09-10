@@ -11,7 +11,7 @@ import com.furkanmulayim.birikio.design.component.page.CustomScaffold
 import com.furkanmulayim.birikio.design.theme.Appsize
 
 @Composable
-fun BuySoldContent(
+fun BuySoldSheet(
     onClose: () -> Unit,
 ) {
     Column(
@@ -20,7 +20,6 @@ fun BuySoldContent(
             .background(colorScheme.surfaceVariant)
             .padding(top = Appsize.zero)
     ) {
-
         CustomScaffold { }
     }
 }
