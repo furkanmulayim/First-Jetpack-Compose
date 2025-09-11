@@ -45,7 +45,7 @@ import com.furkanmulayim.birikio.design.theme.primaryContainer
 import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
 import kotlin.math.round
 
-private fun calculateConvertedAmount(
+fun calculateConvertedAmount(
     currencies: List<RateCurrency>, leftAmount: String, leftCode: String, rightCode: String,
 ): String {
     val l =
