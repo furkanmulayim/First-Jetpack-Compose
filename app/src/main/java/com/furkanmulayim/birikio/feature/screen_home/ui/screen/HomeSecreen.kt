@@ -93,12 +93,8 @@ fun HomeScreen(
 
         if (showSheet) {
             ModalBottomSheet(
-                sheetState = sheetState,
-                onDismissRequest = { showSheet = false }
-            ) {
-                BuySoldSheet(
-                    onClose = { showSheet = false }
-                )
+                sheetState = sheetState, onDismissRequest = { showSheet = false }) {
+                BuySoldSheet(isBuySelected = true)
             }
         }
     }

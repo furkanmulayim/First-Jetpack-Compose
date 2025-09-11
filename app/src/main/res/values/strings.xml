@@ -34,6 +34,11 @@
     <string name="nameRate">Güncel Kurlar</string>
 
 
+    <!--   Buy and Sold Sheet -->
+    <string name="textBuy">Alış</string>
+    <string name="textSold">Satış</string>
+
+
     <!--  Page Names -->
     <string name="nameProfie">Profilim</string>
     <string name="nameBalance">Varlıklarım</string>
