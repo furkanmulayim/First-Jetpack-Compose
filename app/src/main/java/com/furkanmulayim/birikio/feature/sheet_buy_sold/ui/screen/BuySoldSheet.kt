@@ -1,12 +1,15 @@
 package com.furkanmulayim.birikio.feature.sheet_buy_sold.ui.screen
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme.colorScheme
@@ -15,6 +18,7 @@ import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -37,6 +41,11 @@ import com.furkanmulayim.birikio.silinecekler.listBeDeletedCurrency
 fun BuySoldSheet(
     isBuySelected: Boolean,
 ) {
+    val textBuy = stringResource(R.string.textBuy)
+    val textSold = stringResource(R.string.textSold)
+
+    val selected = rememberSaveable { mutableStateOf(if (isBuySelected) textBuy else textSold) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -44,20 +53,15 @@ fun BuySoldSheet(
             .padding(top = Appsize.zero)
     ) {
         CustomScaffold {
-            SelectionSection(isBuySelected)
-            TextSection(isBuySelected)
+            SelectionSection(selected = selected, textBuy, textSold)
+            TextSection(selected = selected)
         }
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun SelectionSection(isBuySelected: Boolean) {
-
-    val textBuy = stringResource(R.string.textBuy)
-    val textSold = stringResource(R.string.textSold)
-
-    var selected by rememberSaveable { mutableStateOf(if (isBuySelected) textBuy else textSold) }
+private fun SelectionSection(selected: MutableState<String>, textBuy: String, textSold: String) {
     val items = listOf(textBuy, textSold)
 
     Row(
@@ -68,11 +72,12 @@ private fun SelectionSection(isBuySelected: Boolean) {
         ) {
             items.forEachIndexed { i, label ->
                 SegmentedButton(
-                    selected = selected == label,
-                    onClick = { selected = label },
+                    selected = selected.value == label,
+                    onClick = { selected.value = label },
                     shape = SegmentedButtonDefaults.itemShape(i, items.size),
                     colors = SegmentedButtonDefaults.colors(
-                        activeContainerColor = colorScheme.primary, activeContentColor = Color.White
+                        activeContainerColor = if (i == 0) colorScheme.primary else Color.Red,
+                        activeContentColor = Color.White
                     ),
                     label = { Text(label, fontWeight = FontWeight.Bold) })
             }
@@ -82,7 +87,8 @@ private fun SelectionSection(isBuySelected: Boolean) {
 }
 
 @Composable
-private fun TextSection(isBuySelected: Boolean) {
+private fun TextSection(selected: MutableState<String>) {
+    val isBuyed = selected.value == stringResource(R.string.textBuy)
     var placeHolderQuantity by remember { mutableStateOf("200") }
     var placeHolderPrice by remember { mutableStateOf("200") }
 
@@ -123,11 +129,16 @@ private fun TextSection(isBuySelected: Boolean) {
             onClick = {},
             modifier = modifier
                 .fillMaxWidth()
-                .padding(bottom = Appsize.padding8),
+                .padding(bottom = Appsize.padding8)
+                .border(
+                    BorderStroke(
+                        width = Appsize.sizeOhfive,
+                        color = if (isBuyed) colorScheme.primary else Color.Red
+                    ), shape = RoundedCornerShape(Appsize.padding64)
+                )
         ) {
             Text(
-                text = if (isBuySelected) stringResource(R.string.textBuy)
-                else stringResource(R.string.textBuyButton)
+                text = selected.value, color = if (isBuyed) colorScheme.primary else Color.Red
             )
         }
 

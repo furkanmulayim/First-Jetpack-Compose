@@ -40,6 +40,7 @@ import com.furkanmulayim.birikio.design.component.page.CustomScaffold
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.selectedBorder
 import com.furkanmulayim.birikio.design.theme.unSelectedBorder
+import com.furkanmulayim.birikio.feature.screen_home.data.model.TickerItem
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.DoubleButtons
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.ExchangeMoneyHorizontal
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.HomeAppBarSection
@@ -50,20 +51,20 @@ import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.CardPag
 import com.furkanmulayim.birikio.feature.screen_home.ui.viewmodel.HomeViewModel
 import com.furkanmulayim.birikio.feature.sheet_buy_sold.ui.screen.BuySoldSheet
 import com.furkanmulayim.birikio.navigation.Screens
-import com.furkanmulayim.birikio.silinecekler.listBeDeletedCurrency
+import kotlinx.coroutines.flow.StateFlow
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     navController: NavController, viewModel: HomeViewModel = viewModel(),
 ) {
+    viewModel.retryFetchData()
     val textName = stringResource(R.string.hello) + ", Furkan!" // todo name viewModel’den gelecek
     val pagerState = rememberPagerState(pageCount = { 2 })
 
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false)
-    var showSheet by remember { mutableStateOf(true) }
+    var showSheet by remember { mutableStateOf(false) }
     BackHandler(enabled = showSheet) { showSheet = false }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -86,7 +87,9 @@ fun HomeScreen(
                 leftOnclick = { navController.navigate(Screens.Goals.route) },
                 rightOnClick = { navController.navigate(Screens.Wallet.route) })
             RateSection(
-                rateClick = { navController.navigate(Screens.RateExchange.route) })
+                rateClick = { navController.navigate(Screens.RateExchange.route) },
+                listi = viewModel.tickers,
+            )
             RecentList(
                 allViewOnClick = { navController.navigate(Screens.Recents.route) })
         }
@@ -155,9 +158,7 @@ private fun DoubleButtonSection(leftOnclick: () -> Unit, rightOnClick: () -> Uni
 
 
 @Composable
-private fun RateSection(rateClick: () -> Unit) {
-    val list = listBeDeletedCurrency
-
+private fun RateSection(rateClick: () -> Unit, listi: StateFlow<List<TickerItem>>) {
     Column(
         modifier = Modifier.border(
             width = 0.5.dp,
@@ -165,9 +166,9 @@ private fun RateSection(rateClick: () -> Unit) {
             shape = RoundedCornerShape(Appsize.radius16)
         ),
     ) {
-        RateList(list.dropLast(1), rateClick)
+        RateList(listi, rateClick) // Horizontal
         CustomHorizontalDivider()
-        ExchangeMoneyHorizontal(list)
+        ExchangeMoneyHorizontal(listi)
     }
 }
 

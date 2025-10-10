@@ -16,22 +16,27 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import com.furkanmulayim.birikio.core.util.enums.CurrencyShortName.Companion.getImage
 import com.furkanmulayim.birikio.design.component.others.CustomSpacerWidth
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
 import com.furkanmulayim.birikio.design.theme.primaryContainer
-import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
+import com.furkanmulayim.birikio.feature.screen_home.data.model.TickerItem
+import kotlinx.coroutines.flow.StateFlow
+
 
 @Composable
-fun RateList(list: List<RateCurrency>, rateClick: () -> Unit) {
+fun RateList(listi: StateFlow<List<TickerItem>>, rateClick: () -> Unit) {
     val scrollState = rememberScrollState()
-
+    val filteredList = listi.collectAsState().value.filterNot { it.code == "TL" }
     Row(
         modifier = Modifier
+            .fillMaxWidth()
             .clip(
                 RoundedCornerShape(
                     topStart = Appsize.radius16, topEnd = Appsize.radius16
@@ -44,7 +49,7 @@ fun RateList(list: List<RateCurrency>, rateClick: () -> Unit) {
             )
             .padding(Appsize.padding12)
     ) {
-        list.forEach { item ->
+        filteredList.forEach { item ->
             RateItem(item)
             CustomSpacerWidth(Appsize.padding16)
         }
@@ -52,7 +57,7 @@ fun RateList(list: List<RateCurrency>, rateClick: () -> Unit) {
 }
 
 @Composable
-private fun RateItem(rateCurrency: RateCurrency) {
+private fun RateItem(rateCurrency: TickerItem) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -70,7 +75,7 @@ private fun RateItem(rateCurrency: RateCurrency) {
             contentAlignment = Alignment.Center,
         ) {
             Icon(
-                painterResource(rateCurrency.icon),
+                painterResource(getImage(rateCurrency.code)),
                 tint = colorScheme.secondary,
                 contentDescription = rateCurrency.name,
             )
@@ -83,7 +88,7 @@ private fun RateItem(rateCurrency: RateCurrency) {
                 style = Typo.font_12_w500
             )
             Text(
-                text = "${rateCurrency.price}₺", style = Typo.font_14_w600
+                text = "${rateCurrency.selling}₺", style = Typo.font_14_w600
             )
         }
     }

@@ -1,25 +1,23 @@
 package com.furkanmulayim.birikio.feature.screen_home.data.model
 
-import com.google.gson.annotations.SerializedName
+data class CurrencyRate(
+    val Type: String,
+    val Change: Double,
+    val Name: String,
+    val Buying: Double,
+    val Selling: Double,
+)
 
-data class Currency(
+data class TickerItem(
     val code: String,
+    val type: String,
     val name: String,
     val buying: Double,
     val selling: Double,
+    val change: Double,
 )
 
-data class CurrencyDto(
-    @SerializedName("Name") val name: String,
-    @SerializedName("Buying") val buying: Double,
-    @SerializedName("Selling") val selling: Double,
-) {
-    fun toCurrency(code: String): Currency {
-        return Currency(
-            code = code,
-            name = name,
-            buying = buying,
-            selling = selling
-        )
-    }
-}
+data class TickersResult(
+    val items: List<TickerItem>,
+    val updateDate: String,
+)

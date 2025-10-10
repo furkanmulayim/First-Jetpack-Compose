@@ -8,8 +8,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkModule {
 
-    private const val FIN_URL = "https://finans.truncgil.com/"
-
     private fun createApiService(baseUrl: String): BirikioApi {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
@@ -19,7 +17,7 @@ object NetworkModule {
     }
 
     fun provideCurrencyRepository(): CurrencyRepository {
-        val api = createApiService(FIN_URL)
+        val api = createApiService(GOLD_URL)
         return CurrencyRepositoryImpl(api)
     }
 }

@@ -1,6 +1,6 @@
 [versions]
 # Android & Kotlin
-agp = "8.12.3"
+agp = "8.13.0"
 kotlin = "2.2.10"
 datastore = "1.1.7"
 
@@ -24,6 +24,7 @@ retrofit = "3.0.0"
 gson = "2.13.1"
 foundation = "1.9.0"
 uiGraphics = "1.9.0"
+ui = "1.9.2"
 
 [libraries]
 # AndroidX Core
@@ -60,6 +61,7 @@ gson-converter = { group = "com.squareup.retrofit2", name = "converter-gson", ve
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 androidx-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -81,14 +81,14 @@ fun CurrencyPickerGenuine(
                 Text(
                     selectedCode,
                     style = Typo.font_15_w500,
-                    modifier = Modifier.padding(end = Appsize.size3)
+                    modifier = Modifier.padding(end = Appsize.size8)
                 )
 
                 Image(
-                    painter = painterResource(R.drawable.balance_button_buy),
+                    painter = painterResource(R.drawable.change),
                     contentDescription = null,
                     modifier = Modifier
-                        .padding(bottom = Appsize.size2)
+                        .padding(bottom = Appsize.size3)
                         .size(Appsize.iconSize10)
                 )
             }
@@ -98,7 +98,7 @@ fun CurrencyPickerGenuine(
                     style = Typo.font_12_w300,
                     modifier = Modifier.padding(end = Appsize.size3)
                 )
-                Text(selectedCode, style = Typo.font_12_w500)
+                Text("42.50₺", style = Typo.font_12_w500)
             }
         }
     }

@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -20,10 +21,11 @@ import androidx.compose.ui.res.stringResource
 import com.furkanmulayim.birikio.R
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
+import kotlinx.coroutines.flow.StateFlow
 
 
 @Composable
-fun RateCourHeader(date: String, onRefreshClick: () -> Unit) {
+fun RateCourHeader(date: StateFlow<String>, onRefreshClick: () -> Unit) {
 
     Column(
         modifier = Modifier
@@ -38,13 +40,14 @@ fun RateCourHeader(date: String, onRefreshClick: () -> Unit) {
         Row(
             modifier = Modifier
                 .clip(RoundedCornerShape(Appsize.radius16))
-                .clickable {}
+                .clickable {
+                    onRefreshClick()
+                }
                 .padding(horizontal = Appsize.radius4),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
+            verticalAlignment = Alignment.CenterVertically) {
             Text(
                 modifier = Modifier.fillMaxHeight(),
-                text = "($date)",
+                text = date.collectAsState().value,
                 style = Typo.font_15_w500,
             )
             Icon(

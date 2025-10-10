@@ -4,6 +4,7 @@
 
     <!-- PERMISSIONS -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!-- "allowBackup" Google backup and restore for app data -->
     <application

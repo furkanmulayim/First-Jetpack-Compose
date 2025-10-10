@@ -4,8 +4,7 @@ package com.furkanmulayim.birikio.feature.screen_home.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.furkanmulayim.birikio.core.state.GoldUiState
-import com.furkanmulayim.birikio.core.util.calculateAllMoneys
-import com.furkanmulayim.birikio.feature.screen_home.data.model.AllMoneys
+import com.furkanmulayim.birikio.feature.screen_home.data.model.TickerItem
 import com.furkanmulayim.birikio.feature.screen_home.data.repo.CurrencyRepository
 import com.furkanmulayim.birikio.feature.screen_home.di.NetworkModule
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,50 +15,33 @@ class HomeViewModel(
     private val currencyRepository: CurrencyRepository = NetworkModule.provideCurrencyRepository(),
 ) : ViewModel() {
 
+    /** API LAST UPDATE */
+    private val _tickers = MutableStateFlow<List<TickerItem>>(emptyList())
+    val tickers: StateFlow<List<TickerItem>> = _tickers
 
-    private val _today = MutableStateFlow("")
-    val today: MutableStateFlow<String> = _today
+    /**  API LAST UPDATE */
+    private val _lastUpdate = MutableStateFlow("")
+    val lastUpdate: StateFlow<String> = _lastUpdate
 
-    private val _investingBalance = MutableStateFlow("")
-    val investingBalance: MutableStateFlow<String> = _investingBalance
+    /** UI STATES */
+    private val _uiState = MutableStateFlow<GoldUiState<List<TickerItem>>>(GoldUiState.Loading)
+    val uiState: StateFlow<GoldUiState<List<TickerItem>>> = _uiState
 
-
-    private val _uiState = MutableStateFlow<GoldUiState<AllMoneys>>(GoldUiState.Loading)
-    val uiState: StateFlow<GoldUiState<AllMoneys>> = _uiState
-
-    private val _allMoneys = MutableStateFlow(AllMoneys(0.0, 0.0, 0, 0, 0, 0, 0, 0))
-    val allMoneys: StateFlow<AllMoneys> = _allMoneys
-
-
-    init {
+    fun retryFetchData() {
         getRawGoldPrice()
-        fetchTodayDay()
-        fetchInvestingBalance()
-        fetchInvestments()
     }
 
-    private fun getRawGoldPrice() {
+    fun getRawGoldPrice() {
         viewModelScope.launch {
             _uiState.value = GoldUiState.Loading
             try {
-                _allMoneys.value = calculateAllMoneys(currencyRepository.getCurrencies())
-                _uiState.value = GoldUiState.Success(_allMoneys.value)
+                val result = currencyRepository.getTickers()
+                _tickers.value = result.items
+                _lastUpdate.value = result.updateDate
+                _uiState.value = GoldUiState.Success(tickers.value)
             } catch (e: Exception) {
                 _uiState.value = GoldUiState.Error(e.localizedMessage)
             }
         }
-    }
-
-
-    fun fetchInvestments() {
-
-    }
-
-    fun fetchInvestingBalance() {
-        investingBalance.value = "74.239"
-    }
-
-    fun fetchTodayDay() {
-        today.value = "12 Şubat Salı"
     }
 }

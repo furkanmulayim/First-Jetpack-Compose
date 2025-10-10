@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.input.KeyboardType
@@ -21,7 +22,6 @@ import androidx.compose.ui.text.style.TextAlign
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
 import com.furkanmulayim.birikio.design.theme.primaryContainer
-
 
 @Composable
 fun CustomTextField(
@@ -31,7 +31,6 @@ fun CustomTextField(
     label: String,
     enabled: Boolean = true,
 ) {
-
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -57,8 +56,13 @@ fun CustomTextField(
                 textAlign = TextAlign.Center
             ),
             cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
-            modifier = Modifier.weight(1f)
-        ) { innerTextField ->
+            modifier = Modifier
+                .weight(1f)
+                .onFocusChanged { focusState ->
+                    if (focusState.isFocused && value.isNotEmpty()) {
+                        onValueChange("")
+                    }
+                }) { innerTextField ->
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -66,12 +70,6 @@ fun CustomTextField(
                     .background(Color.White, RoundedCornerShape(Appsize.radius12)),
                 contentAlignment = Alignment.Center
             ) {
-                if (value.isEmpty()) {
-                    Text(
-                        text = "0",
-                        style = Typo.font_14_w600,
-                    )
-                }
                 innerTextField()
             }
         }

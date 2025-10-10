@@ -1,5 +1,6 @@
 package com.furkanmulayim.birikio.navigation
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
@@ -10,6 +11,7 @@ import androidx.navigation.compose.composable
 import com.furkanmulayim.birikio.feature.screen_balance.ui.screen.BalanceScreen
 import com.furkanmulayim.birikio.feature.screen_goals.ui.screen.GoalsScreen
 import com.furkanmulayim.birikio.feature.screen_home.ui.screen.HomeScreen
+import com.furkanmulayim.birikio.feature.screen_home.ui.viewmodel.HomeViewModel
 import com.furkanmulayim.birikio.feature.screen_onboarding.ui.screen.OnboardingScreen
 import com.furkanmulayim.birikio.feature.screen_profile.ui.screen.ProfileScreen
 import com.furkanmulayim.birikio.feature.screen_rate_exchange.ui.screen.RateExchangeScreen
@@ -39,6 +41,7 @@ private val slideOutToRight = slideOutHorizontally(
     targetOffsetX = { fullWidth -> fullWidth }, animationSpec = tween(ANIMATION_DURATION)
 )
 
+@SuppressLint("ViewModelConstructorInComposable")
 @Composable
 fun AppNavigation(
     navController: NavHostController,
@@ -74,7 +77,10 @@ fun AppNavigation(
         }
 
         composable(route = Screens.RateExchange.route) {
-            RateExchangeScreen(navController)
+            RateExchangeScreen(
+                navController,
+                homeViewModel = HomeViewModel()
+            )
         }
 
         composable(route = Screens.Wallet.route) {

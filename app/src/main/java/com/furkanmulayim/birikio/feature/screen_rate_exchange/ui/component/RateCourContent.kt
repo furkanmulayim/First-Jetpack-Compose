@@ -24,10 +24,10 @@ import com.furkanmulayim.birikio.design.component.card.GeneralCardShortPaddings
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
 import com.furkanmulayim.birikio.design.theme.primaryContainer
-import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
+import com.furkanmulayim.birikio.feature.screen_home.data.model.TickerItem
 
 @Composable
-fun RateCourContent(item: RateCurrency, onItemClick: () -> Unit) {
+fun RateCourContent(item: TickerItem, onItemClick: () -> Unit) {
     GeneralCardShortPaddings {
         Row(
             modifier = Modifier
@@ -59,7 +59,7 @@ fun RateCourContent(item: RateCurrency, onItemClick: () -> Unit) {
             Spacer(modifier = Modifier.weight(1f))
 
             Text(
-                text = "${item.price}₺",
+                text = "${item.selling}₺",
                 style = Typo.font_15_w600,
                 modifier = Modifier.padding(end = Appsize.padding20)
             )
