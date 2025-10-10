@@ -16,7 +16,7 @@
 
 
     <!--   Exchange Section -->
-    <string name="exchangeLeftAmount">18.75</string>
+    <string name="exchangeLeftAmount">1</string>
 
     <!--   Twins Section -->
     <string name="twinsLeft">Hedeflerim</string>
@@ -32,6 +32,16 @@
 
     <!--   Rate and Exchange PAGE -->
     <string name="nameRate">Güncel Kurlar</string>
+
+
+    <!--   Buy and Sold Sheet -->
+    <string name="textBuy">Alış</string>
+    <string name="textSold">Satış</string>
+    <string name="textQuantity">Adet</string>
+    <string name="textPrice">Fiyat</string>
+    <string name="textBuyButton">Alış Yap</string>
+    <string name="textSoldButton">Satış Yap</string>
+    <string name="textCurrentPrice">Güncel Fiyat</string>
 
 
     <!--  Page Names -->

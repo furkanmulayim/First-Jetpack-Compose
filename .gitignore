@@ -48,3 +48,5 @@ gradle/wrapper/gradle-wrapper.jar
 *.p8
 *.der
 *.csr
+
+app/src/main/java/com/furkanmulayim/birikio/feature/screen_home/di/GoldUrl.kt

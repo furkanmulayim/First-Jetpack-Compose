@@ -23,6 +23,7 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -37,30 +38,37 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.furkanmulayim.birikio.R
+import com.furkanmulayim.birikio.core.util.enums.CurrencyShortName.Companion.editDisplayName
+import com.furkanmulayim.birikio.core.util.enums.CurrencyShortName.Companion.getImage
+import com.furkanmulayim.birikio.core.util.enums.CurrencyShortName.Companion.getShortName
 import com.furkanmulayim.birikio.design.component.buttons.CustomIconMiniButton
 import com.furkanmulayim.birikio.design.component.others.CustomSpacerWidth
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.Typo
 import com.furkanmulayim.birikio.design.theme.primaryContainer
-import com.furkanmulayim.birikio.feature.screen_home.data.model.RateCurrency
+import com.furkanmulayim.birikio.feature.screen_home.data.model.TickerItem
+import kotlinx.coroutines.flow.StateFlow
 import kotlin.math.round
 
-private fun calculateConvertedAmount(
-    currencies: List<RateCurrency>, leftAmount: String, leftCode: String, rightCode: String,
+fun calculateConvertedAmount(
+    currencies: List<TickerItem>, leftAmount: String, leftCode: String, rightCode: String,
 ): String {
     val l =
-        currencies.firstOrNull { it.code == leftCode }?.price?.replace(",", ".")?.toDoubleOrNull()
-            ?: 1.0
+        if (leftCode == "TL") 1.0 else currencies.firstOrNull { it.code == leftCode }?.selling?.toString()
+            ?.replace(",", ".")?.toDoubleOrNull() ?: 1.0
     val r =
-        currencies.firstOrNull { it.code == rightCode }?.price?.replace(",", ".")?.toDoubleOrNull()
-            ?: 1.0
+        if (rightCode == "TL") 1.0 else currencies.firstOrNull { it.code == rightCode }?.selling?.toString()
+            ?.replace(",", ".")?.toDoubleOrNull() ?: 1.0
     val amount = leftAmount.replace(",", ".").toDoubleOrNull() ?: 0.0
     val converted = amount * (l / r)
     return formatAmount(converted)
 }
 
 @Composable
-fun ExchangeMoneyVertical(list: List<RateCurrency>) {
+fun ExchangeMoneyVertical(list: StateFlow<List<TickerItem>>) {
+
+
+    val tickers = list.collectAsState().value
 
     val textLeftAmount = stringResource(R.string.exchangeLeftAmount)
 
@@ -68,12 +76,12 @@ fun ExchangeMoneyVertical(list: List<RateCurrency>) {
     var leftCode by remember { mutableStateOf("USD") }
     var rightCode by remember { mutableStateOf("TL") }
 
-    var rightAmount = remember(leftAmount, leftCode, rightCode, list) {
-        calculateConvertedAmount(list, leftAmount, leftCode, rightCode)
+    val rightAmount = remember(leftAmount, leftCode, rightCode, tickers) {
+        calculateConvertedAmount(tickers, leftAmount, leftCode, rightCode)
     }
     Text(
         modifier = Modifier.padding(top = Appsize.padding16, start = Appsize.padding16),
-        text = "$leftAmount $leftCode = $rightAmount $rightCode",
+        text = "$leftAmount ${editDisplayName(leftCode)} = $rightAmount ${editDisplayName(rightCode)}",
         style = Typo.font_12_w500
     )
 
@@ -90,14 +98,17 @@ fun ExchangeMoneyVertical(list: List<RateCurrency>) {
             onAmountChange = { leftAmount = it },
             selectedCode = leftCode,
             onCodeChange = { leftCode = it },
-            codes = list.map { it.code },
+            codes = tickers.map { it.code },
             currencies = list
         )
         Spacer(Modifier.height(Appsize.size4))
 
-        CustomIconMiniButton(R.drawable.home_button_exchange_vertical) {
-            leftCode = rightCode.also { rightCode = leftCode }
-            leftAmount = rightAmount.also { rightAmount = leftAmount }
+        CustomIconMiniButton(R.drawable.home_button_exchange) {
+            val currentRight = rightAmount
+            val tmpCode = leftCode
+            leftCode = rightCode
+            rightCode = tmpCode
+            leftAmount = currentRight
         }
         Spacer(Modifier.height(Appsize.size4))
 
@@ -105,7 +116,7 @@ fun ExchangeMoneyVertical(list: List<RateCurrency>) {
             amount = rightAmount,
             selectedCode = rightCode,
             onCodeChange = { rightCode = it },
-            codes = list.map { it.code },
+            codes = tickers.map { it.code },
             currencies = list
         )
     }
@@ -119,7 +130,7 @@ private fun LeftExchangeItem(
     selectedCode: String,
     onCodeChange: (String) -> Unit,
     codes: List<String>,
-    currencies: List<RateCurrency>,
+    currencies: StateFlow<List<TickerItem>>,
 ) {
     Row(
         modifier = modifier
@@ -177,7 +188,7 @@ private fun RightExchangeItem(
     selectedCode: String,
     onCodeChange: (String) -> Unit,
     codes: List<String>,
-    currencies: List<RateCurrency>,
+    currencies: StateFlow<List<TickerItem>>,
 ) {
     Row(
         modifier = modifier
@@ -220,7 +231,7 @@ private fun CurrencyPicker(
     selectedCode: String,
     onCodeChange: (String) -> Unit,
     codes: List<String>,
-    currencies: List<RateCurrency>,
+    currencies: StateFlow<List<TickerItem>>,
 ) {
     var expanded by remember { mutableStateOf(false) }
     val padding4 = Appsize.padding10
@@ -236,6 +247,7 @@ private fun CurrencyPicker(
         horizontalArrangement = Arrangement.Center
     ) {
         CustomSpacerWidth(padding4)
+        val currency = currencies.collectAsState().value.firstOrNull { it.code == selectedCode }
 
         Box(
             modifier = Modifier
@@ -244,10 +256,9 @@ private fun CurrencyPicker(
                 .background(primaryContainer),
             contentAlignment = Alignment.Center
         ) {
-            val currency = currencies.firstOrNull { it.code == selectedCode }
             if (currency != null) {
                 Image(
-                    painter = painterResource(id = currency.icon),
+                    painterResource(getImage(currency.code)),
                     contentDescription = currency.name,
                     modifier = Modifier
                         .size(30.dp)
@@ -256,12 +267,12 @@ private fun CurrencyPicker(
             }
         }
         CustomSpacerWidth(padding4)
-        Text(selectedCode, style = Typo.font_15_w600)
+        Text(getShortName(currency?.name ?: ""), style = Typo.font_15_w600)
 
         CustomSpacerWidth(Appsize.size8)
         DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
             codes.forEach { code ->
-                DropdownMenuItem(text = { Text(code) }, onClick = {
+                DropdownMenuItem(text = { Text(editDisplayName(code)) }, onClick = {
                     onCodeChange(code)
                     expanded = false
                 })

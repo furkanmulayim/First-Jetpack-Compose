@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.androidx.navigation.runtime.android)
     implementation(libs.androidx.foundation)
     implementation(libs.ui.graphics)
+    implementation(libs.androidx.compose.ui)
     debugImplementation(libs.androidx.ui.tooling)
     implementation(libs.accompanist.systemuicontroller)
 

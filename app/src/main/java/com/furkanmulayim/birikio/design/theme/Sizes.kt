@@ -5,6 +5,7 @@ import androidx.compose.ui.unit.dp
 
 object Appsize {
 
+    val sizeOhfive = 0.5.dp
 
     val size1 = 1.dp
     val size2 = 2.dp
@@ -52,6 +53,7 @@ object Appsize {
     val iconSize24 = 24.dp
     val iconSize20 = 20.dp
     val iconSize16 = 16.dp
+    val iconSize10 = 10.dp
 
 
 }

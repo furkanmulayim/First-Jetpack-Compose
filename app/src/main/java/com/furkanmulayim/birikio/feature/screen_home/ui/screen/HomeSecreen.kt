@@ -1,5 +1,6 @@
 package com.furkanmulayim.birikio.feature.screen_home.ui.screen
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -17,8 +18,15 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
@@ -32,6 +40,7 @@ import com.furkanmulayim.birikio.design.component.page.CustomScaffold
 import com.furkanmulayim.birikio.design.theme.Appsize
 import com.furkanmulayim.birikio.design.theme.selectedBorder
 import com.furkanmulayim.birikio.design.theme.unSelectedBorder
+import com.furkanmulayim.birikio.feature.screen_home.data.model.TickerItem
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.DoubleButtons
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.ExchangeMoneyHorizontal
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.HomeAppBarSection
@@ -40,16 +49,22 @@ import com.furkanmulayim.birikio.feature.screen_home.ui.component.RecentActiviti
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.BalancePager
 import com.furkanmulayim.birikio.feature.screen_home.ui.component.pagers.CardPager
 import com.furkanmulayim.birikio.feature.screen_home.ui.viewmodel.HomeViewModel
+import com.furkanmulayim.birikio.feature.sheet_buy_sold.ui.screen.BuySoldSheet
 import com.furkanmulayim.birikio.navigation.Screens
-import com.furkanmulayim.birikio.silinecekler.listBeDeletedCurrency
+import kotlinx.coroutines.flow.StateFlow
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     navController: NavController, viewModel: HomeViewModel = viewModel(),
 ) {
+    viewModel.retryFetchData()
     val textName = stringResource(R.string.hello) + ", Furkan!" // todo name viewModel’den gelecek
     val pagerState = rememberPagerState(pageCount = { 2 })
 
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false)
+    var showSheet by remember { mutableStateOf(false) }
+    BackHandler(enabled = showSheet) { showSheet = false }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -66,15 +81,24 @@ fun HomeScreen(
                 pagerState,
                 onBalanceClick = { navController.navigate(Screens.Balance.route) },
                 onRecentsClick = { navController.navigate(Screens.Recents.route) },
-                onBuySoldClick = { navController.navigate(Screens.BuySold.route) },
+                onBuySoldClick = { showSheet = true },
                 onRateExchangeClick = { navController.navigate(Screens.RateExchange.route) })
             DoubleButtonSection(
                 leftOnclick = { navController.navigate(Screens.Goals.route) },
                 rightOnClick = { navController.navigate(Screens.Wallet.route) })
             RateSection(
-                rateClick = { navController.navigate(Screens.RateExchange.route) })
+                rateClick = { navController.navigate(Screens.RateExchange.route) },
+                listi = viewModel.tickers,
+            )
             RecentList(
                 allViewOnClick = { navController.navigate(Screens.Recents.route) })
+        }
+
+        if (showSheet) {
+            ModalBottomSheet(
+                sheetState = sheetState, onDismissRequest = { showSheet = false }) {
+                BuySoldSheet(isBuySelected = true)
+            }
         }
     }
 }
@@ -134,9 +158,7 @@ private fun DoubleButtonSection(leftOnclick: () -> Unit, rightOnClick: () -> Uni
 
 
 @Composable
-private fun RateSection(rateClick: () -> Unit) {
-    val list = listBeDeletedCurrency
-
+private fun RateSection(rateClick: () -> Unit, listi: StateFlow<List<TickerItem>>) {
     Column(
         modifier = Modifier.border(
             width = 0.5.dp,
@@ -144,9 +166,9 @@ private fun RateSection(rateClick: () -> Unit) {
             shape = RoundedCornerShape(Appsize.radius16)
         ),
     ) {
-        RateList(list.dropLast(1), rateClick)
+        RateList(listi, rateClick) // Horizontal
         CustomHorizontalDivider()
-        ExchangeMoneyHorizontal(list)
+        ExchangeMoneyHorizontal(listi)
     }
 }
 

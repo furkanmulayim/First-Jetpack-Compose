@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.rememberNavController
 import com.furkanmulayim.birikio.design.theme.BirikioTheme
+import com.furkanmulayim.birikio.feature.screen_connection.ConnectivityBanner
 import com.furkanmulayim.birikio.feature.screen_onboarding.data.local.OnboardingDataStore
 import com.furkanmulayim.birikio.navigation.AppNavigation
 import com.furkanmulayim.birikio.navigation.Screens
@@ -55,6 +56,7 @@ class MainActivity : ComponentActivity() {
                                 startDestination = startDestination!!
                             )
                         }
+                        ConnectivityBanner()
                     }
                 }
             }
